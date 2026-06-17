@@ -10,7 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;}
 .screen{display:none;} .screen.active{display:block;}
-:root{--brown:#8B6A53;--bg:#F2E3D4;--card:#FFF6EF;--text:#3E2C23;--muted:#7A6B62;--icon-bg:#F1E5D8;--soft-bg:rgba(139,106,83,0.12);--soft-color:#8B6A53;}
+:root{--brown:#8B6A53;--bg:#F5F5DC;--card:#FFF6EF;--text:#3E2C23;--muted:#7A6B62;--icon-bg:#F1E5D8;--soft-bg:rgba(139,106,83,0.12);--soft-color:#8B6A53;}
 body{
     background:var(--bg);
     font-family:'Inter',-apple-system,'SF Pro Display',sans-serif;
@@ -243,7 +243,7 @@ body{
 .badge-wholesale{background:rgba(139,106,83,.12);color:var(--brown);}
 .ocm-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px;}
 .ocm-client{font-size:13px;color:var(--muted);}
-.ocm-price{font-size:15px;font-weight:600;color:var(--text);margin-top:6px;}
+/*.ocm-price{font-size:15px;font-weight:600;color:var(--text);margin-top:6px;}*/
 
 /* ORDER FULL CARD */
 .order-full-section{background:var(--card);border-radius:16px;padding:14px 16px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
@@ -516,6 +516,10 @@ body{
       <div class="section-label"><i class="ti ti-user" style="font-size:13px"></i> Клиент</div>
       <div class="field-row"><div class="field-label">Имя клиента</div><input class="field-input wide" type="text" id="ind-name" placeholder="Имя"/></div>
       <div class="field-row"><div class="field-label">Телефон</div><input class="field-input wide" type="tel" id="ind-phone" placeholder="+7..."/></div>
+    <div class="field-row">
+  <div class="field-label">Адрес</div>
+  <input class="field-input wide" type="text" id="ind-address" placeholder="Адрес доставки"/>
+</div>
     </div>
     <div class="section-card">
       <div class="section-label"><i class="ti ti-cake" style="font-size:13px"></i> Параметры торта</div>
@@ -723,6 +727,7 @@ function initWholesaleDefaults() {
 ════════════════════════════════════════════ */
 const EXP_CATS = [
   {id:'zakup',label:'Закуп и поставщики',items:[
+    {id:'e_custom', label:'Свой вариант', note:true, notePh:'Укажите комментарий к расходу'}
     {id:'e_zakup_mokhm',label:'Закуп (Мохьмада)'},{id:'e_zakup_fort',label:'Фортайм'},
     {id:'e_zakup_ver',label:'Верона'},{id:'e_zakup_ice',label:'Мороженое'},
     {id:'e_zakup_crois',label:'Круассаны'},{id:'e_zakup_fortk',label:'Фортайм кондитер'},
@@ -846,11 +851,9 @@ function calcDiff() {
   checkSubmit();
 }
 function checkSubmit() {
-  const bad = document.getElementById('diff-value').classList.contains('bad');
-  const reason = document.getElementById('reason-input').value.trim();
   const btn = document.getElementById('submit-btn');
-  btn.disabled = bad && !reason;
-  btn.style.opacity = (bad && !reason) ? '0.45' : '1';
+  btn.disabled = false;
+  btn.style.opacity = '1';
 }
 function trySubmit() {
   if(photos.length===0) { document.getElementById('photo-error').style.display='block'; return; }
@@ -1066,6 +1069,7 @@ function submitIndividual(){
     type:'individual', num,
     client: document.getElementById('ind-name').value||'—',
     phone:  document.getElementById('ind-phone').value||'—',
+    address: document.getElementById('ind-address').value || '—',
     cakeName: document.getElementById('ind-cake-name').value||'—',
     weight: document.getElementById('ind-weight').value||'—',
     diameter: document.getElementById('ind-diameter').value||'—',
@@ -1081,6 +1085,7 @@ function submitIndividual(){
   const lines=[
     {k:'Клиент',v:data.client,screen:'screen-order-individual'},
     {k:'Телефон',v:data.phone,screen:'screen-order-individual'},
+     {k:'Адрес', v:data.address, screen:'screen-order-individual'}, 
     {k:'Название',v:data.cakeName,screen:'screen-order-individual'},
     {k:'Вес',v:data.weight+' кг',screen:'screen-order-individual'},
     {k:'Диаметр',v:data.diameter+' см',screen:'screen-order-individual'},
@@ -1217,8 +1222,18 @@ function buildOrderCard(order) {
   const badgeTxt = order.status==='done' ? 'Выполнен' : 'Ожидает выполнения';
   if (order.type === 'individual') {
     const refLinks = (d.refs && d.refs.length)
-      ? d.refs.map((src,i) => `<a class="ref-download-link" href="${src}" download="референс_${i+1}.jpg">Референс ${i+1}</a>`).join('')
-      : '';
+const refPhotosBlock = (d.refs && d.refs.length)
+  ? `<div class="order-full-section">
+      <div class="section-label" style="margin-bottom:8px">Фото заказа</div>
+      <div class="ref-grid">
+        ${d.refs.map(src => `
+          <div class="ref-thumb">
+            <img src="${src}">
+          </div>
+        `).join('')}
+      </div>
+    </div>`
+  : '';
     return `<div class="order-full-section">
       <div class="ofc-row"><span>Тип</span><span>Индивидуальный</span></div>
       <div class="ofc-row"><span>Статус</span><span><span class="ocm-badge ${badgeCls}">${badgeTxt}</span></span></div>
@@ -1237,7 +1252,7 @@ function buildOrderCard(order) {
       <div class="ofc-row"><span>Начинка</span><span>${d.filling}</span></div>
       <div class="ofc-row"><span>Декор</span><span>${d.decor}</span></div>
       ${d.inscription ? `<div class="ofc-row"><span>Надпись</span><span>${d.inscription}</span></div>` : ''}
-      ${refLinks ? `<div style="margin-top:10px">${refLinks}</div>` : ''}
+      ${refPhotosBlock}
       <div class="ofc-price-row admin-only"><div class="ofc-price-label">Стоимость</div><div class="ofc-price-val">${fmt(d.price)}</div></div>
     </div>
     ${d.note&&d.note!=='—' ? `<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">Комментарий</div><div style="font-size:13px;color:var(--text)">${d.note}</div></div>` : ''}`;
