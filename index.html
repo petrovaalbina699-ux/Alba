@@ -86,12 +86,6 @@ body{background:var(--bg);font-family:'Inter',-apple-system,'SF Pro Display',san
 .btn.primary:active{background:#7a5c45;}
 .btn.danger{background:#B03A2E;color:#fff;}
 .btn.success-btn{background:#2E7D32;color:#fff;}
-.btn:disabled{opacity:.55;cursor:default;transform:none;}
-.sync-status{margin-top:12px;background:rgba(139,106,83,.1);color:var(--muted);border-radius:12px;padding:10px 12px;font-size:12px;line-height:1.35;}
-.sync-status strong{display:block;color:var(--text);font-size:13px;margin-bottom:2px;}
-.sync-status.ok strong{color:#2E7D32;}
-.sync-status.warn strong{color:#8B3A10;}
-.sync-status.bad strong{color:#B03A2E;}
 
 /* DROPDOWN (shared) */
 .dd-wrap{position:relative;}
@@ -265,8 +259,50 @@ body{background:var(--bg);font-family:'Inter',-apple-system,'SF Pro Display',san
 .order-collapsed-row { display: flex; justify-content: space-between; font-size: 13px; padding: 4px 0; }
 .order-collapsed-row span:first-child { color: var(--muted); }
 .order-collapsed-row span:last-child { color: var(--text); font-weight: 600; }
+
+/* ── DONE FORM ── */
+.done-section { background: var(--card); border-radius: 16px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+.done-section-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
+.done-field { margin-bottom: 10px; }
+.done-label { font-size: 13px; color: var(--muted); margin-bottom: 5px; }
+.done-input { width: 100%; font-size: 14px; font-family: inherit; border: none; outline: none; background: var(--icon-bg); border-radius: 8px; padding: 8px 12px; color: var(--text); }
+.done-input:focus { box-shadow: 0 0 0 2px rgba(139,106,83,.3); }
+.done-row-two { display: flex; gap: 8px; }
+.done-row-two .done-field { flex: 1; }
+.done-choice-list { display: flex; flex-direction: column; gap: 6px; }
+.done-choice-item { border-radius: 10px; overflow: hidden; background: var(--icon-bg); }
+.done-choice-btn { width: 100%; padding: 10px 14px; background: none; border: none; font-size: 14px; font-family: inherit; color: var(--text); text-align: left; cursor: pointer; display: flex; align-items: center; gap: 8px; -webkit-tap-highlight-color: transparent; }
+.done-choice-btn.selected { background: rgba(139,106,83,.15); color: var(--brown); font-weight: 600; }
+.done-choice-dot { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid #C4A98E; flex-shrink: 0; transition: all .15s; }
+.done-choice-btn.selected .done-choice-dot { background: var(--brown); border-color: var(--brown); }
+.done-choice-fields { padding: 8px 14px 12px; display: none; background: rgba(139,106,83,.05); }
+.done-choice-fields.show { display: block; }
+.done-photo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 6px; }
+.done-photo-add { aspect-ratio: 1; border-radius: 10px; border: 1.5px dashed rgba(139,106,83,.4); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; gap: 4px; background: transparent; font-family: inherit; }
+.done-photo-add i { font-size: 22px; color: var(--brown); }
+.done-photo-add span { font-size: 10px; color: var(--muted); }
+.done-photo-add input { display: none; }
+.done-photo-thumb { aspect-ratio: 1; border-radius: 10px; overflow: hidden; position: relative; }
+.done-photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.done-photo-del { position: absolute; top: 3px; right: 3px; width: 20px; height: 20px; border-radius: 50%; background: rgba(0,0,0,.5); border: none; color: #fff; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.collapsed-card { background: var(--icon-bg); border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; }
+.collapsed-card-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.collapsed-card-row { font-size: 12px; color: var(--muted); line-height: 1.7; }
+.ref-download { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--brown); font-weight: 600; padding: 6px 0; cursor: pointer; text-decoration: none; }
+.ref-download i { font-size: 16px; }
+
+/* WHOLESALE DONE ITEMS */
+.wholesale-done-item { padding: 10px 0; border-bottom: .5px solid rgba(62,44,35,.08); }
+.wholesale-done-item:last-child { border-bottom: none; }
+.wholesale-done-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.wholesale-done-row { display: flex; align-items: center; justify-content: space-between; }
+.wholesale-done-sub { font-size: 12px; color: var(--muted); }
+
+/* MINI REPORT ON CARD */
+.mini-report-card { margin-top: 8px; background: rgba(46,125,50,.07); border-radius: 8px; padding: 7px 10px; border-left: 2px solid #2E7D32; }
+.mini-report-label { font-size: 11px; font-weight: 600; color: #2E7D32; display: flex; align-items: center; gap: 4px; }
+.mini-report-executor { font-size: 11px; color: var(--muted); margin-top: 2px; }
 </style>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 <div class="app-wrap">
@@ -290,7 +326,6 @@ body{background:var(--bg);font-family:'Inter',-apple-system,'SF Pro Display',san
       <div class="menu-card-text"><div class="menu-card-title">Оформленные заказы</div><div class="menu-card-desc">Просмотр, выполнение и закрытие</div></div>
       <i class="ti ti-chevron-right menu-card-arrow"></i>
     </button>
-    <div class="sync-status warn" id="sync-status"><strong>Google Таблица не подключена</strong><span>После публикации Apps Script вставьте URL в настройку SHEETS_WEB_APP_URL.</span></div>
   </div></div>
 </div>
 
@@ -562,6 +597,11 @@ body{background:var(--bg);font-family:'Inter',-apple-system,'SF Pro Display',san
 </div><!-- /app-wrap -->
 
 <script>
+
+/* safe element getter */
+function $el(id){ return document.getElementById(id) || {}; }
+function $cls(id){ var e=document.getElementById(id); return e?e.classList:{contains:function(){return false;},add:function(){},remove:function(){},toggle:function(){}}; }
+
 /* ════════════════════════════════════════════
    GLOBALS
 ════════════════════════════════════════════ */
@@ -576,117 +616,6 @@ const selectedFillings = [];
 let selectedClient = null;
 let inscriptionVisible = false;
 const catalogQty = {};
-
-/* ════════════════════════════════════════════
-   TELEGRAM + GOOGLE SHEETS
-════════════════════════════════════════════ */
-const SHEETS_WEB_APP_URL = ''; // Вставьте URL Google Apps Script Web App после публикации.
-const APP_VERSION = 'mahan-webapp-1.0';
-let pendingSubmission = null;
-let telegramUser = null;
-
-function initTelegramApp() {
-  const tg = window.Telegram && window.Telegram.WebApp;
-  if (!tg) return;
-  tg.ready();
-  tg.expand();
-  telegramUser = tg.initDataUnsafe && tg.initDataUnsafe.user ? tg.initDataUnsafe.user : null;
-  if (tg.themeParams) {
-    document.documentElement.style.setProperty('--tg-bg', tg.themeParams.bg_color || '');
-  }
-}
-
-function getTelegramMeta() {
-  const tg = window.Telegram && window.Telegram.WebApp;
-  const user = telegramUser || {};
-  return {
-    user_id: user.id || '',
-    username: user.username ? '@' + user.username : '',
-    first_name: user.first_name || '',
-    last_name: user.last_name || '',
-    language_code: user.language_code || '',
-    init_data: tg ? tg.initData || '' : '',
-    platform: tg ? tg.platform || '' : '',
-    app_version: APP_VERSION,
-  };
-}
-
-function updateSyncStatus(state, title, text) {
-  const el = document.getElementById('sync-status');
-  if (!el) return;
-  el.className = 'sync-status ' + state;
-  el.innerHTML = `<strong>${title}</strong><span>${text}</span>`;
-}
-
-function refreshSyncStatus() {
-  if (!SHEETS_WEB_APP_URL) {
-    updateSyncStatus('warn', 'Google Таблица не подключена', 'После публикации Apps Script вставьте URL в настройку SHEETS_WEB_APP_URL.');
-    return;
-  }
-  const userText = telegramUser ? `Telegram: ${telegramUser.first_name || ''} ${telegramUser.username ? '(@' + telegramUser.username + ')' : ''}`.trim() : 'Telegram Web App готов';
-  updateSyncStatus('ok', 'Интеграция подключена', userText);
-}
-
-async function sendToSheets(action, payload) {
-  if (!SHEETS_WEB_APP_URL) {
-    throw new Error('Не указан SHEETS_WEB_APP_URL');
-  }
-  const body = {
-    action,
-    created_at: new Date().toISOString(),
-    telegram: getTelegramMeta(),
-    payload,
-  };
-  await fetch(SHEETS_WEB_APP_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: {'Content-Type': 'text/plain;charset=utf-8'},
-    body: JSON.stringify(body),
-  });
-}
-
-function setButtonLoading(btn, loading, text) {
-  if (!btn) return;
-  btn.disabled = loading;
-  if (text) document.getElementById('success-btn-text').textContent = text;
-}
-
-function collectItems(cats) {
-  const rows = [];
-  cats.forEach(cat => cat.items.forEach(item => {
-    const state = itemState[item.id];
-    if (!state || !state.selected || !state.amount) return;
-    const noteEl = document.getElementById('note_' + item.id);
-    rows.push({
-      category: cat.label,
-      item: item.label,
-      amount: state.amount,
-      note: noteEl ? noteEl.value.trim() : '',
-    });
-  }));
-  return rows;
-}
-
-function collectShiftData(lines) {
-  return {
-    date: document.getElementById('p1-date').value || '',
-    employee: document.getElementById('p1-name').value || '',
-    start_cash: parseFloat(document.getElementById('p1-cash').value) || 0,
-    expenses_total: totalExp,
-    debts_total: totalDebt,
-    expenses: collectItems(EXP_CATS),
-    debts: collectItems(DEBT_CATS),
-    revenue: parseFloat(document.getElementById('f-revenue').value) || 0,
-    card: parseFloat(document.getElementById('f-card').value) || 0,
-    collection: parseFloat(document.getElementById('f-collect').value) || 0,
-    cash_remain: parseFloat(document.getElementById('f-remain').value) || 0,
-    diff_label: document.getElementById('diff-label').textContent,
-    diff_value: document.getElementById('diff-value').textContent,
-    shortage_reason: document.getElementById('reason-input').value.trim(),
-    invoice_photo_count: photos.length,
-    lines: lines || [],
-  };
-}
 
 /* ════════════════════════════════════════════
    NAVIGATION
@@ -877,23 +806,9 @@ function buildShiftSummary() {
   );
   const reason=document.getElementById('reason-input').value.trim();
   if(reason) lines.push({k:'Причина недостачи',v:reason,screen:'screen-shift-4'});
-  pendingSubmission = {action:'shift_report', payload:collectShiftData(lines)};
   showPreview('shift','Отчёт по смене','Смена',lines,confirmShift);
 }
-async function confirmShift() {
-  const btn = document.getElementById('success-main-btn');
-  setButtonLoading(btn, true, 'Отправка...');
-  try {
-    await sendToSheets(pendingSubmission.action, pendingSubmission.payload);
-    confirmPreview('Отчёт отправлен!','');
-  } catch (err) {
-    confirmPreview('Не отправлено в таблицу','');
-    document.getElementById('success-hint').style.display='block';
-    document.getElementById('success-hint').textContent=err.message;
-  } finally {
-    setButtonLoading(btn, false);
-  }
-}
+function confirmShift() { confirmPreview('Отчёт отправлен!',''); }
 
 /* ════════════════════════════════════════════
    FILLINGS
@@ -1061,7 +976,7 @@ function getCatalogSummary(){
   const allItems=isAN?[...CATALOG_ALL,...CATALOG_AN_ONLY]:CATALOG_ALL;
   const lines=[];let total=0;
   allItems.forEach(item=>{const q=catalogQty[item.id]||0;if(q>0){const p=isAN?item.priceAN:item.price;lines.push(`${item.name} × ${q} = ${(q*p).toLocaleString('ru-RU')} ₽`);total+=q*p;}});
-  return {text:lines.join('\n')||'—',total};
+  return {text:lines.join(' | ')||'—',total};
 }
 
 /* ════════════════════════════════════════════
@@ -1085,7 +1000,6 @@ function submitIndividual(){
     price:  parseFloat(document.getElementById('ind-price').value)||0,
     prepay: parseFloat(document.getElementById('ind-prepay').value)||0,
     note:   document.getElementById('ind-note').value||'—',
-    refs:   [...refPhotos],
   };
   const lines=[
     {k:'Клиент',v:data.client,screen:'screen-order-individual'},
@@ -1132,24 +1046,8 @@ function submitWholesale(){
 }
 
 function confirmOrder(data,lines){
-  const order = {id:Date.now(),type:data.type,num:data.num,data,lines,status:'new'};
-  const btn = document.getElementById('success-main-btn');
-  setButtonLoading(btn, true, 'Отправка...');
-  sendToSheets('order_created', {
-    ...data,
-    ref_photo_count: data.refs ? data.refs.length : 0,
-    refs: undefined,
-    lines,
-  }).then(() => {
-    allOrders.unshift(order);
-    confirmPreview(data.num+' оформлен','');
-  }).catch(err => {
-    confirmPreview('Не отправлено в таблицу', data.num);
-    document.getElementById('success-hint').style.display='block';
-    document.getElementById('success-hint').textContent=err.message;
-  }).finally(() => {
-    setButtonLoading(btn, false);
-  });
+  allOrders.unshift({id:Date.now(),type:data.type,num:data.num,data,lines,status:'new',doneRef:[...refPhotos]});
+  confirmPreview(data.num+' оформлен','');
 }
 
 /* ════════════════════════════════════════════
@@ -1209,14 +1107,24 @@ function renderTabList(containerId,orders){
   if(!orders.length){el.innerHTML='<div class="empty-state"><i class="ti ti-clipboard-off"></i>Заказов нет</div>';return;}
   el.innerHTML=orders.map(o=>{
     const d=o.data;
-    const title=o.type==='individual'?(d.cakeName!=='—'?d.cakeName:d.client):(d.client);
-    const sub=o.type==='individual'?d.client:d.catalog.split('\n')[0];
+    const title=o.type==='individual'?(d.cakeName&&d.cakeName!=='—'?d.cakeName:d.client):(d.client);
+    const sub=o.type==='individual'?d.client:(d.catalog||'').split('\n')[0]||'';
     const badgeCls=o.status==='done'?'badge-done':'badge-new';
     const badgeTxt=o.status==='done'?'Выполнен':'Ожидает выполнения';
+    // mini report snippet
+    let reportSnippet='';
+    if(o.doneReport){
+      const r=o.doneReport;
+      reportSnippet=`<div class="mini-report-card">
+        <div class="mini-report-label"><i class="ti ti-clipboard-check" style="font-size:12px"></i> Отчёт кондитера · ${r.date} ${r.time}</div>
+        <div class="mini-report-executor">Исполнитель: ${r.executor}</div>
+      </div>`;
+    }
     return `<div class="order-card-mini" onclick="openOrderDetail(${o.id})">
       <div class="ocm-top"><div class="ocm-num">${o.num}</div><div class="ocm-date">${d.date||''}</div><div class="ocm-badge ${badgeCls}">${badgeTxt}</div></div>
       <div class="ocm-title">${title}</div>
       <div class="ocm-client">${sub}</div>
+      ${reportSnippet}
     </div>`;
   }).join('');
 }
@@ -1266,7 +1174,7 @@ function buildOrderCard(order) {
     </div>
     <div class="order-full-section">
       <div class="section-label" style="margin-bottom:8px">Состав</div>
-      <div style="font-size:13px;color:var(--text);white-space:pre-line;line-height:1.7">${d.catalog}</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.7">${d.catalog.split(' | ').join('<br>')}</div>
       <div class="ofc-price-row admin-only"><div class="ofc-price-label">Сумма</div><div class="ofc-price-val">${fmt(d.total)}</div></div>
     </div>
     ${d.note&&d.note!=='—' ? `<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">Комментарий</div><div style="font-size:13px;color:var(--text)">${d.note}</div></div>` : ''}`;
@@ -1294,7 +1202,7 @@ function openOrderDetail(id) {
   const actions = document.getElementById('detail-actions');
   if (order.status === 'new') {
     actions.innerHTML = `
-      <button class="btn success-btn" onclick="showExecForm(${id})"><i class="ti ti-check"></i> Выполнен</button>
+      <button class="btn success-btn" onclick="startMarkDone(${id})"><i class="ti ti-check"></i> Выполнен</button>
       <button class="btn danger" onclick="closeOrder(${id})"><i class="ti ti-lock"></i> Закрыть</button>`;
   } else if (order.status === 'done') {
     actions.innerHTML = `
@@ -1303,7 +1211,49 @@ function openOrderDetail(id) {
   } else {
     actions.innerHTML = '';
   }
+  // Show done report if exists
+  if (order.doneReport) {
+    const repDiv = document.createElement('div');
+    repDiv.innerHTML = buildDoneReportCard(order);
+    document.getElementById('detail-content').appendChild(repDiv);
+  }
+
   go('screen-order-detail');
+}
+
+function buildDoneReportCard(order) {
+  const r = order.doneReport;
+  if (!r) return '';
+  let rows = '';
+  if (r.type === 'individual') {
+    if(r.biscuits&&r.biscuits.length) rows+=r.biscuits.map(b=>`<div class="ofc-row"><span>Бисквит</span><span>${b.name}${b.weight?' · '+b.weight+' г':''}${b.size?' · '+b.size+' см':''}</span></div>`).join('');
+    if(r.propitka) rows+=`<div class="ofc-row"><span>Пропитка</span><span>${r.propitka} г</span></div>`;
+    if(r.creams&&r.creams.length) rows+=r.creams.map(c=>`<div class="ofc-row"><span>Крем</span><span>${c.name}${c.weight?' · '+c.weight+' г':''}</span></div>`).join('');
+    if(r.fillings2&&r.fillings2.length) rows+=`<div class="ofc-row"><span>Начинка</span><span>${r.fillings2.join(', ')}</span></div>`;
+    if(r.ganash) rows+=`<div class="ofc-row"><span>Ганаш</span><span>${r.ganash} г</span></div>`;
+    if(r.decor&&r.decor.length) r.decor.forEach(d=>{
+      if(d.type==='berry'&&d.berries) rows+=d.berries.map(b=>`<div class="ofc-row"><span>Ягода: ${b.name}</span><span>${b.weight} г</span></div>`).join('');
+      else if(d.type==='mastika') rows+=`<div class="ofc-row"><span>Мастика</span><span>${d.weight} г</span></div>`;
+      else if(d.type==='velour') rows+=`<div class="ofc-row"><span>Вилюр</span><span>${d.weight} г</span></div>`;
+      else if(d.type==='other') rows+=`<div class="ofc-row"><span>Декор</span><span>${d.comment}</span></div>`;
+    });
+  } else {
+    if(r.items&&r.items.length) rows+=r.items.filter(i=>i.done>0).map(i=>`<div class="ofc-row"><span>${i.name}</span><span>${i.done} из ${i.ordered} шт</span></div>`).join('');
+  }
+  let photosHtml='';
+  if(r.photos&&r.photos.length){
+    photosHtml=`<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px">`+r.photos.map(src=>`<div style="aspect-ratio:1;border-radius:10px;overflow:hidden"><img src="${src}" style="width:100%;height:100%;object-fit:cover"></div>`).join('')+'</div>';
+  }
+  return `<div class="order-full-section" style="border-top:2px solid var(--brown);margin-top:0">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div class="section-label" style="margin-bottom:0"><i class="ti ti-clipboard-check" style="font-size:13px"></i> Отчёт кондитера</div>
+      <div class="ocm-badge badge-done">Выполнен</div>
+    </div>
+    ${rows}
+    <div class="ofc-row"><span>Дата</span><span>${r.date} ${r.time}</span></div>
+    <div class="ofc-row"><span>Кондитер</span><span>${r.executor}</span></div>
+    ${photosHtml}
+  </div>`;
 }
 
 /* ── EXECUTION FORM ── */
@@ -1508,49 +1458,23 @@ function cancelExec() {
   openOrderDetail(detailOrderId);
 }
 
-async function submitExec(id) {
+function submitExec(id) {
   if (!execPhotos.length) { document.getElementById('exec-photo-error').style.display='block'; return; }
   const performer = document.getElementById('exec-performer').value.trim();
   if (!performer) { document.getElementById('exec-performer').focus(); return; }
   const order = allOrders.find(o=>o.id===id);
-  const payload = {
-    order_num: order ? order.num : '',
-    order_type: order ? order.type : '',
-    performer,
-    biscuits: execBiscuits,
-    propitka: document.getElementById('exec-propitka').value,
-    creams: execCreams,
-    fillings: execFillings,
-    ganash: document.getElementById('exec-ganash').value,
-    berries: {kl:document.getElementById('exec-berry-kl').value, go:document.getElementById('exec-berry-go').value, ma:document.getElementById('exec-berry-ma').value},
-    mastika: document.getElementById('exec-mastika').value,
-    vilur:   document.getElementById('exec-vilur').value,
-    decorOther: document.getElementById('exec-decor-other').value,
-    photo_count: execPhotos.length,
-  };
-  const submitBtn = document.querySelector('#exec-form .btn.primary');
-  if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<i class="ti ti-loader"></i> Отправка...'; }
-  try {
-    await sendToSheets('order_completed', payload);
-  } catch (err) {
-    if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = '<i class="ti ti-check"></i> Подтвердить'; }
-    const errorEl = document.getElementById('exec-photo-error');
-    errorEl.textContent = err.message;
-    errorEl.style.display = 'block';
-    return;
-  }
   if (order) {
     order.status = 'done';
     order.execution = {
-      biscuits: payload.biscuits,
-      propitka: payload.propitka,
-      creams: payload.creams,
-      fillings: payload.fillings,
-      ganash: payload.ganash,
-      berries: payload.berries,
-      mastika: payload.mastika,
-      vilur:   payload.vilur,
-      decorOther: payload.decorOther,
+      biscuits: execBiscuits,
+      propitka: document.getElementById('exec-propitka').value,
+      creams: execCreams,
+      fillings: execFillings,
+      ganash: document.getElementById('exec-ganash').value,
+      berries: {kl:document.getElementById('exec-berry-kl').value, go:document.getElementById('exec-berry-go').value, ma:document.getElementById('exec-berry-ma').value},
+      mastika: document.getElementById('exec-mastika').value,
+      vilur:   document.getElementById('exec-vilur').value,
+      decorOther: document.getElementById('exec-decor-other').value,
       photos: execPhotos,
       performer,
     };
@@ -1559,7 +1483,7 @@ async function submitExec(id) {
 }
 
 function markDone(id){
-  showExecForm(id);
+  startMarkDone(id);
 }
 function closeOrder(id){
   const o=allOrders.find(x=>x.id===id);
@@ -1585,8 +1509,511 @@ document.addEventListener('click',function(e){
 /* ════════════════════════════════════════════
    INIT
 ════════════════════════════════════════════ */
-initTelegramApp();
-refreshSyncStatus();
+
+/* ════════════════════════════════════════════
+   MARK DONE FLOW
+════════════════════════════════════════════ */
+const BISCUIT_LIST = ['Шоколадный', 'Фисташковый', 'Ванильный'];
+const CREAM_LIST   = ['Ваниль', 'Фисташка', 'Шоколад'];
+const FILLING2_LIST= ['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'];
+const BERRY_LIST   = ['Клубника','Голубика','Малина'];
+
+let donePhotos = [];
+
+function startMarkDone(orderId) {
+  const order = allOrders.find(o => o.id === orderId);
+  if (!order) return;
+  detailOrderId = orderId;
+  donePhotos = [];
+  const d = order.data;
+
+  /* ── collapsed summary ── */
+  const collapsed = `<div class="collapsed-card">
+    <div class="collapsed-card-title">${order.num} — ${order.type === 'individual' ? (d.cakeName && d.cakeName !== '—' ? d.cakeName : d.client) : d.client}</div>
+    <div class="collapsed-card-row">${order.type === 'individual'
+      ? 'Клиент: ' + d.client + ' · ' + d.date + ' ' + d.time
+      : 'Клиент: ' + d.client + ' · Поставка: ' + d.date + ' ' + d.time}
+    </div>
+    ${order.doneRef && order.doneRef.length ? '<a class="ref-download" onclick="downloadRef(' + orderId + ')"><i class="ti ti-download"></i> Скачать референс</a>' : ''}
+  </div>`;
+
+  let form = '';
+
+  /* ═══════════ ИНДИВИДУАЛЬНЫЙ ═══════════ */
+  if (order.type === 'individual') {
+    form = `
+    <!-- БИСКВИТ -->
+    <div class="done-section">
+      <div class="done-section-title">Бисквит</div>
+      <div class="done-choice-list" id="biscuit-list">
+        ${['Шоколадный','Фисташковый','Ванильный'].map((name,i) => `
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="bis_btn_${i}" onclick="toggleDoneChoice('bis',${i})">
+            <div class="done-choice-dot" id="bis_dot_${i}"></div>${name}
+          </button>
+          <div class="done-choice-fields" id="bis_fields_${i}">
+            <div class="done-row-two">
+              <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="bis_w_${i}"/></div>
+              <div class="done-field"><div class="done-label">Размер (см)</div><input class="done-input" type="number" placeholder="0" id="bis_s_${i}"/></div>
+            </div>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>
+
+    <!-- ПРОПИТКА -->
+    <div class="done-section">
+      <div class="done-section-title">Пропитка</div>
+      <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="prop_w"/></div>
+    </div>
+
+    <!-- КРЕМ -->
+    <div class="done-section">
+      <div class="done-section-title">Крем</div>
+      <div class="done-choice-list">
+        ${['Ваниль','Фисташка','Шоколад'].map((name,i) => `
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="cream_btn_${i}" onclick="toggleDoneChoice('cream',${i})">
+            <div class="done-choice-dot" id="cream_dot_${i}"></div>${name}
+          </button>
+          <div class="done-choice-fields" id="cream_fields_${i}">
+            <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="cream_w_${i}"/></div>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>
+
+    <!-- НАЧИНКА -->
+    <div class="done-section">
+      <div class="done-section-title">Начинка</div>
+      <div class="done-choice-list">
+        ${['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'].map((name,i) => `
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="fill_btn_${i}" onclick="toggleDoneChoice('fill',${i})">
+            <div class="done-choice-dot" id="fill_dot_${i}"></div>${name}
+          </button>
+          <div class="done-choice-fields" id="fill_fields_${i}" style="display:none"></div>
+        </div>`).join('')}
+      </div>
+    </div>
+
+    <!-- ГАНАШ -->
+    <div class="done-section">
+      <div class="done-section-title">Ганаш</div>
+      <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ganash_w"/></div>
+    </div>
+
+    <!-- ДЕКОР -->
+    <div class="done-section">
+      <div class="done-section-title">Декор</div>
+      <div class="done-choice-list">
+        <!-- Ягодное -->
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="dec_btn_berry" onclick="toggleDecorBerry()">
+            <div class="done-choice-dot" id="dec_dot_berry"></div>Ягодное оформление
+          </button>
+          <div class="done-choice-fields" id="dec_fields_berry">
+            ${['Клубника','Голубика','Малина'].map(b => `
+            <div class="done-field"><div class="done-label">${b} (г)</div><input class="done-input" type="number" placeholder="0" id="berry_${b}"/></div>`).join('')}
+          </div>
+        </div>
+        <!-- Мастика -->
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="dec_btn_mastika" onclick="toggleDecorItem('mastika')">
+            <div class="done-choice-dot" id="dec_dot_mastika"></div>Мастика
+          </button>
+          <div class="done-choice-fields" id="dec_fields_mastika">
+            <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="dec_w_mastika"/></div>
+          </div>
+        </div>
+        <!-- Вилюр -->
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="dec_btn_velour" onclick="toggleDecorItem('velour')">
+            <div class="done-choice-dot" id="dec_dot_velour"></div>Вилюр
+          </button>
+          <div class="done-choice-fields" id="dec_fields_velour">
+            <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="dec_w_velour"/></div>
+          </div>
+        </div>
+        <!-- Другой -->
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="dec_btn_other" onclick="toggleDecorItem('other')">
+            <div class="done-choice-dot" id="dec_dot_other"></div>Другой
+          </button>
+          <div class="done-choice-fields" id="dec_fields_other">
+            <div class="done-field"><div class="done-label">Комментарий</div><input class="done-input" type="text" placeholder="Опишите декор..." id="dec_comment"/></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ФОТО -->
+    <div class="done-section">
+      <div class="done-section-title">Фото готового изделия <span class="photo-required">Обязательно</span></div>
+      <div class="done-photo-grid" id="done-photo-grid">
+        <label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addDonePhotos(this)"></label>
+      </div>
+      <div id="done-photo-error" style="display:none;margin-top:8px;font-size:12px;color:#B03A2E;font-weight:600">Добавьте фото изделия</div>
+    </div>
+
+    <!-- ИСПОЛНИТЕЛЬ -->
+    <div class="done-section">
+      <div class="done-section-title">Исполнитель</div>
+      <div class="done-field">
+        <div class="done-label">Имя кондитера</div>
+        <input class="done-input" type="text" id="done-executor" placeholder="Ваше имя"/>
+      </div>
+      <div id="done-executor-error" style="display:none;margin-top:6px;font-size:12px;color:#B03A2E;font-weight:600">Укажите имя</div>
+    </div>`;
+
+  /* ═══════════ ОПТОВЫЙ ═══════════ */
+  } else {
+    const catalogLines = (d.catalog || '').split(' | ').filter(l => l.trim());
+    const itemRows = catalogLines.map((line, i) => {
+      const match = line.match(/^(.+?)\s*×\s*(\d+)/);
+      const name = match ? match[1].trim() : line;
+      const orderedQty = match ? parseInt(match[2]) : 0;
+      return `<div class="wholesale-done-item">
+        <div class="wholesale-done-name">${name}</div>
+        <div class="wholesale-done-row">
+          <div class="wholesale-done-sub">Заказано: ${orderedQty} шт</div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="font-size:12px;color:var(--muted)">Сделано:</div>
+            <div class="qty-ctrl">
+              <button class="qty-btn" type="button" onclick="changeWQty('wqty_${i}',-1,${orderedQty})">−</button>
+              <div class="qty-num" id="wqty_${i}">0</div>
+              <button class="qty-btn" type="button" onclick="changeWQty('wqty_${i}',1,${orderedQty})">+</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+
+    form = `
+    <div class="done-section">
+      <div class="done-section-title">Выполненные позиции</div>
+      ${itemRows || '<div class="done-label">Позиции не указаны</div>'}
+    </div>
+
+    <!-- ДАТА И ВРЕМЯ -->
+    <div class="done-section">
+      <div class="done-section-title">Дата и время выполнения</div>
+      <div class="done-row-two">
+        <div class="done-field"><div class="done-label">Дата</div><input class="done-input" type="date" id="done-date"/></div>
+        <div class="done-field"><div class="done-label">Время</div><input class="done-input" type="time" id="done-time"/></div>
+      </div>
+    </div>
+
+    <!-- ФОТО -->
+    <div class="done-section">
+      <div class="done-section-title">Фото выполненной работы <span class="photo-required">Обязательно</span></div>
+      <div class="done-photo-grid" id="done-photo-grid">
+        <label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addDonePhotos(this)"></label>
+      </div>
+      <div id="done-photo-error" style="display:none;margin-top:8px;font-size:12px;color:#B03A2E;font-weight:600">Добавьте фото</div>
+    </div>
+
+    <!-- ИСПОЛНИТЕЛЬ -->
+    <div class="done-section">
+      <div class="done-section-title">Исполнитель</div>
+      <div class="done-field"><div class="done-label">Имя кондитера</div><input class="done-input" type="text" id="done-executor" placeholder="Ваше имя"/></div>
+      <div id="done-executor-error" style="display:none;margin-top:6px;font-size:12px;color:#B03A2E;font-weight:600">Укажите имя</div>
+    </div>`;
+  }
+
+  form += `<div class="btn-row" style="margin-top:4px">
+    <button class="btn icon-only" type="button" onclick="openOrderDetail(${orderId})"><i class="ti ti-arrow-left"></i></button>
+    <button class="btn primary" type="button" onclick="confirmDone(${orderId})"><i class="ti ti-check"></i> Подтвердить выполнение</button>
+  </div>`;
+
+  document.getElementById('detail-content').innerHTML = collapsed + form;
+  document.getElementById('detail-actions').innerHTML = '';
+  document.getElementById('detail-title').textContent = 'Отметить выполненным';
+
+  // Set default date/time for wholesale
+  if (order.type === 'wholesale') {
+    const now = new Date();
+    const dateEl = document.getElementById('done-date');
+    const timeEl = document.getElementById('done-time');
+    if (dateEl) dateEl.value = now.toISOString().split('T')[0];
+    if (timeEl) timeEl.value = now.toTimeString().slice(0,5);
+  }
+}
+function buildWholesaleDoneForm(catalogText, orderId) {
+  if(!catalogText || catalogText==='—') return '<div class="done-section"><div class="done-section-title">Состав заказа</div><div class="done-field"><div class="done-label">Состав не указан</div></div></div>';
+  
+  const lines = catalogText.split('\n').filter(l=>l.trim());
+  const itemsHtml = lines.map((line, i) => {
+    // parse "Тарт малиновый × 6 = 1 500 ₽" → name and ordered qty
+    const match = line.match(/^(.+?)\s*×\s*(\d+)/);
+    const name = match ? match[1].trim() : line;
+    const orderedQty = match ? parseInt(match[2]) : 0;
+    return `<div class="wholesale-done-item">
+      <div class="wholesale-done-name">${name}</div>
+      <div class="wholesale-done-row">
+        <div class="wholesale-done-sub">Заказано: ${orderedQty} шт</div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="font-size:12px;color:var(--muted)">Выполнено:</div>
+          <div class="qty-ctrl">
+            <button class="qty-btn" onclick="changeWQty('wqty_${i}',-1,${orderedQty})">−</button>
+            <div class="qty-num nonzero" id="wqty_${i}">0</div>
+            <button class="qty-btn" onclick="changeWQty('wqty_${i}',1,${orderedQty})">+</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  
+  return `<div class="done-section">
+    <div class="done-section-title">Укажите выполненное количество</div>
+    <div id="wholesale-done-items">${itemsHtml}</div>
+  </div>`;
+}
+
+function changeWQty(elId, delta, max) {
+  const el = document.getElementById(elId);
+  if(!el) return;
+  let v = parseInt(el.textContent||'0');
+  v = Math.max(0, Math.min(max||999, v+delta));
+  el.textContent = v;
+  el.className = 'qty-num' + (v>0?' nonzero':'');
+}
+
+function buildChoiceSection(prefix, title, list, withWeight) {
+  const items = list.map((item, i) => `
+    <div class="done-choice-item">
+      <button class="done-choice-btn" id="${prefix}_btn_${i}" onclick="toggleDoneChoice('${prefix}',${i},${withWeight})">
+        <div class="done-choice-dot" id="${prefix}_dot_${i}"></div>
+        ${item}
+      </button>
+      <div class="done-choice-fields" id="${prefix}_fields_${i}">
+        ${withWeight ? `
+        <div class="done-row-two">
+          <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="${prefix}_w_${i}"/></div>
+          <div class="done-field"><div class="done-label">Размер (см)</div><input class="done-input" type="number" placeholder="0" id="${prefix}_s_${i}"/></div>
+        </div>` : ''}
+      </div>
+    </div>`).join('');
+  return `<div class="done-section"><div class="done-section-title">${title}</div><div class="done-choice-list">${items}</div></div>`;
+}
+
+function buildWeightSection(prefix, title) {
+  return `<div class="done-section">
+    <div class="done-section-title">${title}</div>
+    <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="${prefix}_weight"/></div>
+  </div>`;
+}
+
+function buildDecorSection() {
+  return `<div class="done-section">
+    <div class="done-section-title">Декор</div>
+    <div class="done-choice-list">
+      <!-- ЯГОДНОЕ ОФОРМЛЕНИЕ -->
+      <div class="done-choice-item">
+        <button class="done-choice-btn" id="decor_btn_berry" onclick="toggleDecorBerry()">
+          <div class="done-choice-dot" id="decor_dot_berry"></div>
+          Ягодное оформление
+        </button>
+        <div class="done-choice-fields" id="decor_fields_berry">
+          ${['Клубника','Голубика','Малина'].map(b=>`
+          <div class="done-field">
+            <div class="done-label">${b}, г</div>
+            <input class="done-input" type="number" placeholder="0" id="berry_${b}"/>
+          </div>`).join('')}
+        </div>
+      </div>
+      <!-- МАСТИКА -->
+      <div class="done-choice-item">
+        <button class="done-choice-btn" id="decor_btn_mastika" onclick="toggleDoneDecor('mastika')">
+          <div class="done-choice-dot" id="decor_dot_mastika"></div>
+          Мастика
+        </button>
+        <div class="done-choice-fields" id="decor_fields_mastika">
+          <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="decor_w_mastika"/></div>
+        </div>
+      </div>
+      <!-- ВИЛЮР -->
+      <div class="done-choice-item">
+        <button class="done-choice-btn" id="decor_btn_velour" onclick="toggleDoneDecor('velour')">
+          <div class="done-choice-dot" id="decor_dot_velour"></div>
+          Вилюр
+        </button>
+        <div class="done-choice-fields" id="decor_fields_velour">
+          <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="decor_w_velour"/></div>
+        </div>
+      </div>
+      <!-- ДРУГОЕ -->
+      <div class="done-choice-item">
+        <button class="done-choice-btn" id="decor_btn_other" onclick="toggleDoneDecor('other')">
+          <div class="done-choice-dot" id="decor_dot_other"></div>
+          Другой
+        </button>
+        <div class="done-choice-fields" id="decor_fields_other">
+          <div class="done-field"><div class="done-label">Комментарий</div><input class="done-input" type="text" placeholder="Опишите декор..." id="decor_comment"/></div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+const doneChoiceState = {};
+
+function toggleDoneChoice(prefix, i) {
+  const btnId = prefix + '_btn_' + i;
+  const dotId = prefix + '_dot_' + i;
+  const fieldId = prefix + '_fields_' + i;
+  const btn = document.getElementById(btnId);
+  const dot = document.getElementById(dotId);
+  const fields = document.getElementById(fieldId);
+  if (!btn) return;
+  const active = !btn.classList.contains('selected');
+  btn.classList.toggle('selected', active);
+  if (dot) { dot.style.background = active ? 'var(--brown)' : ''; dot.style.borderColor = active ? 'var(--brown)' : '#C4A98E'; }
+  if (fields) { fields.classList.toggle('show', active); fields.style.display = active ? 'block' : 'none'; }
+}
+function toggleDoneDecor(type) {
+  const active = !document.getElementById(`decor_btn_${type}`).classList.contains('selected');
+  document.getElementById(`decor_btn_${type}`).classList.toggle('selected', active);
+  const dot = document.getElementById(`decor_dot_${type}`);
+  dot.style.background = active ? 'var(--brown)' : '';
+  dot.style.borderColor = active ? 'var(--brown)' : '#C4A98E';
+  const f = document.getElementById(`decor_fields_${type}`);
+  if(f) f.classList.toggle('show', active);
+}
+
+
+function toggleDecorBerry() {
+  const btn = document.getElementById('dec_btn_berry');
+  if (!btn) return;
+  const active = !btn.classList.contains('selected');
+  btn.classList.toggle('selected', active);
+  const dot = document.getElementById('dec_dot_berry');
+  if (dot) { dot.style.background = active ? 'var(--brown)' : ''; dot.style.borderColor = active ? 'var(--brown)' : '#C4A98E'; }
+  const f = document.getElementById('dec_fields_berry');
+  if (f) { f.classList.toggle('show', active); f.style.display = active ? 'block' : 'none'; }
+}
+
+function toggleDecorItem(type) {
+  const btn = document.getElementById('dec_btn_' + type);
+  if (!btn) return;
+  const active = !btn.classList.contains('selected');
+  btn.classList.toggle('selected', active);
+  const dot = document.getElementById('dec_dot_' + type);
+  if (dot) { dot.style.background = active ? 'var(--brown)' : ''; dot.style.borderColor = active ? 'var(--brown)' : '#C4A98E'; }
+  const f = document.getElementById('dec_fields_' + type);
+  if (f) { f.classList.toggle('show', active); f.style.display = active ? 'block' : 'none'; }
+}
+
+function addDonePhotos(input) {
+  Array.from(input.files).forEach(f => {
+    const r = new FileReader();
+    r.onload = e => { donePhotos.push(e.target.result); renderDonePhotos(); };
+    r.readAsDataURL(f);
+  });
+  input.value = '';
+}
+
+function renderDonePhotos() {
+  const g = document.getElementById('done-photo-grid');
+  g.innerHTML = donePhotos.map((s,i)=>`
+    <div class="done-photo-thumb">
+      <img src="${s}">
+      <button class="done-photo-del" onclick="donePhotos.splice(${i},1);renderDonePhotos()"><i class="ti ti-x"></i></button>
+    </div>`).join('') +
+    `<label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addDonePhotos(this)"></label>`;
+  const errEl = document.getElementById('done-photo-error');
+  if (errEl) errEl.style.display = 'none';
+}
+
+function confirmDone(orderId) {
+  const order = allOrders.find(o => o.id === orderId);
+  if (!order) return;
+
+  // Validate photo
+  if (!donePhotos.length) {
+    const e = document.getElementById('done-photo-error');
+    if (e) e.style.display = 'block';
+    return;
+  }
+  // Validate executor
+  const execEl = document.getElementById('done-executor');
+  const executor = execEl ? execEl.value.trim() : '';
+  if (!executor) {
+    const ee = document.getElementById('done-executor-error');
+    if (ee) ee.style.display = 'block';
+    if (execEl) execEl.focus();
+    return;
+  }
+
+  const report = { executor, photos: [...donePhotos] };
+
+  if (order.type === 'individual') {
+    report.type = 'individual';
+    // Бисквит
+    report.biscuits = ['Шоколадный','Фисташковый','Ванильный'].map((name,i) => {
+      const btn = document.getElementById('bis_btn_' + i);
+      if (!btn || !btn.classList.contains('selected')) return null;
+      return { name, weight: (document.getElementById('bis_w_'+i)||{}).value||'', size: (document.getElementById('bis_s_'+i)||{}).value||'' };
+    }).filter(Boolean);
+    // Пропитка
+    report.propitka = (document.getElementById('prop_w')||{}).value || '';
+    // Крем
+    report.creams = ['Ваниль','Фисташка','Шоколад'].map((name,i) => {
+      const btn = document.getElementById('cream_btn_' + i);
+      if (!btn || !btn.classList.contains('selected')) return null;
+      return { name, weight: (document.getElementById('cream_w_'+i)||{}).value||'' };
+    }).filter(Boolean);
+    // Начинка
+    report.fillings = ['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'].map((name,i) => {
+      const btn = document.getElementById('fill_btn_' + i);
+      return (btn && btn.classList.contains('selected')) ? name : null;
+    }).filter(Boolean);
+    // Ганаш
+    report.ganash = (document.getElementById('ganash_w')||{}).value || '';
+    // Декор
+    report.decor = [];
+    if (document.getElementById('dec_btn_berry') && document.getElementById('dec_btn_berry').classList.contains('selected')) {
+      report.decor.push({ type: 'berry', items: ['Клубника','Голубика','Малина'].map(b => ({ name: b, weight: (document.getElementById('berry_'+b)||{}).value||'' })) });
+    }
+    ['mastika','velour'].forEach(t => {
+      const btn = document.getElementById('dec_btn_'+t);
+      if (btn && btn.classList.contains('selected')) report.decor.push({ type: t, weight: (document.getElementById('dec_w_'+t)||{}).value||'' });
+    });
+    const ob = document.getElementById('dec_btn_other');
+    if (ob && ob.classList.contains('selected')) report.decor.push({ type: 'other', comment: (document.getElementById('dec_comment')||{}).value||'' });
+
+  } else {
+    report.type = 'wholesale';
+    const catalogLines = (order.data.catalog || '').split(' | ').filter(l => l.trim());
+    report.items = catalogLines.map((line, i) => {
+      const match = line.match(/^(.+?)\s*×\s*(\d+)/);
+      const name = match ? match[1].trim() : line;
+      const ordered = match ? parseInt(match[2]) : 0;
+      const doneEl = document.getElementById('wqty_' + i);
+      const done = doneEl ? parseInt(doneEl.textContent || '0') : 0;
+      return { name, ordered, done };
+    });
+    report.date = (document.getElementById('done-date')||{}).value || '';
+    report.time = (document.getElementById('done-time')||{}).value || '';
+  }
+
+  order.status = 'done';
+  order.doneReport = report;
+  go('screen-orders-list');
+}
+
+// Download reference photo
+function downloadRef(orderId) {
+  const order = allOrders.find(o => o.id === orderId);
+  if (!order || !order.doneRef || !order.doneRef.length) return;
+  order.doneRef.forEach((src, i) => {
+    const a = document.createElement('a');
+    a.href = src;
+    a.download = `ref_${order.num}_${i+1}.jpg`;
+    a.click();
+  });
+}
+
 buildSection(EXP_CATS,'cat-exp-container');
 buildSection(DEBT_CATS,'cat-debt-container');
 checkSubmit();
