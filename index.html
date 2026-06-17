@@ -30,14 +30,17 @@ body{
     padding-top:26px;
     display:flex;
     justify-content:center;
-}
-    .logo-plate{
+.logo-plate{
     width:85%;
     height:68px;
     background:#8B6A53;
     border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
-.logo-plate-title{font-size:22px;font-weight:600;color:#FFF6EF;letter-spacing:5px;}
+.logo-plate-title{font-size:22px;font-weight:800;color:#FFF6EF;letter-spacing:5px;}
 .logo-plate-sub{font-size:9px;color:rgba(255,246,239,0.7);letter-spacing:2.5px;text-transform:uppercase;}
 
 /* MENU */
@@ -333,6 +336,7 @@ body{
 <div class="logo-plate-wrap">
   <div class="logo-plate">
      <div class="logo-title">MÁHAN</div>
+      <div class="logo-subtitle">КОМАНДА МЕЧТЫ!</div>
 </div>
     </div>
   <div class="menu-body"><div class="menu-list">
@@ -387,8 +391,29 @@ body{
     <div class="step-item"><div class="step-circle">4</div><div class="step-label">Итоги</div></div>
   </div></div>
   <div class="shift-body">
-    <div id="cat-exp-container"></div>
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 4px 4px;"><div style="font-size:15px;font-weight:600;color:var(--text)">Итого расходов</div><div style="font-size:18px;font-weight:600;color:var(--brown)" id="exp-grand-total">0 ₽</div></div>
+<div class="section-card">
+  <div class="section-label">
+    <i class="ti ti-search" style="font-size:13px"></i> Добавить расход
+  </div>
+
+  <div class="dd-wrap">
+    <input class="dd-input"
+           type="text"
+           id="expense-search"
+           placeholder="Начните вводить расход..."
+           autocomplete="off"
+           oninput="filterExpenses(this.value)"
+           onfocus="showExpenses()">
+
+    <div class="dd-list hidden" id="expense-dropdown"></div>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-label">Выбранные расходы</div>
+  <div id="selected-expenses-list"></div>
+</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 4px 4px;"><div style="font-size:15px;font-weight:600;color:var(--text)">Итого расходов</div><div style="font-size:18px;font-weight:600;color:var(--brown)" id="exp-grand-total">0 ₽</div></div>
     <div class="btn-row" style="margin-top:16px"><button class="btn icon-only" onclick="go('screen-shift-1')"><i class="ti ti-arrow-left"></i></button><button class="btn" onclick="go('screen-shift-3')">Далее <i class="ti ti-chevron-right"></i></button></div>
   </div>
 </div>
@@ -1882,7 +1907,108 @@ function buildDecorSection() {
 }
 
 const doneChoiceState = {};
+    const smartExpenses = [
+  'Закуп',
+  'Фортайм',
+  'Верона',
+  'Мороженое',
+  'Круассаны',
+  'Фортайм кондитер',
+  'Тартин',
+  'Аддуми',
+  'Сливки',
+  'Магазин',
+  'Техперсонал',
+  'Аванс сотруднику',
+  'Доставка до точки',
+  'Доставка до клиента',
+  'Декор / Интерьер',
+  'Ремонт оборудования',
+  'Ремонт на точке',
+  'Инвентарь',
+  'Прочее'
+];
 
+const selectedExpenses = [];
+function showExpenses() {
+  filterExpenses(document.getElementById('expense-search').value);
+}
+
+function filterExpenses(value) {
+  const dropdown = document.getElementById('expense-dropdown');
+  const search = value.trim().toLowerCase();
+
+  const found = smartExpenses.filter(name =>
+    name.toLowerCase().includes(search)
+  );
+
+  dropdown.innerHTML = found.map(name => `
+    <div class="dd-opt" onclick="selectExpense('${name}')">
+      <i class="ti ti-receipt"></i>
+      ${name}
+    </div>
+  `).join('');
+
+  dropdown.classList.remove('hidden');
+}
+
+function selectExpense(name) {
+  selectedExpenses.push({
+    name: name,
+    amount: 0
+  });
+
+  document.getElementById('expense-search').value = '';
+  document.getElementById('expense-dropdown').classList.add('hidden');
+
+  renderSelectedExpenses();
+}
+    function renderSelectedExpenses() {
+  const list = document.getElementById('selected-expenses-list');
+
+  if (!selectedExpenses.length) {
+    list.innerHTML = '<div style="font-size:13px;color:var(--muted)">Расходы не выбраны</div>';
+    recalcSelectedExpenses();
+    return;
+  }
+
+  list.innerHTML = selectedExpenses.map((item, index) => `
+    <div class="field-row">
+      <div class="field-label">${item.name}</div>
+
+      <input class="field-input"
+             type="number"
+             placeholder="0"
+             value="${item.amount || ''}"
+             oninput="updateSelectedExpense(${index}, this.value)">
+
+      <button class="tag-del" onclick="removeSelectedExpense(${index})">
+        ×
+      </button>
+    </div>
+  `).join('');
+
+  recalcSelectedExpenses();
+}
+
+function updateSelectedExpense(index, value) {
+  selectedExpenses[index].amount = parseFloat(value) || 0;
+  recalcSelectedExpenses();
+}
+
+function removeSelectedExpense(index) {
+  selectedExpenses.splice(index, 1);
+  renderSelectedExpenses();
+}
+
+function recalcSelectedExpenses() {
+  totalExp = selectedExpenses.reduce((sum, item) => sum + item.amount, 0);
+
+  document.getElementById('exp-grand-total').textContent =
+    totalExp.toLocaleString('ru-RU') + ' ₽';
+
+  calcDiff();
+}
 function toggleDoneChoice(prefix, i) {
   const btnId = prefix + '_btn_' + i;
   const dotId = prefix + '_dot_' + i;
@@ -2039,7 +2165,7 @@ function downloadRef(orderId) {
   });
 }
 
-buildSection(EXP_CATS,'cat-exp-container');
+
 buildSection(DEBT_CATS,'cat-debt-container');
 checkSubmit();
 </script>
