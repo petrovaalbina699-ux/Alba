@@ -4,14 +4,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>MÁHAN — Отчёты</title>
+<title>MÁHAN </title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;}
 .screen{display:none;} .screen.active{display:block;}
 :root{--brown:#8B6A53;--bg:#F6E9DD;--card:#FFF6EF;--text:#3E2C23;--muted:#7A6B62;--icon-bg:#F1E5D8;--soft-bg:rgba(139,106,83,0.12);--soft-color:#8B6A53;}
-body{background:var(--bg);font-family:'Inter',-apple-system,'SF Pro Display',sans-serif;}
+body{
+  background:
+    url('https://github.com/petrovaalbina699-ux/Alba/blob/main/1.png')
+        center center / cover no-repeat fixed;
+    font-family:'Inter',-apple-system,'SF Pro Display',sans-serif;
+    }
 .app-wrap{max-width:390px;margin:0 auto;min-height:100vh;background:var(--bg);}
 
 /* LOGO */
@@ -310,7 +315,13 @@ body{background:var(--bg);font-family:'Inter',-apple-system,'SF Pro Display',san
 
 <!-- ═══════════════════════════════ HOME ═══════════════════════════════ -->
 <div id="screen-home" class="screen active">
-  <div class="logo-plate-wrap"><div class="logo-plate"><div class="logo-plate-title">MÁHAN</div><div class="logo-plate-sub">Кофейня-кондитерская</div></div></div>
+  <div class="logo-plate-wrap">
+  <div class="logo-plate">
+    <img src="https://github.com/petrovaalbina699-ux/Alba/blob/main/2.png"
+         alt="Логотип"
+         style="max-width:90%;max-height:55px;object-fit:contain;">
+  </div>
+</div>
   <div class="menu-body"><div class="menu-list">
     <button class="menu-card" onclick="goShift()">
       <div class="menu-card-icon"><i class="ti ti-checkup-list"></i></div>
