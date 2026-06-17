@@ -27,21 +27,48 @@ body{
 }
 /* LOGO */
 .logo-plate-wrap{
-    padding-top:26px;
+    padding:26px 20px 0;
     display:flex;
     justify-content:center;
+}
+
 .logo-plate{
     width:85%;
-    height:68px;
-    background:#8B6A53;
-    border-radius:12px;
+    height:90px;
+
+    background:linear-gradient(
+        180deg,
+        #B68D73,
+        #9A755D
+    );
+
+    border-radius:18px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.10);
+
+    transform:rotate(-0.5deg);
 
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
 }
-.logo-plate-title{font-size:22px;font-weight:800;color:#FFF6EF;letter-spacing:5px;}
-.logo-plate-sub{font-size:9px;color:rgba(255,246,239,0.7);letter-spacing:2.5px;text-transform:uppercase;}
+
+.logo-title{
+    color:#FFF6EF;
+    font-size:32px;
+    font-weight:600;
+    letter-spacing:10px;
+    line-height:1;
+}
+
+.logo-subtitle{
+    color:rgba(255,246,239,0.75);
+    font-size:9px;
+    font-weight:600;
+    letter-spacing:2px;
+    margin-top:8px;
+}
 
 /* MENU */
 .menu-body{padding:20px 16px 16px;}
@@ -335,10 +362,10 @@ body{
 <div id="screen-home" class="screen active">
 <div class="logo-plate-wrap">
   <div class="logo-plate">
-     <div class="logo-title">MÁHAN</div>
-      <div class="logo-subtitle">КОМАНДА МЕЧТЫ!</div>
+    <div class="logo-title">MÁHAN</div>
+    <div class="logo-subtitle">КОФЕЙНЯ-КОНДИТЕРСКАЯ</div>
+  </div>
 </div>
-    </div>
   <div class="menu-body"><div class="menu-list">
     <button class="menu-card" onclick="goShift()">
       <div class="menu-card-icon"><i class="ti ti-checkup-list"></i></div>
