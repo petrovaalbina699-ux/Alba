@@ -1,0 +1,1595 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>MÁHAN — Отчёты</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+.screen{display:none;} .screen.active{display:block;}
+:root{--brown:#8B6A53;--bg:#F6E9DD;--card:#FFF6EF;--text:#3E2C23;--muted:#7A6B62;--icon-bg:#F1E5D8;--soft-bg:rgba(139,106,83,0.12);--soft-color:#8B6A53;}
+body{background:var(--bg);font-family:'Inter',-apple-system,'SF Pro Display',sans-serif;}
+.app-wrap{max-width:390px;margin:0 auto;min-height:100vh;background:var(--bg);}
+
+/* LOGO */
+.logo-plate-wrap{padding:26px 20px 0;display:flex;justify-content:center;}
+.logo-plate{width:85%;height:68px;background:var(--brown);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;}
+.logo-plate-title{font-size:22px;font-weight:600;color:#FFF6EF;letter-spacing:5px;}
+.logo-plate-sub{font-size:9px;color:rgba(255,246,239,0.7);letter-spacing:2.5px;text-transform:uppercase;}
+
+/* MENU */
+.menu-body{padding:20px 16px 16px;}
+.menu-list{display:flex;flex-direction:column;gap:10px;}
+.menu-card{background:var(--card);border-radius:16px;height:64px;padding:0 16px;display:flex;align-items:center;gap:14px;cursor:pointer;border:none;width:100%;text-align:left;font-family:inherit;box-shadow:0 2px 10px rgba(0,0,0,.04);transition:transform .13s;-webkit-tap-highlight-color:transparent;}
+.menu-card:active{transform:scale(.97);}
+.menu-card-icon{width:40px;height:40px;border-radius:10px;background:var(--icon-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--brown);font-size:20px;}
+.menu-card-text{flex:1;min-width:0;}
+.menu-card-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.menu-card-desc{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.menu-card-arrow{color:var(--muted);font-size:18px;flex-shrink:0;}
+
+/* TOPBAR */
+.shift-screen{background:var(--bg);min-height:100vh;}
+.shift-topbar{padding:20px 16px 0;display:flex;align-items:center;gap:12px;}
+.shift-back{width:36px;height:36px;border-radius:10px;background:var(--soft-bg);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--soft-color);font-size:20px;flex-shrink:0;-webkit-tap-highlight-color:transparent;}
+.shift-title{font-size:21px;font-weight:600;color:var(--text);}
+.shift-sub{font-size:13px;color:var(--muted);margin-top:2px;}
+
+/* STEPS */
+.steps-wrap{padding:18px 16px 0;}
+.steps-row{display:flex;align-items:center;}
+.step-item{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;}
+.step-circle{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;background:var(--soft-bg);color:var(--muted);border:none;transition:all .2s;}
+.step-circle.active{background:var(--brown);color:#fff;}
+.step-circle.done{background:#C4A98E;color:#fff;}
+.step-label{font-size:9px;color:var(--muted);text-align:center;}
+.step-label.active{color:var(--text);font-weight:600;}
+.step-line{flex:1;height:1.5px;background:rgba(139,106,83,.2);margin-bottom:12px;max-width:20px;}
+.step-line.done{background:#C4A98E;}
+
+/* BODY */
+.shift-body{padding:20px 16px 32px;}
+
+/* CARDS */
+.section-card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
+.section-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.field-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid rgba(62,44,35,.08);}
+.field-row:last-child{border-bottom:none;padding-bottom:0;}
+.field-row:first-of-type{padding-top:0;}
+.field-label{font-size:14px;color:var(--text);}
+.field-label small{display:block;font-size:11px;color:var(--muted);margin-top:1px;}
+.field-input{font-size:14px;font-family:inherit;border:none;outline:none;background:var(--icon-bg);border-radius:8px;padding:6px 10px;width:130px;text-align:right;color:var(--text);}
+.field-input.wide{width:170px;text-align:left;}
+.field-input:focus{box-shadow:0 0 0 2px rgba(139,106,83,.3);}
+
+/* SIMPLE FIELDS */
+.simple-field{padding:10px 0;border-bottom:.5px solid rgba(62,44,35,.08);}
+.simple-field:last-child{border-bottom:none;}
+.simple-label{font-size:13px;color:var(--muted);margin-bottom:6px;}
+.simple-input{width:100%;font-size:16px;font-weight:600;font-family:inherit;border:none;outline:none;background:transparent;color:var(--text);padding:0;}
+.simple-input:focus{color:var(--brown);}
+.simple-input::placeholder{font-weight:400;color:#C4A98E;font-size:15px;}
+.simple-textarea{width:100%;font-size:14px;font-family:inherit;border:none;outline:none;background:var(--icon-bg);border-radius:10px;padding:9px 12px;color:var(--text);resize:none;height:60px;margin-top:2px;}
+.simple-textarea:focus{box-shadow:0 0 0 2px rgba(139,106,83,.3);}
+.simple-textarea::placeholder{color:#C4A98E;}
+
+/* BUTTONS */
+.btn-row{display:flex;gap:10px;margin-top:8px;}
+.btn{flex:1;height:54px;background:var(--soft-bg);color:var(--soft-color);border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .12s,background .15s;-webkit-tap-highlight-color:transparent;}
+.btn i{pointer-events:none;}
+.btn:active{transform:scale(.98);background:rgba(139,106,83,.2);}
+.btn.icon-only{flex:0 0 54px;}
+.btn.primary{background:var(--brown);color:#fff;}
+.btn.primary:active{background:#7a5c45;}
+.btn.danger{background:#B03A2E;color:#fff;}
+.btn.success-btn{background:#2E7D32;color:#fff;}
+.btn:disabled{opacity:.55;cursor:default;transform:none;}
+.sync-status{margin-top:12px;background:rgba(139,106,83,.1);color:var(--muted);border-radius:12px;padding:10px 12px;font-size:12px;line-height:1.35;}
+.sync-status strong{display:block;color:var(--text);font-size:13px;margin-bottom:2px;}
+.sync-status.ok strong{color:#2E7D32;}
+.sync-status.warn strong{color:#8B3A10;}
+.sync-status.bad strong{color:#B03A2E;}
+
+/* DROPDOWN (shared) */
+.dd-wrap{position:relative;}
+.dd-input{width:100%;font-size:14px;font-family:inherit;border:1.5px solid rgba(139,106,83,.25);outline:none;background:var(--icon-bg);border-radius:10px;padding:9px 12px;color:var(--text);}
+.dd-input:focus{border-color:var(--brown);box-shadow:0 0 0 2px rgba(139,106,83,.15);}
+.dd-list{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--card);border-radius:12px;box-shadow:0 8px 24px rgba(62,44,35,.14);z-index:100;overflow:hidden;max-height:220px;overflow-y:auto;}
+.dd-list.hidden{display:none;}
+.dd-opt{padding:11px 14px;font-size:14px;color:var(--text);cursor:pointer;border-bottom:.5px solid rgba(62,44,35,.06);display:flex;align-items:center;gap:10px;-webkit-tap-highlight-color:transparent;}
+.dd-opt:last-child{border-bottom:none;}
+.dd-opt:hover,.dd-opt:active{background:rgba(139,106,83,.08);}
+.dd-opt.custom{color:var(--brown);font-weight:600;}
+
+/* TAGS */
+.tag-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;min-height:0;}
+.tag{display:inline-flex;align-items:center;gap:5px;background:rgba(139,106,83,.12);color:var(--brown);border-radius:20px;padding:4px 10px 4px 12px;font-size:13px;font-weight:600;}
+.tag-del{width:16px;height:16px;border-radius:50%;background:rgba(139,106,83,.2);border:none;color:var(--brown);font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0;}
+
+/* CLIENT CARD */
+.client-card{display:flex;align-items:center;gap:12px;background:rgba(139,106,83,.1);border-radius:12px;padding:12px 14px;margin-top:10px;}
+.client-avatar{width:40px;height:40px;border-radius:50%;background:var(--brown);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;flex-shrink:0;}
+.client-info{flex:1;}
+.client-info-name{font-size:15px;font-weight:600;color:var(--text);}
+.client-info-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.client-clear{width:28px;height:28px;border-radius:50%;background:rgba(139,106,83,.2);border:none;color:var(--brown);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+
+/* EXTRA BUTTONS */
+.add-extra-row{display:flex;gap:8px;padding-top:12px;flex-wrap:wrap;}
+.add-extra-btn{display:inline-flex;align-items:center;gap:5px;height:34px;padding:0 14px;background:var(--brown);color:#fff;border:none;border-radius:20px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;transition:transform .12s;-webkit-tap-highlight-color:transparent;}
+.add-extra-btn:active{transform:scale(.96);}
+.add-extra-btn.active{background:rgba(139,106,83,.15);color:var(--brown);}
+
+/* REF PHOTOS */
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;}
+.ref-thumb{aspect-ratio:1;border-radius:10px;overflow:hidden;position:relative;}
+.ref-thumb img{width:100%;height:100%;object-fit:cover;}
+.ref-del{position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.5);border:none;color:#fff;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+
+/* PHOTO CARD */
+.photo-card{background:var(--card);border-radius:16px;padding:14px 16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
+.photo-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;}
+.photo-required{font-size:10px;font-weight:600;color:#B03A2E;background:rgba(176,58,46,.1);padding:2px 7px;border-radius:20px;}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.photo-thumb{aspect-ratio:1;border-radius:10px;overflow:hidden;position:relative;background:var(--icon-bg);display:flex;align-items:center;justify-content:center;}
+.photo-thumb img{width:100%;height:100%;object-fit:cover;}
+.photo-thumb .del-btn{position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.5);border:none;color:#fff;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.photo-add{aspect-ratio:1;border-radius:10px;border:1.5px dashed rgba(139,106,83,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:4px;background:transparent;font-family:inherit;}
+.photo-add i{font-size:22px;color:var(--brown);}
+.photo-add span{font-size:10px;color:var(--muted);}
+.photo-add input{display:none;}
+
+/* FINANCE FIELDS */
+.finance-card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
+.fin-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid rgba(62,44,35,.08);}
+.fin-row:last-child{border-bottom:none;padding-bottom:0;}
+.fin-row:first-child{padding-top:0;}
+.fin-label{font-size:14px;color:var(--text);}
+.fin-input{font-size:14px;font-family:inherit;border:none;outline:none;background:var(--icon-bg);border-radius:8px;padding:6px 10px;width:130px;text-align:right;color:var(--text);}
+.fin-input:focus{box-shadow:0 0 0 2px rgba(139,106,83,.3);}
+.diff-block{padding-top:12px;margin-top:4px;}
+.diff-label{font-size:13px;color:var(--muted);margin-bottom:4px;}
+.diff-value{font-size:20px;font-weight:600;}
+.diff-value.ok{color:#2E7D32;} .diff-value.bad{color:#B03A2E;}
+.reason-block{margin-top:12px;display:none;}
+.reason-block.show{display:block;}
+.reason-label{font-size:12px;font-weight:600;color:#B03A2E;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+.reason-input{width:100%;font-size:13px;font-family:inherit;border:1.5px solid rgba(176,58,46,.4);outline:none;background:rgba(176,58,46,.04);border-radius:10px;padding:10px 12px;color:var(--text);resize:none;height:72px;}
+.reason-input:focus{border-color:#B03A2E;}
+
+/* CATALOG */
+.catalog-hint{font-size:13px;color:var(--muted);text-align:center;padding:12px 0 4px;}
+.catalog-item{display:flex;align-items:center;padding:10px 0;border-bottom:.5px solid rgba(62,44,35,.08);gap:10px;}
+.catalog-item:last-of-type{border-bottom:none;}
+.catalog-item-info{flex:1;min-width:0;}
+.catalog-item-name{font-size:14px;color:var(--text);}
+.catalog-item-sub{font-size:12px;color:var(--muted);margin-top:2px;transition:color .2s;}
+.catalog-item-sub.active{color:var(--brown);font-weight:600;}
+.qty-ctrl{display:flex;align-items:center;gap:0;background:var(--icon-bg);border-radius:20px;overflow:hidden;flex-shrink:0;}
+.qty-btn{width:30px;height:30px;border:none;background:none;color:var(--brown);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;-webkit-tap-highlight-color:transparent;}
+.qty-btn:active{background:rgba(139,106,83,.15);}
+.qty-num{min-width:24px;text-align:center;font-size:14px;font-weight:600;color:var(--text);}
+.qty-num.nonzero{color:var(--brown);}
+.catalog-total-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:390px;background:var(--card);border-top:.5px solid rgba(139,106,83,.2);box-shadow:0 -4px 16px rgba(62,44,35,.08);z-index:50;padding:12px 20px;padding-bottom:calc(12px + env(safe-area-inset-bottom));}
+.catalog-total-inner{display:flex;justify-content:space-between;align-items:center;}
+.catalog-total-label{font-size:13px;color:var(--muted);}
+.catalog-total-sum{font-size:16px;font-weight:600;color:var(--brown);}
+#screen-order-wholesale .shift-body{padding-bottom:90px;}
+.catalog-section-hdr{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:14px 0 6px;border-bottom:.5px solid rgba(62,44,35,.06);}
+.catalog-section-hdr:first-child{padding-top:4px;}
+
+/* TAB SWITCHER */
+.tab-row{display:flex;background:var(--card);border-radius:12px;padding:4px;margin-bottom:16px;gap:4px;}
+.tab-btn{flex:1;height:38px;border:none;border-radius:9px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent;background:transparent;color:var(--muted);}
+.tab-btn.active{background:var(--brown);color:#fff;}
+
+/* ORDER CARDS (list) */
+.order-card-mini{background:var(--card);border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,.04);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .12s;}
+.order-card-mini:active{transform:scale(.98);}
+.ocm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.ocm-num{font-size:13px;font-weight:600;color:var(--text);}
+.ocm-date{font-size:12px;color:var(--muted);}
+.ocm-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;}
+.badge-new{background:#FDE8D8;color:#8B3A10;}
+.badge-done{background:#D4EDDA;color:#1B5E20;}
+.badge-wholesale{background:rgba(139,106,83,.12);color:var(--brown);}
+.ocm-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.ocm-client{font-size:13px;color:var(--muted);}
+.ocm-price{font-size:15px;font-weight:600;color:var(--text);margin-top:6px;}
+
+/* ORDER FULL CARD */
+.order-full-section{background:var(--card);border-radius:16px;padding:14px 16px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
+.ofc-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:.5px solid rgba(62,44,35,.08);font-size:13px;}
+.ofc-row:last-child{border-bottom:none;}
+.ofc-row span:first-child{color:var(--muted);}
+.ofc-row span:last-child{color:var(--text);font-weight:600;text-align:right;max-width:60%;}
+.ofc-price-row{display:flex;justify-content:space-between;align-items:center;padding-top:10px;margin-top:4px;border-top:.5px solid rgba(62,44,35,.1);}
+.ofc-price-label{font-size:14px;font-weight:600;color:var(--text);}
+.ofc-price-val{font-size:20px;font-weight:600;color:var(--brown);}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:48px 16px;color:var(--muted);}
+.empty-state i{font-size:40px;display:block;margin-bottom:12px;opacity:.3;}
+
+/* SUCCESS/PREVIEW */
+.success-screen{text-align:center;padding:40px 0 16px;}
+.success-icon{width:64px;height:64px;background:var(--icon-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:28px;color:var(--brown);}
+.success-title{font-size:21px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.success-order-num{font-size:26px;font-weight:600;color:var(--brown);letter-spacing:2px;margin-bottom:20px;}
+.success-hint{font-size:12px;color:var(--muted);margin-bottom:8px;}
+.summary-line{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 4px;border-bottom:.5px solid rgba(62,44,35,.08);font-size:13px;cursor:pointer;border-radius:6px;transition:background .13s;}
+.summary-line:last-child{border-bottom:none;}
+.summary-line:hover,.summary-line:active{background:rgba(139,106,83,.07);}
+.summary-line span:first-child{color:var(--muted);flex-shrink:0;margin-right:12px;}
+.summary-line span:last-child{color:var(--text);font-weight:600;text-align:right;}
+.summary-line .edit-icon{color:rgba(139,106,83,.4);font-size:14px;flex-shrink:0;margin-left:6px;}
+.order-textarea{width:100%;font-size:13px;font-family:inherit;border:.5px solid rgba(139,106,83,.18);outline:none;background:var(--icon-bg);border-radius:8px;padding:8px 10px;color:var(--text);resize:none;height:80px;margin-top:4px;}
+.order-textarea:focus{box-shadow:0 0 0 2px rgba(139,106,83,.3);}
+
+/* ORDER TYPE CARDS */
+.order-type-card{background:var(--card);border-radius:20px;padding:28px 20px 20px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.04);display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer;transition:transform .13s;-webkit-tap-highlight-color:transparent;}
+.order-type-card:active{transform:scale(.98);}
+.order-type-icon-wrap{margin-bottom:16px;}
+.order-type-title{font-size:18px;font-weight:600;color:var(--text);margin-bottom:8px;}
+.order-type-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:20px;max-width:240px;}
+.order-type-btn{width:100%;max-width:280px;height:48px;background:var(--brown);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;}
+
+/* ── EXECUTION FORM ── */
+.exec-wrap { margin-top: 16px; }
+.exec-section { background: var(--card); border-radius: 16px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+.exec-section-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
+.exec-tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+.exec-tag { padding: 7px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1.5px solid rgba(139,106,83,.3); background: transparent; color: var(--muted); font-family: inherit; transition: all .15s; -webkit-tap-highlight-color: transparent; }
+.exec-tag.selected { background: var(--brown); color: #fff; border-color: var(--brown); }
+.exec-sub-fields { margin-top: 10px; }
+.exec-sub-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.exec-sub-label { font-size: 13px; color: var(--muted); min-width: 80px; flex-shrink: 0; }
+.exec-sub-input { flex: 1; font-size: 14px; font-family: inherit; border: none; outline: none; background: var(--icon-bg); border-radius: 8px; padding: 7px 10px; color: var(--text); }
+.exec-sub-input:focus { box-shadow: 0 0 0 2px rgba(139,106,83,.3); }
+.exec-simple-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; }
+.exec-simple-label { font-size: 14px; color: var(--text); }
+.exec-simple-input { font-size: 14px; font-family: inherit; border: none; outline: none; background: var(--icon-bg); border-radius: 8px; padding: 6px 10px; width: 120px; text-align: right; color: var(--text); }
+.exec-simple-input:focus { box-shadow: 0 0 0 2px rgba(139,106,83,.3); }
+.exec-note-input { width: 100%; font-size: 13px; font-family: inherit; border: .5px solid rgba(139,106,83,.2); outline: none; background: var(--icon-bg); border-radius: 8px; padding: 8px 10px; color: var(--text); resize: none; height: 60px; margin-top: 6px; }
+.exec-note-input:focus { box-shadow: 0 0 0 2px rgba(139,106,83,.3); }
+
+/* photo download link */
+.ref-download-link { display: block; font-size: 13px; color: var(--brown); font-weight: 600; text-decoration: none; margin-bottom: 6px; }
+.ref-download-link:before { content: '📎 '; }
+
+/* collapsed order card */
+.order-collapsed { background: var(--card); border-radius: 16px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+.order-collapsed-row { display: flex; justify-content: space-between; font-size: 13px; padding: 4px 0; }
+.order-collapsed-row span:first-child { color: var(--muted); }
+.order-collapsed-row span:last-child { color: var(--text); font-weight: 600; }
+</style>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+<div class="app-wrap">
+
+<!-- ═══════════════════════════════ HOME ═══════════════════════════════ -->
+<div id="screen-home" class="screen active">
+  <div class="logo-plate-wrap"><div class="logo-plate"><div class="logo-plate-title">MÁHAN</div><div class="logo-plate-sub">Кофейня-кондитерская</div></div></div>
+  <div class="menu-body"><div class="menu-list">
+    <button class="menu-card" onclick="goShift()">
+      <div class="menu-card-icon"><i class="ti ti-checkup-list"></i></div>
+      <div class="menu-card-text"><div class="menu-card-title">Отчёт по смене</div><div class="menu-card-desc">Итоги дня, выручка, передача смены</div></div>
+      <i class="ti ti-chevron-right menu-card-arrow"></i>
+    </button>
+    <button class="menu-card" onclick="go('screen-order-type')">
+      <div class="menu-card-icon"><i class="ti ti-shopping-bag"></i></div>
+      <div class="menu-card-text"><div class="menu-card-title">Оформление заказа клиента</div><div class="menu-card-desc">Индивидуальный или оптовый заказ</div></div>
+      <i class="ti ti-chevron-right menu-card-arrow"></i>
+    </button>
+    <button class="menu-card" onclick="go('screen-orders-list')">
+      <div class="menu-card-icon"><i class="ti ti-clipboard-list"></i></div>
+      <div class="menu-card-text"><div class="menu-card-title">Оформленные заказы</div><div class="menu-card-desc">Просмотр, выполнение и закрытие</div></div>
+      <i class="ti ti-chevron-right menu-card-arrow"></i>
+    </button>
+    <div class="sync-status warn" id="sync-status"><strong>Google Таблица не подключена</strong><span>После публикации Apps Script вставьте URL в настройку SHEETS_WEB_APP_URL.</span></div>
+  </div></div>
+</div>
+
+<!-- ═══════════════════ ОТЧЁТ: ШАГ 1 ═══════════════════ -->
+<div id="screen-shift-1" class="screen shift-screen">
+  <div class="shift-topbar"><button class="shift-back" onclick="go('screen-home')"><i class="ti ti-arrow-left"></i></button><div><div class="shift-title">Начало дня</div><div class="shift-sub">Шаг 1 из 4</div></div></div>
+  <div class="steps-wrap"><div class="steps-row">
+    <div class="step-item"><div class="step-circle active">1</div><div class="step-label active">Начало</div></div><div class="step-line"></div>
+    <div class="step-item"><div class="step-circle">2</div><div class="step-label">Расходы</div></div><div class="step-line"></div>
+    <div class="step-item"><div class="step-circle">3</div><div class="step-label">Долги</div></div><div class="step-line"></div>
+    <div class="step-item"><div class="step-circle">4</div><div class="step-label">Итоги</div></div>
+  </div></div>
+  <div class="shift-body">
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-calendar" style="font-size:13px"></i> Дата и сотрудник</div>
+      <div class="field-row"><div class="field-label">Дата смены</div><input class="field-input" type="date" id="p1-date"/></div>
+      <div class="field-row"><div class="field-label">Имя сотрудника</div><input class="field-input wide" type="text" id="p1-name" placeholder="Ваше имя"/></div>
+    </div>
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-cash" style="font-size:13px"></i> Касса на начало</div>
+      <div class="field-row"><div class="field-label">Сумма в кассе<small>₽</small></div><input class="field-input" type="number" id="p1-cash" placeholder="0" oninput="calcDiff()"/></div>
+    </div>
+    <div class="btn-row"><button class="btn" onclick="go('screen-shift-2')">Далее <i class="ti ti-chevron-right"></i></button></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ ОТЧЁТ: ШАГ 2 ═══════════════════ -->
+<div id="screen-shift-2" class="screen shift-screen">
+  <div class="shift-topbar"><button class="shift-back" onclick="go('screen-shift-1')"><i class="ti ti-arrow-left"></i></button><div><div class="shift-title">Расходы</div><div class="shift-sub">Шаг 2 из 4</div></div></div>
+  <div class="steps-wrap"><div class="steps-row">
+    <div class="step-item"><div class="step-circle done"><i class="ti ti-check" style="font-size:10px"></i></div><div class="step-label">Начало</div></div><div class="step-line done"></div>
+    <div class="step-item"><div class="step-circle active">2</div><div class="step-label active">Расходы</div></div><div class="step-line"></div>
+    <div class="step-item"><div class="step-circle">3</div><div class="step-label">Долги</div></div><div class="step-line"></div>
+    <div class="step-item"><div class="step-circle">4</div><div class="step-label">Итоги</div></div>
+  </div></div>
+  <div class="shift-body">
+    <div id="cat-exp-container"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 4px 4px;"><div style="font-size:15px;font-weight:600;color:var(--text)">Итого расходов</div><div style="font-size:18px;font-weight:600;color:var(--brown)" id="exp-grand-total">0 ₽</div></div>
+    <div class="btn-row" style="margin-top:16px"><button class="btn icon-only" onclick="go('screen-shift-1')"><i class="ti ti-arrow-left"></i></button><button class="btn" onclick="go('screen-shift-3')">Далее <i class="ti ti-chevron-right"></i></button></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ ОТЧЁТ: ШАГ 3 ═══════════════════ -->
+<div id="screen-shift-3" class="screen shift-screen">
+  <div class="shift-topbar"><button class="shift-back" onclick="go('screen-shift-2')"><i class="ti ti-arrow-left"></i></button><div><div class="shift-title">Долговые накладные</div><div class="shift-sub">Шаг 3 из 4</div></div></div>
+  <div class="steps-wrap"><div class="steps-row">
+    <div class="step-item"><div class="step-circle done"><i class="ti ti-check" style="font-size:10px"></i></div><div class="step-label">Начало</div></div><div class="step-line done"></div>
+    <div class="step-item"><div class="step-circle done"><i class="ti ti-check" style="font-size:10px"></i></div><div class="step-label">Расходы</div></div><div class="step-line done"></div>
+    <div class="step-item"><div class="step-circle active">3</div><div class="step-label active">Долги</div></div><div class="step-line"></div>
+    <div class="step-item"><div class="step-circle">4</div><div class="step-label">Итоги</div></div>
+  </div></div>
+  <div class="shift-body">
+    <div id="cat-debt-container"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 4px 4px;"><div style="font-size:15px;font-weight:600;color:var(--text)">Итого по накладным</div><div style="font-size:18px;font-weight:600;color:var(--brown)" id="debt-grand-total">0 ₽</div></div>
+    <div class="btn-row" style="margin-top:16px"><button class="btn icon-only" onclick="go('screen-shift-2')"><i class="ti ti-arrow-left"></i></button><button class="btn" onclick="go('screen-shift-4')">Далее <i class="ti ti-chevron-right"></i></button></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ ОТЧЁТ: ШАГ 4 ═══════════════════ -->
+<div id="screen-shift-4" class="screen shift-screen">
+  <div class="shift-topbar"><button class="shift-back" onclick="go('screen-shift-3')"><i class="ti ti-arrow-left"></i></button><div><div class="shift-title">Итоги смены</div><div class="shift-sub">Шаг 4 из 4</div></div></div>
+  <div class="steps-wrap"><div class="steps-row">
+    <div class="step-item"><div class="step-circle done"><i class="ti ti-check" style="font-size:10px"></i></div><div class="step-label">Начало</div></div><div class="step-line done"></div>
+    <div class="step-item"><div class="step-circle done"><i class="ti ti-check" style="font-size:10px"></i></div><div class="step-label">Расходы</div></div><div class="step-line done"></div>
+    <div class="step-item"><div class="step-circle done"><i class="ti ti-check" style="font-size:10px"></i></div><div class="step-label">Долги</div></div><div class="step-line done"></div>
+    <div class="step-item"><div class="step-circle active">4</div><div class="step-label active">Итоги</div></div>
+  </div></div>
+  <div class="shift-body">
+    <div class="photo-card">
+      <div class="photo-title">Фото накладных <span class="photo-required">Обязательно</span></div>
+      <div class="photo-grid" id="photo-grid"><label class="photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addPhotos(this)"></label></div>
+      <div id="photo-error" style="display:none;margin-top:8px;font-size:12px;color:#B03A2E;font-weight:600;">Прикрепите хотя бы одно фото</div>
+    </div>
+    <div class="finance-card">
+      <div class="section-label"><i class="ti ti-chart-bar" style="font-size:13px"></i> Выручка</div>
+      <div class="fin-row"><div class="fin-label">Выручка</div><input class="fin-input" type="number" id="f-revenue" placeholder="0" oninput="calcDiff()"/></div>
+      <div class="fin-row"><div class="fin-label">Безнал оплаты</div><input class="fin-input" type="number" id="f-card" placeholder="0" oninput="calcDiff()"/></div>
+      <div class="fin-row"><div class="fin-label">Инкассация</div><input class="fin-input" type="number" id="f-collect" placeholder="0" oninput="calcDiff()"/></div>
+      <div class="fin-row"><div class="fin-label">Остаток в кассе</div><input class="fin-input" type="number" id="f-remain" placeholder="0" oninput="calcDiff()"/></div>
+      <div class="diff-block"><div class="diff-label" id="diff-label">Излишек / Недостача</div><div class="diff-value" id="diff-value">—</div></div>
+      <div class="reason-block" id="reason-block"><div class="reason-label" style="margin-top:12px">⚠ Причина недостачи</div><textarea class="reason-input" id="reason-input" placeholder="Опишите причину..." oninput="checkSubmit()"></textarea></div>
+    </div>
+    <div class="btn-row"><button class="btn icon-only" onclick="go('screen-shift-3')"><i class="ti ti-arrow-left"></i></button><button class="btn primary" id="submit-btn" onclick="trySubmit()"><i class="ti ti-check"></i> Отправить</button></div>
+  </div>
+</div>
+
+<!-- ═══════════════ ВЫБОР ТИПА ЗАКАЗА ═══════════════ -->
+<div id="screen-order-type" class="screen shift-screen">
+  <div class="shift-topbar"><button class="shift-back" onclick="go('screen-home')"><i class="ti ti-arrow-left"></i></button><div><div class="shift-title">Оформление заказа</div><div class="shift-sub">Выберите тип заказа</div></div></div>
+  <div class="shift-body" style="padding-top:24px">
+    <div class="order-type-card" onclick="go('screen-order-individual')">
+      <div class="order-type-icon-wrap"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="#F1E5D8"/><g stroke="#8B6A53" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><ellipse cx="32" cy="38" rx="13" ry="6"/><path d="M19 38v4c0 3.31 5.82 6 13 6s13-2.69 13-6v-4"/><rect x="24" y="28" width="16" height="6" rx="1"/><path d="M28 28v-4a4 4 0 0 1 8 0v4"/><circle cx="32" cy="22" r="2" fill="#8B6A53"/><path d="M32 20v-3"/></g></svg></div>
+      <div class="order-type-title">Индивидуальный заказ</div>
+      <div class="order-type-desc">Заказ десертов, тортов и другой продукции для частных клиентов</div>
+      <div class="order-type-btn">Выбрать</div>
+    </div>
+    <div class="order-type-card" onclick="go('screen-order-wholesale')">
+      <div class="order-type-icon-wrap"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="#F1E5D8"/><g stroke="#8B6A53" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="18" y="26" width="28" height="22" rx="2"/><path d="M24 26v-4a8 8 0 0 1 16 0v4"/><path d="M18 34h28"/><path d="M26 30v8"/><path d="M38 30v8"/></g></svg></div>
+      <div class="order-type-title">Оптовый заказ</div>
+      <div class="order-type-desc">Заказ продукции оптом для кафе, магазинов и компаний</div>
+      <div class="order-type-btn">Выбрать</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ ИНДИВИДУАЛЬНЫЙ ЗАКАЗ ═══════════════ -->
+<div id="screen-order-individual" class="screen shift-screen">
+  <div class="shift-topbar"><button class="shift-back" onclick="go('screen-order-type')"><i class="ti ti-arrow-left"></i></button><div><div class="shift-title">Индивидуальный заказ</div><div class="shift-sub">Заполните данные</div></div></div>
+  <div class="shift-body">
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-user" style="font-size:13px"></i> Клиент</div>
+      <div class="field-row"><div class="field-label">Имя клиента</div><input class="field-input wide" type="text" id="ind-name" placeholder="Имя"/></div>
+      <div class="field-row"><div class="field-label">Телефон</div><input class="field-input wide" type="tel" id="ind-phone" placeholder="+7..."/></div>
+    </div>
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-cake" style="font-size:13px"></i> Параметры торта</div>
+      <div class="simple-field">
+        <div class="simple-label">Название торта</div>
+        <input class="simple-input" type="text" id="ind-cake-name" placeholder="Например: Наполеон, Медовик..."/>
+      </div>
+      <div class="simple-field">
+        <div class="simple-label">Вес торта (кг)</div>
+        <input class="simple-input" type="number" id="ind-weight" placeholder="0.0" step="0.1"/>
+      </div>
+      <div class="simple-field">
+        <div class="simple-label">Диаметр торта (см)</div>
+        <input class="simple-input" type="number" id="ind-diameter" placeholder="0"/>
+      </div>
+      <div class="simple-field">
+        <div class="simple-label">Начинка</div>
+        <div class="dd-wrap">
+          <input class="dd-input" type="text" id="filling-search" placeholder="Начните вводить начинку..." autocomplete="off" oninput="filterFillings(this.value)" onfocus="showFillingDropdown()"/>
+          <div class="dd-list hidden" id="filling-dropdown"></div>
+        </div>
+        <div class="tag-wrap" id="filling-tags"></div>
+      </div>
+      <div class="simple-field">
+        <div class="simple-label">Декор</div>
+        <textarea class="simple-textarea" id="ind-decor" placeholder="Опишите декор..."></textarea>
+      </div>
+      <div class="simple-field" id="inscription-row" style="display:none">
+        <div class="simple-label">Надпись на торте</div>
+        <input class="simple-input" type="text" id="ind-inscription" placeholder="Текст надписи..."/>
+      </div>
+      <div class="add-extra-row">
+        <button class="add-extra-btn" id="btn-add-inscription" onclick="toggleExtra('inscription')"><i class="ti ti-plus"></i> Надпись</button>
+        <button class="add-extra-btn" id="btn-add-ref" onclick="triggerRefPhoto()"><i class="ti ti-plus"></i> Референс</button>
+        <input type="file" id="ref-input" accept="image/*" multiple style="display:none" onchange="addRefPhotos(this)"/>
+      </div>
+      <div id="ref-photos-wrap" style="display:none;padding-top:12px">
+        <div class="simple-label" style="margin-bottom:8px">Фото-референс</div>
+        <div class="ref-grid" id="ref-grid"></div>
+      </div>
+    </div>
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-calendar" style="font-size:13px"></i> Дата и время выдачи</div>
+      <div class="field-row"><div class="field-label">Дата</div><input class="field-input" type="date" id="ind-date"/></div>
+      <div class="field-row"><div class="field-label">Время</div><input class="field-input" type="time" id="ind-time"/></div>
+    </div>
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-cash" style="font-size:13px"></i> Цена</div>
+      <div class="field-row"><div class="field-label">Сумма заказа, ₽</div><input class="field-input" type="number" id="ind-price" placeholder="0"/></div>
+      <div class="field-row"><div class="field-label">Предоплата, ₽</div><input class="field-input" type="number" id="ind-prepay" placeholder="0"/></div>
+    </div>
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-message" style="font-size:13px"></i> Комментарий</div>
+      <textarea class="order-textarea" id="ind-note" placeholder="Пожелания, аллергии, доставка..."></textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn icon-only" onclick="go('screen-order-type')"><i class="ti ti-arrow-left"></i></button>
+      <button class="btn primary" onclick="submitIndividual()"><i class="ti ti-send"></i> Отправить заявку</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ ОПТОВЫЙ ЗАКАЗ ═══════════════ -->
+<div id="screen-order-wholesale" class="screen shift-screen">
+  <div class="shift-topbar"><button class="shift-back" onclick="go('screen-order-type')"><i class="ti ti-arrow-left"></i></button><div><div class="shift-title">Оптовый заказ</div><div class="shift-sub">Заполните данные</div></div></div>
+  <div class="shift-body">
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-building" style="font-size:13px"></i> Укажите клиента</div>
+      <div class="dd-wrap">
+        <input class="dd-input" type="text" id="who-name" placeholder="Начните вводить имя..." autocomplete="off" oninput="filterClients(this.value)" onfocus="showClients()"/>
+        <div class="dd-list hidden" id="client-dropdown"></div>
+      </div>
+      <div id="client-selected-block" style="display:none">
+        <div class="client-card" id="client-selected-card"></div>
+      </div>
+    </div>
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-user" style="font-size:13px"></i> Ответственный сотрудник</div>
+      <div class="dd-wrap">
+        <input class="dd-input" type="text" id="who-staff" placeholder="Выберите сотрудника..." autocomplete="off" readonly onclick="toggleStaffDD()"/>
+        <div class="dd-list hidden" id="staff-dropdown"></div>
+      </div>
+    </div>
+    <div class="section-card" id="catalog-card">
+      <div class="section-label"><i class="ti ti-basket" style="font-size:13px"></i> Состав заказа</div>
+      <div id="catalog-hint" class="catalog-hint">Выберите клиента, чтобы увидеть каталог</div>
+      <div id="catalog-list" style="display:none"></div>
+    </div>
+    <div id="catalog-total-row" class="catalog-total-bar" style="display:none">
+      <div class="catalog-total-inner">
+        <div class="catalog-total-label">Позиций: <span id="catalog-count">0</span></div>
+        <div class="catalog-total-sum">Сумма: <span id="catalog-sum">0 ₽</span></div>
+      </div>
+    </div>
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-calendar" style="font-size:13px"></i> Дата и время поставки</div>
+      <div class="field-row"><div class="field-label">Дата</div><input class="field-input" type="date" id="who-date"/></div>
+      <div class="field-row"><div class="field-label">Время</div><input class="field-input" type="time" id="who-time"/></div>
+    </div>
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-cash" style="font-size:13px"></i> Оплата</div>
+      <div class="field-row"><div class="field-label">Предоплата, ₽</div><input class="field-input" type="number" id="who-prepay" placeholder="0"/></div>
+    </div>
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-message" style="font-size:13px"></i> Комментарий</div>
+      <textarea class="order-textarea" id="who-note" placeholder="Условия доставки, пожелания..."></textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn icon-only" onclick="go('screen-order-type')"><i class="ti ti-arrow-left"></i></button>
+      <button class="btn primary" onclick="submitWholesale()"><i class="ti ti-send"></i> Отправить заявку</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ СПИСОК ЗАКАЗОВ ═══════════════ -->
+<div id="screen-orders-list" class="screen shift-screen">
+  <div class="shift-topbar"><button class="shift-back" onclick="go('screen-home')"><i class="ti ti-arrow-left"></i></button><div><div class="shift-title">Оформленные заказы</div></div></div>
+  <div class="shift-body" style="padding-top:16px">
+    <div class="tab-row">
+      <button class="tab-btn active" id="tab-ind" onclick="switchTab('ind')">Индивидуальные</button>
+      <button class="tab-btn" id="tab-opt" onclick="switchTab('opt')">Оптовые</button>
+    </div>
+    <div id="orders-ind-list"></div>
+    <div id="orders-opt-list" style="display:none"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ ПОЛНАЯ КАРТОЧКА ЗАКАЗА ═══════════════ -->
+<div id="screen-order-detail" class="screen shift-screen">
+  <div class="shift-topbar"><button class="shift-back" id="detail-back-btn" onclick="go('screen-orders-list')"><i class="ti ti-arrow-left"></i></button><div><div class="shift-title" id="detail-title">Заказ</div></div></div>
+  <div class="shift-body" style="padding-top:16px">
+    <div id="detail-content"></div>
+    <div class="btn-row" id="detail-actions"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ PREVIEW / SUCCESS ═══════════════ -->
+<div id="screen-success" class="screen shift-screen">
+  <div class="shift-body">
+    <div class="success-screen">
+      <div id="success-icon-area"><div class="success-icon"><i class="ti ti-clipboard-check"></i></div></div>
+      <div class="success-title" id="success-title-text">Проверьте данные</div>
+      <div class="success-order-num" id="success-order-num"></div>
+      <div class="section-card" style="text-align:left;margin-bottom:12px">
+        <div class="section-label" id="summary-label">Сводка</div>
+        <div id="summary-lines"></div>
+      </div>
+      <div class="success-hint" id="success-hint">Нажмите на строку, чтобы исправить данные</div>
+      <div class="btn-row" style="margin-top:12px">
+        <button class="btn primary" id="success-main-btn"><i class="ti ti-check" id="success-btn-icon"></i><span id="success-btn-text">Подтвердить</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /app-wrap -->
+
+<script>
+/* ════════════════════════════════════════════
+   GLOBALS
+════════════════════════════════════════════ */
+let indCount = 0, optCount = 0;
+let currentReviewType = '';
+let allOrders = []; // {id, type, num, data, status:'new'|'done'|'closed'}
+let detailOrderId = null;
+let totalExp = 0, totalDebt = 0;
+const photos = [];
+const refPhotos = [];
+const selectedFillings = [];
+let selectedClient = null;
+let inscriptionVisible = false;
+const catalogQty = {};
+
+/* ════════════════════════════════════════════
+   TELEGRAM + GOOGLE SHEETS
+════════════════════════════════════════════ */
+const SHEETS_WEB_APP_URL = ''; // Вставьте URL Google Apps Script Web App после публикации.
+const APP_VERSION = 'mahan-webapp-1.0';
+let pendingSubmission = null;
+let telegramUser = null;
+
+function initTelegramApp() {
+  const tg = window.Telegram && window.Telegram.WebApp;
+  if (!tg) return;
+  tg.ready();
+  tg.expand();
+  telegramUser = tg.initDataUnsafe && tg.initDataUnsafe.user ? tg.initDataUnsafe.user : null;
+  if (tg.themeParams) {
+    document.documentElement.style.setProperty('--tg-bg', tg.themeParams.bg_color || '');
+  }
+}
+
+function getTelegramMeta() {
+  const tg = window.Telegram && window.Telegram.WebApp;
+  const user = telegramUser || {};
+  return {
+    user_id: user.id || '',
+    username: user.username ? '@' + user.username : '',
+    first_name: user.first_name || '',
+    last_name: user.last_name || '',
+    language_code: user.language_code || '',
+    init_data: tg ? tg.initData || '' : '',
+    platform: tg ? tg.platform || '' : '',
+    app_version: APP_VERSION,
+  };
+}
+
+function updateSyncStatus(state, title, text) {
+  const el = document.getElementById('sync-status');
+  if (!el) return;
+  el.className = 'sync-status ' + state;
+  el.innerHTML = `<strong>${title}</strong><span>${text}</span>`;
+}
+
+function refreshSyncStatus() {
+  if (!SHEETS_WEB_APP_URL) {
+    updateSyncStatus('warn', 'Google Таблица не подключена', 'После публикации Apps Script вставьте URL в настройку SHEETS_WEB_APP_URL.');
+    return;
+  }
+  const userText = telegramUser ? `Telegram: ${telegramUser.first_name || ''} ${telegramUser.username ? '(@' + telegramUser.username + ')' : ''}`.trim() : 'Telegram Web App готов';
+  updateSyncStatus('ok', 'Интеграция подключена', userText);
+}
+
+async function sendToSheets(action, payload) {
+  if (!SHEETS_WEB_APP_URL) {
+    throw new Error('Не указан SHEETS_WEB_APP_URL');
+  }
+  const body = {
+    action,
+    created_at: new Date().toISOString(),
+    telegram: getTelegramMeta(),
+    payload,
+  };
+  await fetch(SHEETS_WEB_APP_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {'Content-Type': 'text/plain;charset=utf-8'},
+    body: JSON.stringify(body),
+  });
+}
+
+function setButtonLoading(btn, loading, text) {
+  if (!btn) return;
+  btn.disabled = loading;
+  if (text) document.getElementById('success-btn-text').textContent = text;
+}
+
+function collectItems(cats) {
+  const rows = [];
+  cats.forEach(cat => cat.items.forEach(item => {
+    const state = itemState[item.id];
+    if (!state || !state.selected || !state.amount) return;
+    const noteEl = document.getElementById('note_' + item.id);
+    rows.push({
+      category: cat.label,
+      item: item.label,
+      amount: state.amount,
+      note: noteEl ? noteEl.value.trim() : '',
+    });
+  }));
+  return rows;
+}
+
+function collectShiftData(lines) {
+  return {
+    date: document.getElementById('p1-date').value || '',
+    employee: document.getElementById('p1-name').value || '',
+    start_cash: parseFloat(document.getElementById('p1-cash').value) || 0,
+    expenses_total: totalExp,
+    debts_total: totalDebt,
+    expenses: collectItems(EXP_CATS),
+    debts: collectItems(DEBT_CATS),
+    revenue: parseFloat(document.getElementById('f-revenue').value) || 0,
+    card: parseFloat(document.getElementById('f-card').value) || 0,
+    collection: parseFloat(document.getElementById('f-collect').value) || 0,
+    cash_remain: parseFloat(document.getElementById('f-remain').value) || 0,
+    diff_label: document.getElementById('diff-label').textContent,
+    diff_value: document.getElementById('diff-value').textContent,
+    shortage_reason: document.getElementById('reason-input').value.trim(),
+    invoice_photo_count: photos.length,
+    lines: lines || [],
+  };
+}
+
+/* ════════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════════ */
+function go(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+  if (id === 'screen-order-wholesale') initWholesaleDefaults();
+  if (id === 'screen-orders-list') renderOrdersList();
+}
+function goShift() {
+  document.getElementById('p1-date').value = new Date().toISOString().split('T')[0];
+  go('screen-shift-1');
+}
+function initWholesaleDefaults() {
+  const d = document.getElementById('who-date');
+  const t = document.getElementById('who-time');
+  if (!d.value) {
+    const tom = new Date(); tom.setDate(tom.getDate()+1);
+    d.value = tom.toISOString().split('T')[0];
+  }
+  if (!t.value) t.value = '12:00';
+}
+
+/* ════════════════════════════════════════════
+   EXPENSE CATS (shift step 2 & 3)
+════════════════════════════════════════════ */
+const EXP_CATS = [
+  {id:'zakup',label:'Закуп и поставщики',items:[
+    {id:'e_zakup_mokhm',label:'Закуп (Мохьмада)'},{id:'e_zakup_fort',label:'Фортайм'},
+    {id:'e_zakup_ver',label:'Верона'},{id:'e_zakup_ice',label:'Мороженое'},
+    {id:'e_zakup_crois',label:'Круассаны'},{id:'e_zakup_fortk',label:'Фортайм кондитер'},
+    {id:'e_zakup_tart',label:'Тартин'},{id:'e_zakup_add',label:'Аддуми'},
+    {id:'e_zakup_cream',label:'Сливки'},
+    {id:'e_zakup_other',label:'Другой поставщик',note:true},
+    {id:'e_zakup_shop',label:'Магазин',note:true},
+  ]},
+  {id:'salary',label:'Зарплата и авансы',items:[
+    {id:'e_sal_tech',label:'Техперсонал'},{id:'e_sal_adv',label:'Аванс сотруднику',note:true},
+  ]},
+  {id:'delivery',label:'Доставка',items:[
+    {id:'e_del_point',label:'До точки'},{id:'e_del_client',label:'До клиента'},
+  ]},
+  {id:'other',label:'Прочее',items:[
+    {id:'e_oth_misc',label:'Прочее'},
+    {id:'e_oth_decor',label:'Декор / Интерьер',note:true,notePh:'Цветы, свечи и т.п.'},
+    {id:'e_oth_eqrep',label:'Ремонт оборудования'},
+    {id:'e_oth_rep',label:'Ремонт на точке'},
+    {id:'e_oth_inv',label:'Инвентарь'},
+  ]},
+];
+const DEBT_CATS = [
+  {id:'debt',label:'Долговые накладные',items:[
+    {id:'d_debt_dom',label:'Дом кондитера'},{id:'d_debt_kon',label:'Коника'},
+    {id:'d_debt_gold',label:'Золотой'},{id:'d_debt_other',label:'Другой поставщик',note:true},
+  ]},
+];
+const itemState = {};
+
+function buildSection(cats, containerId) {
+  const c = document.getElementById(containerId);
+  c.innerHTML = cats.map(cat => {
+    const rows = cat.items.map(item => {
+      itemState[item.id] = {selected:false, amount:0};
+      const note = item.note ? `<textarea class="simple-textarea" style="height:40px;margin-top:6px" id="note_${item.id}" placeholder="${item.notePh||'Комментарий...'}"></textarea>` : '';
+      return `<div>
+        <div class="catalog-item" id="row_${item.id}" data-id="${item.id}" data-cat="${cat.id}" data-cont="${containerId}" style="cursor:pointer" onclick="toggleExpItem('${item.id}','${cat.id}','${containerId}')">
+          <div class="catalog-item-info"><div class="catalog-item-name">${item.label}</div></div>
+          <div class="item-dot" id="dot_${item.id}" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #C4A98E;flex-shrink:0;margin-right:4px"></div>
+        </div>
+        <div id="inp_${item.id}" style="display:none;padding:6px 0 8px 12px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="font-size:12px;color:var(--muted);width:64px">Сумма, ₽</div>
+            <input style="flex:1;font-size:14px;font-family:inherit;border:none;outline:none;background:var(--card);border-radius:8px;padding:6px 10px;text-align:right;color:var(--text)" type="number" id="amt_${item.id}" placeholder="0" oninput="updateExpAmt('${item.id}','${cat.id}','${containerId}')"/>
+          </div>${note}
+        </div>
+      </div>`;
+    }).join('');
+    return `<div style="margin-bottom:12px">
+      <button type="button" style="width:100%;height:54px;background:var(--brown);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:600;font-family:inherit;display:flex;align-items:center;justify-content:space-between;padding:0 18px;cursor:pointer" onclick="toggleExpCat('${cat.id}')">
+        <span>${cat.label}</span>
+        <div style="display:flex;align-items:center;gap:8px;pointer-events:none">
+          <span style="font-size:13px;font-weight:600;opacity:.85" id="camt_${cat.id}"></span>
+          <i class="ti ti-chevron-down" id="cchev_${cat.id}" style="font-size:18px;transition:transform .25s"></i>
+        </div>
+      </button>
+      <div id="clist_${cat.id}" style="display:none;background:var(--card);border-radius:0 0 12px 12px;padding:0 12px">${rows}</div>
+    </div>`;
+  }).join('');
+}
+
+function toggleExpCat(catId) {
+  const l = document.getElementById('clist_'+catId);
+  const ch = document.getElementById('cchev_'+catId);
+  const open = l.style.display === 'none';
+  l.style.display = open ? 'block' : 'none';
+  ch.style.transform = open ? 'rotate(180deg)' : '';
+}
+
+function toggleExpItem(itemId, catId, cont) {
+  const s = itemState[itemId];
+  s.selected = !s.selected;
+  const dot = document.getElementById('dot_'+itemId);
+  dot.style.background = s.selected ? 'var(--brown)' : '';
+  dot.style.borderColor = s.selected ? 'var(--brown)' : '#C4A98E';
+  const inp = document.getElementById('inp_'+itemId);
+  inp.style.display = s.selected ? 'block' : 'none';
+  if (!s.selected) { s.amount=0; const f=document.getElementById('amt_'+itemId); if(f) f.value=''; }
+  recalcExpCat(catId, cont);
+}
+
+function updateExpAmt(itemId, catId, cont) {
+  itemState[itemId].amount = parseFloat(document.getElementById('amt_'+itemId).value)||0;
+  recalcExpCat(catId, cont);
+}
+
+function recalcExpCat(catId, cont) {
+  const cats = cont==='cat-exp-container' ? EXP_CATS : DEBT_CATS;
+  const cat = cats.find(c=>c.id===catId); if(!cat) return;
+  const t = cat.items.reduce((s,i)=>s+(itemState[i.id].selected?itemState[i.id].amount:0),0);
+  const el = document.getElementById('camt_'+catId); if(el) el.textContent=t>0?t.toLocaleString('ru-RU')+' ₽':'';
+  let grand=0;
+  cats.forEach(c=>{ grand+=c.items.reduce((s,i)=>s+(itemState[i.id].selected?itemState[i.id].amount:0),0); });
+  const totalId = cont==='cat-exp-container'?'exp-grand-total':'debt-grand-total';
+  document.getElementById(totalId).textContent=grand.toLocaleString('ru-RU')+' ₽';
+  if(cont==='cat-exp-container') totalExp=grand; else totalDebt=grand;
+  calcDiff();
+}
+
+/* ════════════════════════════════════════════
+   SHIFT STEP 4 — FINANCE
+════════════════════════════════════════════ */
+function calcDiff() {
+  const startCash = parseFloat(document.getElementById('p1-cash').value)||0;
+  const revenue   = parseFloat(document.getElementById('f-revenue').value)||0;
+  const card      = parseFloat(document.getElementById('f-card').value)||0;
+  const collect   = parseFloat(document.getElementById('f-collect').value)||0;
+  const remain    = parseFloat(document.getElementById('f-remain').value)||0;
+  const el   = document.getElementById('diff-value');
+  const lbl  = document.getElementById('diff-label');
+  const rb   = document.getElementById('reason-block');
+  if(!revenue && !remain) { el.textContent='—'; el.className='diff-value'; return; }
+  const expected = startCash + revenue - totalExp - card - collect;
+  const diff = expected - remain;
+  if(diff > 0) {
+    lbl.textContent='Недостача'; el.textContent='-'+diff.toLocaleString('ru-RU')+' ₽'; el.className='diff-value bad'; rb.classList.add('show');
+  } else {
+    const s=Math.abs(diff); lbl.textContent=s>0?'Излишек':'Сходится'; el.textContent=s>0?'+'+s.toLocaleString('ru-RU')+' ₽':'0 ₽'; el.className='diff-value ok'; rb.classList.remove('show');
+  }
+  checkSubmit();
+}
+function checkSubmit() {
+  const bad = document.getElementById('diff-value').classList.contains('bad');
+  const reason = document.getElementById('reason-input').value.trim();
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = bad && !reason;
+  btn.style.opacity = (bad && !reason) ? '0.45' : '1';
+}
+function trySubmit() {
+  if(photos.length===0) { document.getElementById('photo-error').style.display='block'; return; }
+  buildShiftSummary();
+}
+function addPhotos(input) {
+  Array.from(input.files).forEach(f=>{const r=new FileReader();r.onload=e=>{photos.push(e.target.result);renderPhotos();};r.readAsDataURL(f);});
+  input.value='';
+}
+function renderPhotos() {
+  const g=document.getElementById('photo-grid');
+  g.innerHTML=photos.map((s,i)=>`<div class="photo-thumb"><img src="${s}"><button class="del-btn" onclick="photos.splice(${i},1);renderPhotos()"><i class="ti ti-x"></i></button></div>`).join('')+`<label class="photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addPhotos(this)"></label>`;
+  document.getElementById('photo-error').style.display='none';
+}
+function buildShiftSummary() {
+  const lines=[
+    {k:'Дата',v:document.getElementById('p1-date').value||'—',screen:'screen-shift-1'},
+    {k:'Сотрудник',v:document.getElementById('p1-name').value||'—',screen:'screen-shift-1'},
+    {k:'Касса на начало',v:fmt(document.getElementById('p1-cash').value),screen:'screen-shift-1'},
+  ];
+  [...EXP_CATS,...DEBT_CATS].forEach(cat=>cat.items.forEach(item=>{
+    const s=itemState[item.id]; if(s.selected&&s.amount>0) lines.push({k:item.label,v:fmt(s.amount),screen:'screen-shift-2'});
+  }));
+  lines.push(
+    {k:'Выручка',v:fmt(document.getElementById('f-revenue').value),screen:'screen-shift-4'},
+    {k:'Безнал',v:fmt(document.getElementById('f-card').value),screen:'screen-shift-4'},
+    {k:'Инкассация',v:fmt(document.getElementById('f-collect').value),screen:'screen-shift-4'},
+    {k:'Остаток в кассе',v:fmt(document.getElementById('f-remain').value),screen:'screen-shift-4'},
+    {k:document.getElementById('diff-label').textContent,v:document.getElementById('diff-value').textContent,screen:null},
+  );
+  const reason=document.getElementById('reason-input').value.trim();
+  if(reason) lines.push({k:'Причина недостачи',v:reason,screen:'screen-shift-4'});
+  pendingSubmission = {action:'shift_report', payload:collectShiftData(lines)};
+  showPreview('shift','Отчёт по смене','Смена',lines,confirmShift);
+}
+async function confirmShift() {
+  const btn = document.getElementById('success-main-btn');
+  setButtonLoading(btn, true, 'Отправка...');
+  try {
+    await sendToSheets(pendingSubmission.action, pendingSubmission.payload);
+    confirmPreview('Отчёт отправлен!','');
+  } catch (err) {
+    confirmPreview('Не отправлено в таблицу','');
+    document.getElementById('success-hint').style.display='block';
+    document.getElementById('success-hint').textContent=err.message;
+  } finally {
+    setButtonLoading(btn, false);
+  }
+}
+
+/* ════════════════════════════════════════════
+   FILLINGS
+════════════════════════════════════════════ */
+const FILLINGS_LIST=['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'];
+
+function filterFillings(q) {
+  q=q.trim().toLowerCase();
+  const dd=document.getElementById('filling-dropdown');
+  dd.classList.remove('hidden');
+  let matches=FILLINGS_LIST.filter(f=>f.toLowerCase().includes(q)&&!selectedFillings.includes(f));
+  let h=matches.map(f=>`<div class="dd-opt" onclick="addFilling('${f}')"><i class="ti ti-circle-check" style="color:var(--brown);font-size:14px"></i>${f}</div>`).join('');
+  if(q&&!FILLINGS_LIST.some(f=>f.toLowerCase()===q)&&!selectedFillings.includes(q)){
+    h+=`<div class="dd-opt custom" onclick="addFillingCustom()"><i class="ti ti-plus" style="font-size:14px"></i>Добавить «${q}»</div>`;
+  }
+  if(!h){dd.classList.add('hidden');return;}
+  dd.innerHTML=h;
+}
+function showFillingDropdown(){filterFillings(document.getElementById('filling-search').value);}
+function addFilling(name){if(!name.trim()||selectedFillings.includes(name)) return; selectedFillings.push(name);renderFillingTags();document.getElementById('filling-search').value='';document.getElementById('filling-dropdown').classList.add('hidden');}
+function addFillingCustom(){const v=document.getElementById('filling-search').value.trim();if(v)addFilling(v);}
+function removeFilling(name){const i=selectedFillings.indexOf(name);if(i>-1)selectedFillings.splice(i,1);renderFillingTags();}
+function renderFillingTags(){const w=document.getElementById('filling-tags');w.innerHTML=selectedFillings.map(f=>`<div class="tag">${f}<button class="tag-del" onclick="removeFilling('${f}')"><i class="ti ti-x"></i></button></div>`).join('');}
+
+/* ════════════════════════════════════════════
+   INSCRIPTION + REF PHOTOS
+════════════════════════════════════════════ */
+function toggleExtra(type){
+  if(type==='inscription'){
+    inscriptionVisible=!inscriptionVisible;
+    document.getElementById('inscription-row').style.display=inscriptionVisible?'block':'none';
+    const btn=document.getElementById('btn-add-inscription');
+    btn.classList.toggle('active',inscriptionVisible);
+    btn.innerHTML=inscriptionVisible?'<i class="ti ti-minus"></i> Надпись':'<i class="ti ti-plus"></i> Надпись';
+    if(inscriptionVisible) document.getElementById('ind-inscription').focus();
+  }
+}
+function triggerRefPhoto(){document.getElementById('ref-input').click();}
+function addRefPhotos(input){Array.from(input.files).forEach(f=>{const r=new FileReader();r.onload=e=>{refPhotos.push(e.target.result);renderRefPhotos();};r.readAsDataURL(f);});input.value='';}
+function removeRefPhoto(i){refPhotos.splice(i,1);renderRefPhotos();}
+function renderRefPhotos(){
+  const w=document.getElementById('ref-photos-wrap'),g=document.getElementById('ref-grid');
+  if(!refPhotos.length){w.style.display='none';document.getElementById('btn-add-ref').classList.remove('active');return;}
+  w.style.display='block'; document.getElementById('btn-add-ref').classList.add('active');
+  g.innerHTML=refPhotos.map((s,i)=>`<div class="ref-thumb"><img src="${s}"><button class="ref-del" onclick="removeRefPhoto(${i})"><i class="ti ti-x"></i></button></div>`).join('');
+}
+
+/* ════════════════════════════════════════════
+   CLIENT SEARCH
+════════════════════════════════════════════ */
+const CLIENTS_LIST=[
+  {name:'АнНур',initials:'АН',sub:'Оптовый клиент'},
+  {name:'Май Татли',initials:'МТ',sub:'Оптовый клиент'},
+];
+function filterClients(q){
+  q=q.trim().toLowerCase();
+  const dd=document.getElementById('client-dropdown');
+  const matches=CLIENTS_LIST.filter(c=>c.name.toLowerCase().includes(q));
+  if(!q||!matches.length){dd.classList.add('hidden');return;}
+  dd.classList.remove('hidden');
+  dd.innerHTML=matches.map(c=>`<div class="dd-opt" onclick="selectClient('${c.name}')"><div class="client-avatar" style="width:28px;height:28px;font-size:11px;border-radius:50%;background:var(--brown);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0">${c.initials}</div>${c.name}</div>`).join('');
+}
+function showClients(){filterClients(document.getElementById('who-name').value);}
+function selectClient(name){
+  const c=CLIENTS_LIST.find(x=>x.name===name);if(!c) return;
+  selectedClient=c;
+  document.getElementById('who-name').value=c.name;
+  document.getElementById('client-dropdown').classList.add('hidden');
+  document.getElementById('client-selected-block').style.display='block';
+  document.getElementById('client-selected-card').innerHTML=`<div class="client-avatar">${c.initials}</div><div class="client-info"><div class="client-info-name">${c.name}</div><div class="client-info-sub">${c.sub}</div></div><button class="client-clear" onclick="clearClient()"><i class="ti ti-x"></i></button>`;
+  Object.keys(catalogQty).forEach(k=>catalogQty[k]=0);
+  renderCatalog();
+}
+function clearClient(){
+  selectedClient=null;
+  document.getElementById('who-name').value='';
+  document.getElementById('client-selected-block').style.display='none';
+  renderCatalog();
+}
+
+/* ════════════════════════════════════════════
+   STAFF DROPDOWN
+════════════════════════════════════════════ */
+const STAFF_LIST=['@mahan_admin','@barista_aisha','@barista_khadija','@konditer_sara','@konditer_mariam'];
+function toggleStaffDD(){
+  const dd=document.getElementById('staff-dropdown');
+  if(!dd.classList.contains('hidden')){dd.classList.add('hidden');return;}
+  dd.innerHTML=STAFF_LIST.map(s=>`<div class="dd-opt" onclick="selectStaff('${s}')"><i class="ti ti-at" style="color:var(--brown);font-size:14px"></i>${s}</div>`).join('');
+  dd.classList.remove('hidden');
+}
+function selectStaff(name){
+  document.getElementById('who-staff').value=name;
+  document.getElementById('staff-dropdown').classList.add('hidden');
+}
+
+/* ════════════════════════════════════════════
+   CATALOG
+════════════════════════════════════════════ */
+const CATALOG_ALL=[
+  {id:'tart_malin',name:'Тарт малиновый',price:250,priceAN:230},
+  {id:'tart_golub',name:'Тарт голубика',price:250,priceAN:230},
+  {id:'pavlova',name:'Павлова',price:250,priceAN:220},
+  {id:'caramel_pie',name:'Карамельный пирог',price:150,priceAN:130},
+  {id:'medovik',name:'Медовик',price:200,priceAN:180},
+  {id:'brownie_sw',name:'Брауни сэндвич',price:200,priceAN:200},
+  {id:'san_seb',name:'Сан-Себастьян',price:280,priceAN:280},
+  {id:'macarons',name:'Макаронс',price:110,priceAN:110},
+  {id:'eskimo',name:'Эскимо',price:130,priceAN:130},
+  {id:'cupcake',name:'Капкейки',price:150,priceAN:150},
+  {id:'mereng_roll',name:'Меренговый рулет',price:230,priceAN:230},
+  {id:'mereng_fist',name:'Меренго-фисташковый рулет',price:280,priceAN:260},
+  {id:'kukis_fist',name:'Печенье кукис фисташковое',price:90,priceAN:90},
+  {id:'kukis_brow',name:'Печенье кукис брауни',price:70,priceAN:70},
+  {id:'kukis_choc',name:'Печенье кукис шоколадное',price:80,priceAN:80},
+  {id:'pp_candy',name:'ПП-конфеты',price:80,priceAN:80},
+  {id:'pp_san_seb',name:'ПП Сан-Себастьян',price:300,priceAN:300},
+  {id:'pp_snickers',name:'ПП Сникерс',price:200,priceAN:200},
+  {id:'eclairs',name:'Эклеры',price:180,priceAN:165},
+  {id:'kokos',name:'Кокос',price:280,priceAN:280},
+  {id:'mango',name:'Манго',price:300,priceAN:300},
+  {id:'roche',name:'Роше',price:280,priceAN:280},
+  {id:'rozhok',name:"Рожок «Белые ночи»",price:300,priceAN:300},
+];
+const CATALOG_AN_ONLY=[
+  {id:'dubai',name:'Дубайский десерт',price:400,priceAN:400},
+  {id:'beze_finik',name:'Безе с финиковым кремом',price:250,priceAN:250},
+  {id:'tiramisu_urd',name:'Тирамису с миндальным урбечем',price:350,priceAN:350},
+];
+function renderCatalog(){
+  const isAN=selectedClient&&selectedClient.name==='АнНур';
+  const list=document.getElementById('catalog-list'),hint=document.getElementById('catalog-hint');
+  const bar=document.getElementById('catalog-total-row');
+  if(!selectedClient){hint.style.display='block';list.style.display='none';bar.style.display='none';return;}
+  hint.style.display='none';list.style.display='block';bar.style.display='block';
+  const allItems=isAN?[...CATALOG_ALL,...CATALOG_AN_ONLY]:CATALOG_ALL;
+  allItems.forEach(i=>{if(!(i.id in catalogQty)) catalogQty[i.id]=0;});
+  list.innerHTML=renderCatSection('Десерты',CATALOG_ALL,isAN)+(isAN?renderCatSection('Только для АнНур',CATALOG_AN_ONLY,true):'');
+  updateCatalogTotal(allItems,isAN);
+}
+function renderCatSection(title,items,isAN){
+  return `<div class="catalog-section-hdr">${title}</div>`+items.map(item=>{
+    const price=isAN?item.priceAN:item.price,qty=catalogQty[item.id]||0;
+    const sub=qty>0?(qty*price).toLocaleString('ru-RU')+' ₽':price+' ₽/шт';
+    return `<div class="catalog-item"><div class="catalog-item-info"><div class="catalog-item-name">${item.name}</div><div class="catalog-item-sub ${qty>0?'active':''}" id="sub_${item.id}">${sub}</div></div><div class="qty-ctrl"><button class="qty-btn" onclick="changeQty('${item.id}',-1)">−</button><div class="qty-num ${qty>0?'nonzero':''}" id="qty_${item.id}">${qty||''}</div><button class="qty-btn" onclick="changeQty('${item.id}',1)">+</button></div></div>`;
+  }).join('');
+}
+function changeQty(id,delta){
+  const isAN=selectedClient&&selectedClient.name==='АнНур';
+  catalogQty[id]=Math.max(0,(catalogQty[id]||0)+delta);
+  const qty=catalogQty[id],qe=document.getElementById('qty_'+id);
+  if(qe){qe.textContent=qty||'';qe.className='qty-num'+(qty>0?' nonzero':'');}
+  const allItems=isAN?[...CATALOG_ALL,...CATALOG_AN_ONLY]:CATALOG_ALL;
+  const item=allItems.find(i=>i.id===id),se=document.getElementById('sub_'+id);
+  if(item&&se){const p=isAN?item.priceAN:item.price;se.textContent=qty>0?(qty*p).toLocaleString('ru-RU')+' ₽':p+' ₽/шт';se.className='catalog-item-sub'+(qty>0?' active':'');}
+  updateCatalogTotal(allItems,isAN);
+}
+function updateCatalogTotal(allItems,isAN){
+  let count=0,sum=0;
+  allItems.forEach(item=>{const q=catalogQty[item.id]||0;if(q>0){count+=q;sum+=q*(isAN?item.priceAN:item.price);}});
+  document.getElementById('catalog-count').textContent=count;
+  document.getElementById('catalog-sum').textContent=sum.toLocaleString('ru-RU')+' ₽';
+}
+function getCatalogSummary(){
+  const isAN=selectedClient&&selectedClient.name==='АнНур';
+  const allItems=isAN?[...CATALOG_ALL,...CATALOG_AN_ONLY]:CATALOG_ALL;
+  const lines=[];let total=0;
+  allItems.forEach(item=>{const q=catalogQty[item.id]||0;if(q>0){const p=isAN?item.priceAN:item.price;lines.push(`${item.name} × ${q} = ${(q*p).toLocaleString('ru-RU')} ₽`);total+=q*p;}});
+  return {text:lines.join('\n')||'—',total};
+}
+
+/* ════════════════════════════════════════════
+   SUBMIT ORDERS
+════════════════════════════════════════════ */
+function submitIndividual(){
+  indCount++;
+  const num='№'+indCount+'-инд';
+  const data={
+    type:'individual', num,
+    client: document.getElementById('ind-name').value||'—',
+    phone:  document.getElementById('ind-phone').value||'—',
+    cakeName: document.getElementById('ind-cake-name').value||'—',
+    weight: document.getElementById('ind-weight').value||'—',
+    diameter: document.getElementById('ind-diameter').value||'—',
+    filling: selectedFillings.join(', ')||'—',
+    decor:  document.getElementById('ind-decor').value||'—',
+    inscription: inscriptionVisible?document.getElementById('ind-inscription').value:'',
+    date:   document.getElementById('ind-date').value||'—',
+    time:   document.getElementById('ind-time').value||'—',
+    price:  parseFloat(document.getElementById('ind-price').value)||0,
+    prepay: parseFloat(document.getElementById('ind-prepay').value)||0,
+    note:   document.getElementById('ind-note').value||'—',
+    refs:   [...refPhotos],
+  };
+  const lines=[
+    {k:'Клиент',v:data.client,screen:'screen-order-individual'},
+    {k:'Телефон',v:data.phone,screen:'screen-order-individual'},
+    {k:'Название',v:data.cakeName,screen:'screen-order-individual'},
+    {k:'Вес',v:data.weight+' кг',screen:'screen-order-individual'},
+    {k:'Диаметр',v:data.diameter+' см',screen:'screen-order-individual'},
+    {k:'Начинка',v:data.filling,screen:'screen-order-individual'},
+    {k:'Декор',v:data.decor,screen:'screen-order-individual'},
+    ...(data.inscription?[{k:'Надпись',v:data.inscription,screen:'screen-order-individual'}]:[]),
+    {k:'Дата выдачи',v:data.date+' '+data.time,screen:'screen-order-individual'},
+    {k:'Сумма',v:fmt(data.price),screen:'screen-order-individual'},
+    {k:'Предоплата',v:fmt(data.prepay),screen:'screen-order-individual'},
+    {k:'Комментарий',v:data.note,screen:'screen-order-individual'},
+  ];
+  showPreview('individual',num,'Индивидуальный заказ',lines,()=>confirmOrder(data,lines));
+}
+
+function submitWholesale(){
+  optCount++;
+  const num='№'+optCount+'-опт';
+  const catalog=getCatalogSummary();
+  const data={
+    type:'wholesale', num,
+    client: selectedClient?selectedClient.name:(document.getElementById('who-name').value||'—'),
+    staff:  document.getElementById('who-staff').value||'—',
+    catalog: catalog.text,
+    total:  catalog.total,
+    date:   document.getElementById('who-date').value||'—',
+    time:   document.getElementById('who-time').value||'—',
+    prepay: parseFloat(document.getElementById('who-prepay').value)||0,
+    note:   document.getElementById('who-note').value||'—',
+  };
+  const lines=[
+    {k:'Клиент',v:data.client,screen:'screen-order-wholesale'},
+    {k:'Ответственный',v:data.staff,screen:'screen-order-wholesale'},
+    {k:'Состав',v:data.catalog,screen:'screen-order-wholesale'},
+    {k:'Сумма',v:fmt(data.total),screen:'screen-order-wholesale'},
+    {k:'Дата поставки',v:data.date+' '+data.time,screen:'screen-order-wholesale'},
+    {k:'Предоплата',v:fmt(data.prepay),screen:'screen-order-wholesale'},
+    {k:'Комментарий',v:data.note,screen:'screen-order-wholesale'},
+  ];
+  showPreview('wholesale',num,'Оптовый заказ',lines,()=>confirmOrder(data,lines));
+}
+
+function confirmOrder(data,lines){
+  const order = {id:Date.now(),type:data.type,num:data.num,data,lines,status:'new'};
+  const btn = document.getElementById('success-main-btn');
+  setButtonLoading(btn, true, 'Отправка...');
+  sendToSheets('order_created', {
+    ...data,
+    ref_photo_count: data.refs ? data.refs.length : 0,
+    refs: undefined,
+    lines,
+  }).then(() => {
+    allOrders.unshift(order);
+    confirmPreview(data.num+' оформлен','');
+  }).catch(err => {
+    confirmPreview('Не отправлено в таблицу', data.num);
+    document.getElementById('success-hint').style.display='block';
+    document.getElementById('success-hint').textContent=err.message;
+  }).finally(() => {
+    setButtonLoading(btn, false);
+  });
+}
+
+/* ════════════════════════════════════════════
+   PREVIEW / SUCCESS
+════════════════════════════════════════════ */
+function showPreview(type,num,label,lines,onConfirm){
+  currentReviewType=type;
+  document.getElementById('success-icon-area').innerHTML=`<div class="success-icon"><i class="ti ti-clipboard-check"></i></div>`;
+  document.getElementById('success-title-text').textContent='Проверьте данные';
+  document.getElementById('success-order-num').textContent=num;
+  document.getElementById('summary-label').textContent=label;
+  document.getElementById('success-hint').style.display='block';
+  document.getElementById('success-btn-text').textContent='Подтвердить';
+  document.getElementById('success-btn-icon').className='ti ti-check';
+  document.getElementById('summary-lines').innerHTML=lines.map(({k,v,screen})=>{
+    const ed=screen?`onclick="go('${screen}')"`:'';
+    return `<div class="summary-line" ${ed} style="${!screen?'cursor:default':''}">
+      <span>${k}</span><span>${v}</span>
+      ${screen?'<i class="ti ti-pencil edit-icon"></i>':''}
+    </div>`;
+  }).join('');
+  const btn=document.getElementById('success-main-btn');
+  btn.onclick=onConfirm;
+  go('screen-success');
+}
+
+function confirmPreview(title,num){
+  document.getElementById('success-icon-area').innerHTML=`<div class="success-icon"><i class="ti ti-circle-check"></i></div>`;
+  document.getElementById('success-title-text').textContent=title;
+  document.getElementById('success-order-num').textContent=num;
+  document.getElementById('success-hint').style.display='none';
+  document.querySelectorAll('.summary-line').forEach(el=>{el.removeAttribute('onclick');el.style.cursor='default';const ic=el.querySelector('.edit-icon');if(ic)ic.remove();});
+  document.getElementById('success-btn-text').textContent='Готово';
+  document.getElementById('success-btn-icon').className='ti ti-home';
+  document.getElementById('success-main-btn').onclick=()=>go('screen-home');
+}
+
+/* ════════════════════════════════════════════
+   ORDERS LIST
+════════════════════════════════════════════ */
+let currentTab='ind';
+function switchTab(tab){
+  currentTab=tab;
+  document.getElementById('tab-ind').classList.toggle('active',tab==='ind');
+  document.getElementById('tab-opt').classList.toggle('active',tab==='opt');
+  document.getElementById('orders-ind-list').style.display=tab==='ind'?'block':'none';
+  document.getElementById('orders-opt-list').style.display=tab==='opt'?'block':'none';
+}
+function renderOrdersList(){
+  const indOrders=allOrders.filter(o=>o.type==='individual'&&o.status!=='closed');
+  const optOrders=allOrders.filter(o=>o.type==='wholesale'&&o.status!=='closed');
+  renderTabList('orders-ind-list',indOrders);
+  renderTabList('orders-opt-list',optOrders);
+}
+function renderTabList(containerId,orders){
+  const el=document.getElementById(containerId);
+  if(!orders.length){el.innerHTML='<div class="empty-state"><i class="ti ti-clipboard-off"></i>Заказов нет</div>';return;}
+  el.innerHTML=orders.map(o=>{
+    const d=o.data;
+    const title=o.type==='individual'?(d.cakeName!=='—'?d.cakeName:d.client):(d.client);
+    const sub=o.type==='individual'?d.client:d.catalog.split('\n')[0];
+    const badgeCls=o.status==='done'?'badge-done':'badge-new';
+    const badgeTxt=o.status==='done'?'Выполнен':'Ожидает выполнения';
+    return `<div class="order-card-mini" onclick="openOrderDetail(${o.id})">
+      <div class="ocm-top"><div class="ocm-num">${o.num}</div><div class="ocm-date">${d.date||''}</div><div class="ocm-badge ${badgeCls}">${badgeTxt}</div></div>
+      <div class="ocm-title">${title}</div>
+      <div class="ocm-client">${sub}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ════════════════════════════════════════════
+   ORDER DETAIL
+════════════════════════════════════════════ */
+
+/* ── ORDER DETAIL ── */
+function buildOrderCard(order) {
+  const d = order.data;
+  const badgeCls = order.status==='done' ? 'badge-done' : 'badge-new';
+  const badgeTxt = order.status==='done' ? 'Выполнен' : 'Ожидает выполнения';
+  if (order.type === 'individual') {
+    const refLinks = (d.refs && d.refs.length)
+      ? d.refs.map((src,i) => `<a class="ref-download-link" href="${src}" download="референс_${i+1}.jpg">Референс ${i+1}</a>`).join('')
+      : '';
+    return `<div class="order-full-section">
+      <div class="ofc-row"><span>Тип</span><span>Индивидуальный</span></div>
+      <div class="ofc-row"><span>Статус</span><span><span class="ocm-badge ${badgeCls}">${badgeTxt}</span></span></div>
+      <div class="ofc-row"><span>Дата выдачи</span><span>${d.date} ${d.time}</span></div>
+    </div>
+    <div class="order-full-section">
+      <div class="section-label" style="margin-bottom:8px">Клиент</div>
+      <div style="font-size:15px;font-weight:600;color:var(--text)">${d.client}</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:3px">${d.phone}</div>
+    </div>
+    <div class="order-full-section">
+      <div class="section-label" style="margin-bottom:8px">Изделие</div>
+      <div class="ofc-row"><span>Название</span><span>${d.cakeName}</span></div>
+      <div class="ofc-row"><span>Вес</span><span>${d.weight} кг</span></div>
+      <div class="ofc-row"><span>Диаметр</span><span>${d.diameter} см</span></div>
+      <div class="ofc-row"><span>Начинка</span><span>${d.filling}</span></div>
+      <div class="ofc-row"><span>Декор</span><span>${d.decor}</span></div>
+      ${d.inscription ? `<div class="ofc-row"><span>Надпись</span><span>${d.inscription}</span></div>` : ''}
+      ${refLinks ? `<div style="margin-top:10px">${refLinks}</div>` : ''}
+      <div class="ofc-price-row admin-only"><div class="ofc-price-label">Стоимость</div><div class="ofc-price-val">${fmt(d.price)}</div></div>
+    </div>
+    ${d.note&&d.note!=='—' ? `<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">Комментарий</div><div style="font-size:13px;color:var(--text)">${d.note}</div></div>` : ''}`;
+  } else {
+    return `<div class="order-full-section">
+      <div class="ofc-row"><span>Тип</span><span>Оптовый</span></div>
+      <div class="ofc-row"><span>Статус</span><span><span class="ocm-badge ${badgeCls}">${badgeTxt}</span></span></div>
+      <div class="ofc-row"><span>Клиент</span><span>${d.client}</span></div>
+      <div class="ofc-row"><span>Ответственный</span><span>${d.staff}</span></div>
+      <div class="ofc-row"><span>Дата поставки</span><span>${d.date} ${d.time}</span></div>
+    </div>
+    <div class="order-full-section">
+      <div class="section-label" style="margin-bottom:8px">Состав</div>
+      <div style="font-size:13px;color:var(--text);white-space:pre-line;line-height:1.7">${d.catalog}</div>
+      <div class="ofc-price-row admin-only"><div class="ofc-price-label">Сумма</div><div class="ofc-price-val">${fmt(d.total)}</div></div>
+    </div>
+    ${d.note&&d.note!=='—' ? `<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">Комментарий</div><div style="font-size:13px;color:var(--text)">${d.note}</div></div>` : ''}`;
+  }
+}
+
+function buildCollapsedCard(order) {
+  const d = order.data;
+  const isInd = order.type === 'individual';
+  const rows = isInd
+    ? [['Заказ', order.num], ['Клиент', d.client], ['Изделие', d.cakeName], ['Дата', d.date+' '+d.time]]
+    : [['Заказ', order.num], ['Клиент', d.client], ['Дата', d.date+' '+d.time]];
+  return `<div class="order-collapsed">
+    ${rows.map(([k,v]) => `<div class="order-collapsed-row"><span>${k}</span><span>${v}</span></div>`).join('')}
+    <div style="margin-top:6px"><span class="ocm-badge badge-done">Выполнен</span></div>
+  </div>`;
+}
+
+function openOrderDetail(id) {
+  const order = allOrders.find(o => o.id === id);
+  if (!order) return;
+  detailOrderId = id;
+  document.getElementById('detail-title').textContent = 'Заказ ' + order.num;
+  document.getElementById('detail-content').innerHTML = buildOrderCard(order);
+  const actions = document.getElementById('detail-actions');
+  if (order.status === 'new') {
+    actions.innerHTML = `
+      <button class="btn success-btn" onclick="showExecForm(${id})"><i class="ti ti-check"></i> Выполнен</button>
+      <button class="btn danger" onclick="closeOrder(${id})"><i class="ti ti-lock"></i> Закрыть</button>`;
+  } else if (order.status === 'done') {
+    actions.innerHTML = `
+      <button class="btn" style="background:var(--soft-bg);color:var(--soft-color);cursor:default"><i class="ti ti-check"></i> Выполнен</button>
+      <button class="btn danger" onclick="closeOrder(${id})"><i class="ti ti-lock"></i> Закрыть</button>`;
+  } else {
+    actions.innerHTML = '';
+  }
+  go('screen-order-detail');
+}
+
+/* ── EXECUTION FORM ── */
+const BISCUITS = ['Шоколадный','Фисташковый','Ванильный'];
+const CREAMS   = ['Ваниль','Фисташка','Шоколад'];
+const FILLINGS_EXEC = ['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'];
+
+let execBiscuits = [];   // [{name, weight, size}]
+let execCreams   = [];   // [{name, weight}]
+let execFillings = [];   // [name]
+let execPhotos   = [];
+let execFilling_search = '';
+
+function showExecForm(id) {
+  execBiscuits=[]; execCreams=[]; execFillings=[]; execPhotos=[];
+  const order = allOrders.find(o=>o.id===id);
+  const collapsed = buildCollapsedCard(order);
+  const form = `
+  <div class="exec-wrap" id="exec-form">
+
+    <!-- БИСКВИТ -->
+    <div class="exec-section">
+      <div class="exec-section-title">Бисквит</div>
+      <div class="exec-tag-row" id="biscuit-tags">
+        ${BISCUITS.map(b=>`<button type="button" class="exec-tag" onclick="toggleBiscuit('${b}')" id="btag_${b.replace(/ /g,'_')}">${b}</button>`).join('')}
+      </div>
+      <div id="biscuit-fields"></div>
+    </div>
+
+    <!-- ПРОПИТКА -->
+    <div class="exec-section">
+      <div class="exec-section-title">Пропитка</div>
+      <div class="exec-simple-row">
+        <div class="exec-simple-label">Вес (г)</div>
+        <input class="exec-simple-input" type="number" id="exec-propitka" placeholder="0"/>
+      </div>
+    </div>
+
+    <!-- КРЕМ -->
+    <div class="exec-section">
+      <div class="exec-section-title">Крем</div>
+      <div class="exec-tag-row" id="cream-tags">
+        ${CREAMS.map(c=>`<button type="button" class="exec-tag" onclick="toggleCream('${c}')" id="ctag_${c}">${c}</button>`).join('')}
+      </div>
+      <div id="cream-fields"></div>
+    </div>
+
+    <!-- НАЧИНКА -->
+    <div class="exec-section">
+      <div class="exec-section-title">Начинка</div>
+      <div class="dd-wrap" style="margin-bottom:8px">
+        <input class="dd-input" type="text" id="exec-filling-search" placeholder="Начните вводить начинку..." autocomplete="off"
+          oninput="filterExecFillings(this.value)" onfocus="filterExecFillings(this.value)"/>
+        <div class="dd-list hidden" id="exec-filling-dd"></div>
+      </div>
+      <div class="exec-tag-row" id="exec-filling-tags"></div>
+    </div>
+
+    <!-- ГАНАШ -->
+    <div class="exec-section">
+      <div class="exec-section-title">Ганаш</div>
+      <div class="exec-simple-row">
+        <div class="exec-simple-label">Вес (г)</div>
+        <input class="exec-simple-input" type="number" id="exec-ganash" placeholder="0"/>
+      </div>
+    </div>
+
+    <!-- ДЕКОР -->
+    <div class="exec-section">
+      <div class="exec-section-title">Декор</div>
+
+      <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">Ягодное оформление</div>
+      ${[['Клубника','exec-berry-kl'],['Голубика','exec-berry-go'],['Малина','exec-berry-ma']].map(([name,id])=>`
+      <div class="exec-simple-row">
+        <div class="exec-simple-label">${name}</div>
+        <input class="exec-simple-input" type="number" id="${id}" placeholder="г"/>
+      </div>`).join('')}
+
+      <div style="border-top:.5px solid rgba(62,44,35,.1);margin:12px 0 10px"></div>
+
+      <div class="exec-simple-row">
+        <div class="exec-simple-label">Мастика (г)</div>
+        <input class="exec-simple-input" type="number" id="exec-mastika" placeholder="0"/>
+      </div>
+      <div class="exec-simple-row" style="margin-top:6px">
+        <div class="exec-simple-label">Вилюр (г)</div>
+        <input class="exec-simple-input" type="number" id="exec-vilur" placeholder="0"/>
+      </div>
+      <div style="margin-top:10px">
+        <div class="exec-simple-label" style="margin-bottom:6px;font-size:13px;color:var(--muted)">Другое</div>
+        <textarea class="exec-note-input" id="exec-decor-other" placeholder="Комментарий..."></textarea>
+      </div>
+    </div>
+
+    <!-- ФОТО + ИМЯ -->
+    <div class="exec-section">
+      <div class="exec-section-title">Фото выполненной работы <span style="color:#B03A2E">*</span></div>
+      <div class="photo-grid" id="exec-photo-grid">
+        <label class="photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addExecPhotos(this)"></label>
+      </div>
+      <div id="exec-photo-error" style="display:none;margin-top:8px;font-size:12px;color:#B03A2E;font-weight:600">Прикрепите фото</div>
+      <div style="margin-top:14px">
+        <div class="exec-section-title" style="margin-bottom:8px">Выполнил</div>
+        <input class="dd-input" type="text" id="exec-performer" placeholder="Имя кондитера"/>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="cancelExec()"><i class="ti ti-x"></i> Отмена</button>
+      <button class="btn primary" onclick="submitExec(${id})"><i class="ti ti-check"></i> Подтвердить</button>
+    </div>
+  </div>`;
+
+  document.getElementById('detail-content').innerHTML = collapsed + form;
+  document.getElementById('detail-actions').innerHTML = '';
+  window.scrollTo(0,0);
+}
+
+function toggleBiscuit(name) {
+  const btn = document.getElementById('btag_'+name.replace(/ /g,'_'));
+  const exists = execBiscuits.find(b=>b.name===name);
+  if (exists) {
+    execBiscuits = execBiscuits.filter(b=>b.name!==name);
+    btn.classList.remove('selected');
+  } else {
+    execBiscuits.push({name, weight:'', size:''});
+    btn.classList.add('selected');
+  }
+  renderBiscuitFields();
+}
+function renderBiscuitFields() {
+  document.getElementById('biscuit-fields').innerHTML = execBiscuits.map(b=>`
+    <div class="exec-sub-fields" style="border-top:.5px solid rgba(62,44,35,.08);padding-top:10px;margin-top:8px">
+      <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">${b.name}</div>
+      <div class="exec-sub-row"><div class="exec-sub-label">Вес (г)</div><input class="exec-sub-input" type="number" placeholder="0" id="biw_${b.name.replace(/ /g,'_')}" value="${b.weight}" oninput="execBiscuits.find(x=>x.name==='${b.name}').weight=this.value"/></div>
+      <div class="exec-sub-row"><div class="exec-sub-label">Размер (см)</div><input class="exec-sub-input" type="number" placeholder="0" id="bis_${b.name.replace(/ /g,'_')}" value="${b.size}" oninput="execBiscuits.find(x=>x.name==='${b.name}').size=this.value"/></div>
+    </div>`).join('');
+}
+
+function toggleCream(name) {
+  const btn = document.getElementById('ctag_'+name);
+  const exists = execCreams.find(c=>c.name===name);
+  if (exists) {
+    execCreams = execCreams.filter(c=>c.name!==name);
+    btn.classList.remove('selected');
+  } else {
+    execCreams.push({name, weight:''});
+    btn.classList.add('selected');
+  }
+  renderCreamFields();
+}
+function renderCreamFields() {
+  document.getElementById('cream-fields').innerHTML = execCreams.map(c=>`
+    <div class="exec-sub-fields" style="border-top:.5px solid rgba(62,44,35,.08);padding-top:10px;margin-top:8px">
+      <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">${c.name}</div>
+      <div class="exec-sub-row"><div class="exec-sub-label">Вес (г)</div><input class="exec-sub-input" type="number" placeholder="0" id="crw_${c.name}" value="${c.weight}" oninput="execCreams.find(x=>x.name==='${c.name}').weight=this.value"/></div>
+    </div>`).join('');
+}
+
+function filterExecFillings(q) {
+  q = q.trim().toLowerCase();
+  const dd = document.getElementById('exec-filling-dd');
+  const matches = FILLINGS_EXEC.filter(f=>f.toLowerCase().includes(q)&&!execFillings.includes(f));
+  if (!q && !matches.length) { dd.classList.add('hidden'); return; }
+  let h = matches.map(f=>`<div class="dd-opt" onclick="addExecFilling('${f}')"><i class="ti ti-circle-check" style="color:var(--brown);font-size:14px"></i>${f}</div>`).join('');
+  if (q && !FILLINGS_EXEC.some(f=>f.toLowerCase()===q) && !execFillings.includes(q)) {
+    h += `<div class="dd-opt custom" onclick="addExecFilling(document.getElementById('exec-filling-search').value.trim())"><i class="ti ti-plus" style="font-size:14px"></i>Добавить «${q}»</div>`;
+  }
+  if (!h) { dd.classList.add('hidden'); return; }
+  dd.innerHTML = h;
+  dd.classList.remove('hidden');
+}
+function addExecFilling(name) {
+  name = name.trim();
+  if (!name || execFillings.includes(name)) return;
+  execFillings.push(name);
+  renderExecFillingTags();
+  document.getElementById('exec-filling-search').value = '';
+  document.getElementById('exec-filling-dd').classList.add('hidden');
+}
+function removeExecFilling(name) {
+  execFillings = execFillings.filter(f=>f!==name);
+  renderExecFillingTags();
+}
+function renderExecFillingTags() {
+  document.getElementById('exec-filling-tags').innerHTML = execFillings.map(f=>`<div class="tag">${f}<button class="tag-del" onclick="removeExecFilling('${f}')"><i class="ti ti-x"></i></button></div>`).join('');
+}
+
+function addExecPhotos(input) {
+  Array.from(input.files).forEach(f=>{const r=new FileReader();r.onload=e=>{execPhotos.push(e.target.result);renderExecPhotos();};r.readAsDataURL(f);});
+  input.value='';
+}
+function renderExecPhotos() {
+  const g = document.getElementById('exec-photo-grid');
+  if (!g) return;
+  g.innerHTML = execPhotos.map((s,i)=>`<div class="photo-thumb"><img src="${s}"><button class="del-btn" onclick="execPhotos.splice(${i},1);renderExecPhotos()"><i class="ti ti-x"></i></button></div>`).join('')
+    + `<label class="photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addExecPhotos(this)"></label>`;
+  document.getElementById('exec-photo-error').style.display = 'none';
+}
+
+function cancelExec() {
+  openOrderDetail(detailOrderId);
+}
+
+async function submitExec(id) {
+  if (!execPhotos.length) { document.getElementById('exec-photo-error').style.display='block'; return; }
+  const performer = document.getElementById('exec-performer').value.trim();
+  if (!performer) { document.getElementById('exec-performer').focus(); return; }
+  const order = allOrders.find(o=>o.id===id);
+  const payload = {
+    order_num: order ? order.num : '',
+    order_type: order ? order.type : '',
+    performer,
+    biscuits: execBiscuits,
+    propitka: document.getElementById('exec-propitka').value,
+    creams: execCreams,
+    fillings: execFillings,
+    ganash: document.getElementById('exec-ganash').value,
+    berries: {kl:document.getElementById('exec-berry-kl').value, go:document.getElementById('exec-berry-go').value, ma:document.getElementById('exec-berry-ma').value},
+    mastika: document.getElementById('exec-mastika').value,
+    vilur:   document.getElementById('exec-vilur').value,
+    decorOther: document.getElementById('exec-decor-other').value,
+    photo_count: execPhotos.length,
+  };
+  const submitBtn = document.querySelector('#exec-form .btn.primary');
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<i class="ti ti-loader"></i> Отправка...'; }
+  try {
+    await sendToSheets('order_completed', payload);
+  } catch (err) {
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = '<i class="ti ti-check"></i> Подтвердить'; }
+    const errorEl = document.getElementById('exec-photo-error');
+    errorEl.textContent = err.message;
+    errorEl.style.display = 'block';
+    return;
+  }
+  if (order) {
+    order.status = 'done';
+    order.execution = {
+      biscuits: payload.biscuits,
+      propitka: payload.propitka,
+      creams: payload.creams,
+      fillings: payload.fillings,
+      ganash: payload.ganash,
+      berries: payload.berries,
+      mastika: payload.mastika,
+      vilur:   payload.vilur,
+      decorOther: payload.decorOther,
+      photos: execPhotos,
+      performer,
+    };
+  }
+  openOrderDetail(id);
+}
+
+function markDone(id){
+  showExecForm(id);
+}
+function closeOrder(id){
+  const o=allOrders.find(x=>x.id===id);
+  if(o) o.status='closed';
+  go('screen-orders-list');
+}
+
+/* ════════════════════════════════════════════
+   UTILS
+════════════════════════════════════════════ */
+function fmt(n){return (parseFloat(n)||0).toLocaleString('ru-RU')+' ₽';}
+
+// Close dropdowns on outside click
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.dd-wrap')) {
+    document.querySelectorAll('.dd-list').forEach(d=>d.classList.add('hidden'));
+  }
+  if(!e.target.closest('#staff-dropdown')&&!e.target.closest('#who-staff')){
+    const sd=document.getElementById('staff-dropdown');if(sd)sd.classList.add('hidden');
+  }
+});
+
+/* ════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════ */
+initTelegramApp();
+refreshSyncStatus();
+buildSection(EXP_CATS,'cat-exp-container');
+buildSection(DEBT_CATS,'cat-debt-container');
+checkSubmit();
+</script>
+</body>
+</html>
