@@ -2,8 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" conhttps://script.google.com/macros/s/AKfycbxcieIS6ukfWObsFDg54gmQ5npmGqEb2SqKp_odEzL5WtWSl0o_s1sY1QMvuaOnNv8/execftent="width=device-width,initial-scale=1,maximum-scale=1">
-<title>MÁHAN </title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>MÁHAN </title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
@@ -987,6 +986,7 @@ function confirmShift() {
     diffReason:(document.getElementById('reason-input')||{}).value||'',
     photos:typeof photos!=='undefined'?photos.slice():[],
   });
+    sendToAppsScript('shift', buildShiftPayload());
   confirmPreview('Отчёт отправлен!','');
 }
 
