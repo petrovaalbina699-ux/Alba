@@ -1223,7 +1223,7 @@ function buildOrderCard(order) {
   const badgeCls = order.status==='done' ? 'badge-done' : 'badge-new';
   const badgeTxt = order.status==='done' ? 'Выполнен' : 'Ожидает выполнения';
   if (order.type === 'individual') {
-    const refLinks = (d.refs && d.refs.length)
+
 const refPhotosBlock = (d.refs && d.refs.length)
   ? `<div class="order-full-section">
       <div class="section-label" style="margin-bottom:8px">Фото заказа</div>
