@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="viewport" conhttps://script.google.com/macros/s/AKfycbxcieIS6ukfWObsFDg54gmQ5npmGqEb2SqKp_odEzL5WtWSl0o_s1sY1QMvuaOnNv8/execftent="width=device-width,initial-scale=1,maximum-scale=1">
 <title>MÁHAN </title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
@@ -698,6 +698,79 @@ let selectedClient = null;
 let inscriptionVisible = false;
 const catalogQty = {};
 
+/* ════════════════════════════════════════════
+   TELEGRAM / APPS SCRIPT
+   Вставьте сюда ссылку Web App из Google Apps Script
+════════════════════════════════════════════ */
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcieIS6ukfWObsFDg54gmQ5npmGqEb2SqKp_odEzL5WtWSl0o_s1sY1QMvuaOnNv8/exec';
+
+function sendToAppsScript(type, payload) {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('ВСТАВЬТЕ_ССЫЛКУ')) {
+    console.warn('Apps Script URL не указан. Данные не отправлены в Telegram.', {type, payload});
+    return;
+  }
+
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: JSON.stringify({
+      type: type,
+      payload: payload
+    })
+  }).catch(err => {
+    console.error('Ошибка отправки в Apps Script:', err);
+  });
+}
+
+function getSelectedExpensesPayload() {
+  if (Array.isArray(selectedExpenses) && selectedExpenses.length) {
+    return selectedExpenses
+      .filter(item => item.amount > 0)
+      .map(item => ({
+        name: item.name,
+        amount: item.amount
+      }));
+  }
+
+  const result = [];
+
+  EXP_CATS.forEach(cat => {
+    cat.items.forEach(item => {
+      const state = itemState[item.id];
+      if (state && state.selected && state.amount > 0) {
+        const noteEl = document.getElementById('note_' + item.id);
+        result.push({
+          name: item.label,
+          amount: state.amount,
+          comment: noteEl ? noteEl.value : ''
+        });
+      }
+    });
+  });
+
+  return result;
+}
+
+function buildShiftPayload() {
+  return {
+    date: document.getElementById('p1-date').value || '',
+    employee: document.getElementById('p1-name').value || '',
+    startCash: document.getElementById('p1-cash').value || 0,
+    expenses: getSelectedExpensesPayload(),
+    expensesTotal: totalExp,
+    debtTotal: totalDebt,
+    revenue: document.getElementById('f-revenue').value || 0,
+    card: document.getElementById('f-card').value || 0,
+    collect: document.getElementById('f-collect').value || 0,
+    remain: document.getElementById('f-remain').value || 0,
+    diffLabel: document.getElementById('diff-label').textContent || '',
+    diffValue: document.getElementById('diff-value').textContent || '',
+    comment: document.getElementById('reason-input').value || ''
+  };
+}
+
+
+    
 /* ════════════════════════════════════════════
    NAVIGATION
 ════════════════════════════════════════════ */
