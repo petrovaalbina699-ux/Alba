@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -702,24 +701,18 @@ const catalogQty = {};
    TELEGRAM / APPS SCRIPT
    Вставьте сюда ссылку Web App из Google Apps Script
 ════════════════════════════════════════════ */
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcieIS6ukfWObsFDg54gmQ5npmGqEb2SqKp_odEzL5WtWSl0o_s1sY1QMvuaOnNv8/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBTBrhRJuF47fMEdFsyzPxmgrHGXaQyxzed4xCEEpKU7Jg59mrySQYOHVbni_7KxE/exec';
 
 function sendToAppsScript(type, payload) {
-  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('ВСТАВЬТЕ_ССЫЛКУ')) {
-    console.warn('Apps Script URL не указан. Данные не отправлены в Telegram.', {type, payload});
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('https://script.google.com/macros/s/AKfycbxBTBrhRJuF47fMEdFsyzPxmgrHGXaQyxzed4xCEEpKU7Jg59mrySQYOHVbni_7KxE/exec')) {
+    console.warn('Apps Script URL не указан', { type, payload });
     return;
   }
-
   fetch(APPS_SCRIPT_URL, {
     method: 'POST',
-    mode: 'no-cors',
-    body: JSON.stringify({
-      type: type,
-      payload: payload
-    })
-  }).catch(err => {
-    console.error('Ошибка отправки в Apps Script:', err);
-  });
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ type: type, payload: payload })
+  }).catch(function(err) { console.error('Ошибка отправки:', err); });
 }
 
 function getSelectedExpensesPayload() {
@@ -778,6 +771,7 @@ function go(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo(0, 0);
+  if(id!=='screen-order-wholesale'){var bar=document.getElementById('catalog-total-row');if(bar)bar.style.display='none';}
   if (id === 'screen-order-wholesale') initWholesaleDefaults();
   if (id === 'screen-orders-list') renderOrdersList();
 }
@@ -949,9 +943,14 @@ function buildShiftSummary() {
     {k:'Сотрудник',v:document.getElementById('p1-name').value||'—',screen:'screen-shift-1'},
     {k:'Касса на начало',v:fmt(document.getElementById('p1-cash').value),screen:'screen-shift-1'},
   ];
-  [...EXP_CATS,...DEBT_CATS].forEach(cat=>cat.items.forEach(item=>{
-    const s=itemState[item.id]; if(s.selected&&s.amount>0) lines.push({k:item.label,v:fmt(s.amount),screen:'screen-shift-2'});
-  }));
+  if(typeof selectedExpenses!=='undefined'){
+    selectedExpenses.forEach(function(item){
+      if(item.amount>0){var lbl=item.name+(item.comment?' ('+item.comment+')':'');lines.push({k:lbl,v:fmt(item.amount),screen:'screen-shift-2'});}
+    });
+  }
+  if(typeof DEBT_CATS!=='undefined'&&typeof itemState!=='undefined'){
+    DEBT_CATS.forEach(function(cat){cat.items.forEach(function(item){var s=itemState[item.id];if(s&&s.selected&&s.amount>0)lines.push({k:item.label,v:fmt(s.amount),screen:'screen-shift-3'});});});
+  }
   lines.push(
     {k:'Выручка',v:fmt(document.getElementById('f-revenue').value),screen:'screen-shift-4'},
     {k:'Безнал',v:fmt(document.getElementById('f-card').value),screen:'screen-shift-4'},
@@ -959,11 +958,38 @@ function buildShiftSummary() {
     {k:'Остаток в кассе',v:fmt(document.getElementById('f-remain').value),screen:'screen-shift-4'},
     {k:document.getElementById('diff-label').textContent,v:document.getElementById('diff-value').textContent,screen:null},
   );
-  const reason=document.getElementById('reason-input').value.trim();
-  if(reason) lines.push({k:'Причина недостачи',v:reason,screen:'screen-shift-4'});
+  var reason=document.getElementById('reason-input').value.trim();
+  if(reason)lines.push({k:'Причина недостачи',v:reason,screen:'screen-shift-4'});
   showPreview('shift','Отчёт по смене','Смена',lines,confirmShift);
 }
-function confirmShift() { confirmPreview('Отчёт отправлен!',''); }
+function confirmShift() {
+  var expTotal=0, expList=[];
+  if (typeof selectedExpenses!=='undefined') {
+    selectedExpenses.forEach(function(item){
+      expTotal+=item.amount||0;
+      expList.push(item.name+(item.comment?' ('+item.comment+')':'')+': '+(item.amount||0)+' ₽');
+    });
+  }
+  var debtTotal=0;
+  if (typeof DEBT_CATS!=='undefined'&&typeof itemState!=='undefined') {
+    DEBT_CATS.forEach(function(cat){cat.items.forEach(function(item){var s=itemState[item.id];if(s&&s.selected)debtTotal+=s.amount||0;});});
+  }
+  var diffEl=document.getElementById('diff-value'), diffLbl=document.getElementById('diff-label');
+  sendToAppsScript('shift',{
+    date:(document.getElementById('p1-date')||{}).value||'',
+    staff:(document.getElementById('p1-name')||{}).value||'',
+    startCash:parseFloat((document.getElementById('p1-cash')||{}).value)||0,
+    expOther:expTotal, expDebt:debtTotal, expTotal:expTotal, expDetails:expList.join('; '),
+    revenue:parseFloat((document.getElementById('f-revenue')||{}).value)||0,
+    card:parseFloat((document.getElementById('f-card')||{}).value)||0,
+    collect:parseFloat((document.getElementById('f-collect')||{}).value)||0,
+    remain:parseFloat((document.getElementById('f-remain')||{}).value)||0,
+    diff:diffEl?diffEl.textContent:'', diffLabel:diffLbl?diffLbl.textContent:'',
+    diffReason:(document.getElementById('reason-input')||{}).value||'',
+    photos:typeof photos!=='undefined'?photos.slice():[],
+  });
+  confirmPreview('Отчёт отправлен!','');
+}
 
 /* ════════════════════════════════════════════
    FILLINGS
@@ -1157,6 +1183,7 @@ function submitIndividual(){
     price:  parseFloat(document.getElementById('ind-price').value)||0,
     prepay: parseFloat(document.getElementById('ind-prepay').value)||0,
     note:   document.getElementById('ind-note').value||'—',
+    refs:   typeof refPhotos !== 'undefined' ? refPhotos.slice() : [],
   };
   const lines=[
     {k:'Клиент',v:data.client,screen:'screen-order-individual'},
@@ -1203,8 +1230,27 @@ function submitWholesale(){
   showPreview('wholesale',num,'Оптовый заказ',lines,()=>confirmOrder(data,lines));
 }
 
-function confirmOrder(data,lines){
-  allOrders.unshift({id:Date.now(),type:data.type,num:data.num,data,lines,status:'new',doneRef:[...refPhotos]});
+function confirmOrder(data, lines) {
+  allOrders.unshift({
+    id:Date.now(), type:data.type, num:data.num,
+    data:data, lines:lines, status:'new',
+    doneRef:typeof refPhotos!=='undefined'?refPhotos.slice():[],
+  });
+  if (data.type==='individual') {
+    sendToAppsScript('individual',{
+      num:data.num, client:data.client, phone:data.phone,
+      cakeName:data.cakeName, weight:data.weight, diameter:data.diameter,
+      filling:data.filling, decor:data.decor, inscription:data.inscription||'',
+      date:data.date, time:data.time, price:data.price, prepay:data.prepay,
+      note:data.note, refPhotos:typeof refPhotos!=='undefined'?refPhotos.slice():[],
+    });
+  } else if (data.type==='wholesale') {
+    sendToAppsScript('wholesale',{
+      num:data.num, client:data.client, staff:data.staff,
+      catalog:data.catalog, total:data.total, prepay:data.prepay,
+      date:data.date, time:data.time, note:data.note,
+    });
+  }
   confirmPreview(data.num+' оформлен','');
 }
 
@@ -1260,30 +1306,24 @@ function renderOrdersList(){
   renderTabList('orders-ind-list',indOrders);
   renderTabList('orders-opt-list',optOrders);
 }
-function renderTabList(containerId,orders){
-  const el=document.getElementById(containerId);
-  if(!orders.length){el.innerHTML='<div class="empty-state"><i class="ti ti-clipboard-off"></i>Заказов нет</div>';return;}
-  el.innerHTML=orders.map(o=>{
-    const d=o.data;
-    const title=o.type==='individual'?(d.cakeName&&d.cakeName!=='—'?d.cakeName:d.client):(d.client);
-    const sub=o.type==='individual'?d.client:(d.catalog||'').split('\n')[0]||'';
-    const badgeCls=o.status==='done'?'badge-done':'badge-new';
-    const badgeTxt=o.status==='done'?'Выполнен':'Ожидает выполнения';
-    // mini report snippet
-    let reportSnippet='';
-    if(o.doneReport){
-      const r=o.doneReport;
-      reportSnippet=`<div class="mini-report-card">
-        <div class="mini-report-label"><i class="ti ti-clipboard-check" style="font-size:12px"></i> Отчёт кондитера · ${r.date} ${r.time}</div>
-        <div class="mini-report-executor">Исполнитель: ${r.executor}</div>
-      </div>`;
+function renderTabList(containerId, orders) {
+  const el = document.getElementById(containerId);
+  if (!orders.length) { el.innerHTML='<div class="empty-state"><i class="ti ti-clipboard-off"></i>Заказов нет</div>'; return; }
+  el.innerHTML = orders.map(o => {
+    const d=o.data, isInd=o.type==='individual';
+    const title=isInd?(d.cakeName&&d.cakeName!=='—'?d.cakeName:d.client):d.client;
+    let sub='';
+    if(isInd){sub=d.client||'';}
+    else{
+      const lines=(d.catalog||'').split(' | ').filter(Boolean);
+      sub=lines.map(line=>{const m=line.match(/^(.+?)\s*\xd7\s*(\d+)/);return m?m[1].trim()+' = '+m[2]+' \u0448\u0442':line;}).slice(0,2).join('; ');
+      if(lines.length>2)sub+='\u2026';
     }
-    return `<div class="order-card-mini" onclick="openOrderDetail(${o.id})">
-      <div class="ocm-top"><div class="ocm-num">${o.num}</div><div class="ocm-date">${d.date||''}</div><div class="ocm-badge ${badgeCls}">${badgeTxt}</div></div>
-      <div class="ocm-title">${title}</div>
-      <div class="ocm-client">${sub}</div>
-      ${reportSnippet}
-    </div>`;
+    const badgeCls=o.status==='done'?'badge-done':'badge-new';
+    const badgeTxt=o.status==='done'?'\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d':'\u041e\u0436\u0438\u0434\u0430\u0435\u0442 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f';
+    let rSnip='';
+    if(o.doneReport){const r=o.doneReport;rSnip=`<div class="mini-report-card"><div class="mini-report-label"><i class="ti ti-clipboard-check" style="font-size:12px"></i> \u041e\u0442\u0447\u0451\u0442 \u043a\u043e\u043d\u0434\u0438\u0442\u0435\u0440\u0430 \xb7 ${r.date||''} ${r.time||''}</div><div class="mini-report-executor">\u0418\u0441\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c: ${r.executor}</div></div>`;}
+    return `<div class="order-card-mini" onclick="openOrderDetail(${o.id})"><div class="ocm-top"><div class="ocm-num">${o.num}</div><div class="ocm-date">${d.date||''}</div><div class="ocm-badge ${badgeCls}">${badgeTxt}</div></div><div class="ocm-title">${title}</div><div class="ocm-client">${sub}</div>${rSnip}</div>`;
   }).join('');
 }
 
@@ -1293,59 +1333,17 @@ function renderTabList(containerId,orders){
 
 /* ── ORDER DETAIL ── */
 function buildOrderCard(order) {
-  const d = order.data;
-  const badgeCls = order.status==='done' ? 'badge-done' : 'badge-new';
-  const badgeTxt = order.status==='done' ? 'Выполнен' : 'Ожидает выполнения';
-  if (order.type === 'individual') {
-
-const refPhotosBlock = (d.refs && d.refs.length)
-  ? `<div class="order-full-section">
-      <div class="section-label" style="margin-bottom:8px">Фото заказа</div>
-      <div class="ref-grid">
-        ${d.refs.map(src => `
-          <div class="ref-thumb">
-            <img src="${src}">
-          </div>
-        `).join('')}
-      </div>
-    </div>`
-  : '';
-    return `<div class="order-full-section">
-      <div class="ofc-row"><span>Тип</span><span>Индивидуальный</span></div>
-      <div class="ofc-row"><span>Статус</span><span><span class="ocm-badge ${badgeCls}">${badgeTxt}</span></span></div>
-      <div class="ofc-row"><span>Дата выдачи</span><span>${d.date} ${d.time}</span></div>
-    </div>
-    <div class="order-full-section">
-      <div class="section-label" style="margin-bottom:8px">Клиент</div>
-      <div style="font-size:15px;font-weight:600;color:var(--text)">${d.client}</div>
-      <div style="font-size:13px;color:var(--muted);margin-top:3px">${d.phone}</div>
-    </div>
-    <div class="order-full-section">
-      <div class="section-label" style="margin-bottom:8px">Изделие</div>
-      <div class="ofc-row"><span>Название</span><span>${d.cakeName}</span></div>
-      <div class="ofc-row"><span>Вес</span><span>${d.weight} кг</span></div>
-      <div class="ofc-row"><span>Диаметр</span><span>${d.diameter} см</span></div>
-      <div class="ofc-row"><span>Начинка</span><span>${d.filling}</span></div>
-      <div class="ofc-row"><span>Декор</span><span>${d.decor}</span></div>
-      ${d.inscription ? `<div class="ofc-row"><span>Надпись</span><span>${d.inscription}</span></div>` : ''}
-      ${refPhotosBlock}
-      <div class="ofc-price-row admin-only"><div class="ofc-price-label">Стоимость</div><div class="ofc-price-val">${fmt(d.price)}</div></div>
-    </div>
-    ${d.note&&d.note!=='—' ? `<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">Комментарий</div><div style="font-size:13px;color:var(--text)">${d.note}</div></div>` : ''}`;
+  const d=order.data;
+  const badgeCls=order.status==='done'?'badge-done':'badge-new';
+  const badgeTxt=order.status==='done'?'\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d':'\u041e\u0436\u0438\u0434\u0430\u0435\u0442 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f';
+  if(order.type==='individual'){
+    const refs=(d.refs&&d.refs.length)?d.refs:[];
+    const refBlock=refs.length?`<div style="margin-top:14px"><div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">\u0420\u0435\u0444\u0435\u0440\u0435\u043d\u0441</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">${refs.map(src=>`<div style="aspect-ratio:1;border-radius:10px;overflow:hidden"><img src="${src}" style="width:100%;height:100%;object-fit:cover"></div>`).join('')}</div></div>`:'';
+    return `<div class="order-full-section"><div class="ofc-row"><span>\u0422\u0438\u043f</span><span>\u0418\u043d\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043b\u044c\u043d\u044b\u0439</span></div><div class="ofc-row"><span>\u0421\u0442\u0430\u0442\u0443\u0441</span><span><span class="ocm-badge ${badgeCls}">${badgeTxt}</span></span></div><div class="ofc-row"><span>\u0414\u0430\u0442\u0430 \u0432\u044b\u0434\u0430\u0447\u0438</span><span>${d.date} ${d.time}</span></div></div><div class="order-full-section"><div class="section-label" style="margin-bottom:8px">\u041a\u043b\u0438\u0435\u043d\u0442</div><div style="font-size:15px;font-weight:600;color:var(--text)">${d.client}</div><div style="font-size:13px;color:var(--muted);margin-top:3px">${d.phone}</div></div><div class="order-full-section"><div class="section-label" style="margin-bottom:8px">\u0418\u0437\u0434\u0435\u043b\u0438\u0435</div><div class="ofc-row"><span>\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435</span><span>${d.cakeName}</span></div><div class="ofc-row"><span>\u0412\u0435\u0441</span><span>${d.weight} \u043a\u0433</span></div><div class="ofc-row"><span>\u0414\u0438\u0430\u043c\u0435\u0442\u0440</span><span>${d.diameter} \u0441\u043c</span></div><div class="ofc-row"><span>\u041d\u0430\u0447\u0438\u043d\u043a\u0430</span><span>${d.filling}</span></div><div class="ofc-row"><span>\u0414\u0435\u043a\u043e\u0440</span><span>${d.decor}</span></div>${d.inscription?`<div class="ofc-row"><span>\u041d\u0430\u0434\u043f\u0438\u0441\u044c</span><span>${d.inscription}</span></div>`:''}${refBlock}</div>${d.note&&d.note!=='\u2014'?`<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439</div><div style="font-size:13px;color:var(--text)">${d.note}</div></div>`:''}`;
   } else {
-    return `<div class="order-full-section">
-      <div class="ofc-row"><span>Тип</span><span>Оптовый</span></div>
-      <div class="ofc-row"><span>Статус</span><span><span class="ocm-badge ${badgeCls}">${badgeTxt}</span></span></div>
-      <div class="ofc-row"><span>Клиент</span><span>${d.client}</span></div>
-      <div class="ofc-row"><span>Ответственный</span><span>${d.staff}</span></div>
-      <div class="ofc-row"><span>Дата поставки</span><span>${d.date} ${d.time}</span></div>
-    </div>
-    <div class="order-full-section">
-      <div class="section-label" style="margin-bottom:8px">Состав</div>
-      <div style="font-size:13px;color:var(--text);line-height:1.7">${d.catalog.split(' | ').join('<br>')}</div>
-      <div class="ofc-price-row admin-only"><div class="ofc-price-label">Сумма</div><div class="ofc-price-val">${fmt(d.total)}</div></div>
-    </div>
-    ${d.note&&d.note!=='—' ? `<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">Комментарий</div><div style="font-size:13px;color:var(--text)">${d.note}</div></div>` : ''}`;
+    const lines=(d.catalog||'').split(' | ').filter(Boolean);
+    const catalogRows=lines.map(line=>{const m=line.match(/^(.+?)\s*\xd7\s*(\d+)/);return m?`<div class="ofc-row"><span>${m[1].trim()}</span><span>${m[2]} \u0448\u0442</span></div>`:`<div class="ofc-row"><span>${line}</span><span></span></div>`;}).join('');
+    return `<div class="order-full-section"><div class="ofc-row"><span>\u0422\u0438\u043f</span><span>\u041e\u043f\u0442\u043e\u0432\u044b\u0439</span></div><div class="ofc-row"><span>\u0421\u0442\u0430\u0442\u0443\u0441</span><span><span class="ocm-badge ${badgeCls}">${badgeTxt}</span></span></div><div class="ofc-row"><span>\u041a\u043b\u0438\u0435\u043d\u0442</span><span>${d.client}</span></div><div class="ofc-row"><span>\u041e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439</span><span>${d.staff||'\u2014'}</span></div><div class="ofc-row"><span>\u0414\u0430\u0442\u0430 \u043f\u043e\u0441\u0442\u0430\u0432\u043a\u0438</span><span>${d.date} ${d.time}</span></div></div><div class="order-full-section"><div class="section-label" style="margin-bottom:8px">\u0421\u043e\u0441\u0442\u0430\u0432 \u0437\u0430\u043a\u0430\u0437\u0430</div>${catalogRows||'<div style="font-size:13px;color:var(--muted)">\u041f\u043e\u0437\u0438\u0446\u0438\u0438 \u043d\u0435 \u0443\u043a\u0430\u0437\u0430\u043d\u044b</div>'}</div>${d.note&&d.note!=='\u2014'?`<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439</div><div style="font-size:13px;color:var(--text)">${d.note}</div></div>`:''}`;
   }
 }
 
@@ -1650,9 +1648,7 @@ function submitExec(id) {
   openOrderDetail(id);
 }
 
-function markDone(id){
-  startMarkDone(id);
-}
+function markDone(id) { startMarkDone(id); }
 function closeOrder(id){
   const o=allOrders.find(x=>x.id===id);
   if(o) o.status='closed';
@@ -2055,18 +2051,14 @@ function showExpenses() {
 function filterExpenses(value) {
   const dropdown = document.getElementById('expense-dropdown');
   const search = value.trim().toLowerCase();
-
-  const found = smartExpenses.filter(name =>
-    name.toLowerCase().includes(search)
-  );
-
-  dropdown.innerHTML = found.map(name => `
-    <div class="dd-opt" onclick="selectExpense('${name}')">
-      <i class="ti ti-receipt"></i>
-      ${name}
-    </div>
-  `).join('');
-
+  const found = smartExpenses.filter(name => name.toLowerCase().includes(search));
+  let html = found.map(name => `<div class="dd-opt" onclick="selectExpense('${name}')"><i class="ti ti-receipt"></i> ${name}</div>`).join('');
+  const trimmed = value.trim();
+  if (trimmed && !smartExpenses.some(n => n.toLowerCase() === search)) {
+    html += `<div class="dd-opt custom" onclick="selectExpense('${trimmed}')"><i class="ti ti-plus"></i> Добавить «${trimmed}»</div>`;
+  }
+  if (!html) { dropdown.classList.add('hidden'); return; }
+  dropdown.innerHTML = html;
   dropdown.classList.remove('hidden');
 }
 
@@ -2083,34 +2075,31 @@ function selectExpense(name) {
 }
     function renderSelectedExpenses() {
   const list = document.getElementById('selected-expenses-list');
-
   if (!selectedExpenses.length) {
-    list.innerHTML = '<div style="font-size:13px;color:var(--muted)">Расходы не выбраны</div>';
-    recalcSelectedExpenses();
-    return;
+    list.innerHTML = '<div style="font-size:13px;color:var(--muted)">\u0420\u0430\u0441\u0445\u043e\u0434\u044b \u043d\u0435 \u0432\u044b\u0431\u0440\u0430\u043d\u044b</div>';
+    recalcSelectedExpenses(); return;
   }
-
-  list.innerHTML = selectedExpenses.map((item, index) => `
-    <div class="field-row">
-      <div class="field-label">${item.name}</div>
-
-      <input class="field-input"
-             type="number"
-             placeholder="0"
-             value="${item.amount || ''}"
-             oninput="updateSelectedExpense(${index}, this.value)">
-
-      <button class="tag-del" onclick="removeSelectedExpense(${index})">
-        ×
-      </button>
-    </div>
-  `).join('');
-
+  list.innerHTML = selectedExpenses.map((item, i) => `
+    <div style="padding:10px 0;border-bottom:.5px solid rgba(62,44,35,.08)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <div style="font-size:14px;color:var(--text);font-weight:500">${item.name}</div>
+        <button class="tag-del" onclick="removeSelectedExpense(${i})" style="flex-shrink:0;margin-left:8px">\xd7</button>
+      </div>
+      <div style="display:flex;gap:8px">
+        <input class="field-input" type="number" placeholder="\u0421\u0443\u043c\u043c\u0430 \u20bd"
+          value="${item.amount||''}" oninput="updateSelectedExpense(${i},'amount',this.value)"
+          style="width:110px;text-align:right;flex-shrink:0">
+        <input class="field-input" type="text" placeholder="\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439"
+          value="${item.comment||''}" oninput="updateSelectedExpense(${i},'comment',this.value)"
+          style="flex:1;text-align:left">
+      </div>
+    </div>`).join('');
   recalcSelectedExpenses();
 }
 
-function updateSelectedExpense(index, value) {
-  selectedExpenses[index].amount = parseFloat(value) || 0;
+function updateSelectedExpense(index, field, value) {
+  if(field==='amount') selectedExpenses[index].amount=parseFloat(value)||0;
+  else if(field==='comment') selectedExpenses[index].comment=value;
   recalcSelectedExpenses();
 }
 
@@ -2195,80 +2184,36 @@ function renderDonePhotos() {
 }
 
 function confirmDone(orderId) {
-  const order = allOrders.find(o => o.id === orderId);
-  if (!order) return;
-
-  // Validate photo
-  if (!donePhotos.length) {
-    const e = document.getElementById('done-photo-error');
-    if (e) e.style.display = 'block';
-    return;
-  }
-  // Validate executor
-  const execEl = document.getElementById('done-executor');
-  const executor = execEl ? execEl.value.trim() : '';
-  if (!executor) {
-    const ee = document.getElementById('done-executor-error');
-    if (ee) ee.style.display = 'block';
-    if (execEl) execEl.focus();
-    return;
-  }
-
-  const report = { executor, photos: [...donePhotos] };
-
-  if (order.type === 'individual') {
-    report.type = 'individual';
-    // Бисквит
-    report.biscuits = ['Шоколадный','Фисташковый','Ванильный'].map((name,i) => {
-      const btn = document.getElementById('bis_btn_' + i);
-      if (!btn || !btn.classList.contains('selected')) return null;
-      return { name, weight: (document.getElementById('bis_w_'+i)||{}).value||'', size: (document.getElementById('bis_s_'+i)||{}).value||'' };
-    }).filter(Boolean);
-    // Пропитка
-    report.propitka = (document.getElementById('prop_w')||{}).value || '';
-    // Крем
-    report.creams = ['Ваниль','Фисташка','Шоколад'].map((name,i) => {
-      const btn = document.getElementById('cream_btn_' + i);
-      if (!btn || !btn.classList.contains('selected')) return null;
-      return { name, weight: (document.getElementById('cream_w_'+i)||{}).value||'' };
-    }).filter(Boolean);
-    // Начинка
-    report.fillings = ['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'].map((name,i) => {
-      const btn = document.getElementById('fill_btn_' + i);
-      return (btn && btn.classList.contains('selected')) ? name : null;
-    }).filter(Boolean);
-    // Ганаш
-    report.ganash = (document.getElementById('ganash_w')||{}).value || '';
-    // Декор
-    report.decor = [];
-    if (document.getElementById('dec_btn_berry') && document.getElementById('dec_btn_berry').classList.contains('selected')) {
-      report.decor.push({ type: 'berry', items: ['Клубника','Голубика','Малина'].map(b => ({ name: b, weight: (document.getElementById('berry_'+b)||{}).value||'' })) });
-    }
-    ['mastika','velour'].forEach(t => {
-      const btn = document.getElementById('dec_btn_'+t);
-      if (btn && btn.classList.contains('selected')) report.decor.push({ type: t, weight: (document.getElementById('dec_w_'+t)||{}).value||'' });
-    });
-    const ob = document.getElementById('dec_btn_other');
-    if (ob && ob.classList.contains('selected')) report.decor.push({ type: 'other', comment: (document.getElementById('dec_comment')||{}).value||'' });
-
+  var order=allOrders.find(function(o){return o.id===orderId;}); if(!order) return;
+  if(!donePhotos.length){var e=document.getElementById('done-photo-error');if(e)e.style.display='block';return;}
+  var execEl=document.getElementById('done-executor'), executor=execEl?execEl.value.trim():'';
+  if(!executor){var ee=document.getElementById('done-executor-error');if(ee)ee.style.display='block';if(execEl)execEl.focus();return;}
+  var report={executor:executor, photos:donePhotos.slice()};
+  if(order.type==='individual'){
+    report.type='individual';
+    var BN=['Шоколадный','Фисташковый','Ванильный'];
+    report.biscuits=BN.map(function(name,i){var btn=document.getElementById('bis_btn_'+i);if(!btn||!btn.classList.contains('selected'))return null;return{name:name,weight:(document.getElementById('bis_w_'+i)||{}).value||'',size:(document.getElementById('bis_s_'+i)||{}).value||''};}).filter(Boolean);
+    report.propitka=(document.getElementById('prop_w')||{}).value||'';
+    var CN=['Ваниль','Фисташка','Шоколад'];
+    report.creams=CN.map(function(name,i){var btn=document.getElementById('cream_btn_'+i);if(!btn||!btn.classList.contains('selected'))return null;return{name:name,weight:(document.getElementById('cream_w_'+i)||{}).value||''};}).filter(Boolean);
+    var FN=['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'];
+    report.fillings=FN.map(function(name,i){var b=document.getElementById('fill_btn_'+i);return(b&&b.classList.contains('selected'))?name:null;}).filter(Boolean);
+    report.ganash=(document.getElementById('ganash_w')||{}).value||'';
+    report.decor=[];
+    var bb=document.getElementById('dec_btn_berry');
+    if(bb&&bb.classList.contains('selected'))report.decor.push({type:'berry',items:['Клубника','Голубика','Малина'].map(function(b){return{name:b,weight:(document.getElementById('berry_'+b)||{}).value||''};})});
+    ['mastika','velour'].forEach(function(t){var btn=document.getElementById('dec_btn_'+t);if(btn&&btn.classList.contains('selected'))report.decor.push({type:t,weight:(document.getElementById('dec_w_'+t)||{}).value||''});});
+    var ob=document.getElementById('dec_btn_other');if(ob&&ob.classList.contains('selected'))report.decor.push({type:'other',comment:(document.getElementById('dec_comment')||{}).value||''});
+    sendToAppsScript('exec_ind',{num:order.num,executor:executor,execDate:(document.getElementById('done-date')||{}).value||new Date().toLocaleDateString('ru'),execTime:(document.getElementById('done-time')||{}).value||'',biscuits:report.biscuits,propitka:report.propitka,creams:report.creams,fillings:report.fillings,ganash:report.ganash,decor:report.decor,photos:donePhotos.slice()});
   } else {
-    report.type = 'wholesale';
-    const catalogLines = (order.data.catalog || '').split(' | ').filter(l => l.trim());
-    report.items = catalogLines.map((line, i) => {
-      const match = line.match(/^(.+?)\s*×\s*(\d+)/);
-      const name = match ? match[1].trim() : line;
-      const ordered = match ? parseInt(match[2]) : 0;
-      const doneEl = document.getElementById('wqty_' + i);
-      const done = doneEl ? parseInt(doneEl.textContent || '0') : 0;
-      return { name, ordered, done };
-    });
-    report.date = (document.getElementById('done-date')||{}).value || '';
-    report.time = (document.getElementById('done-time')||{}).value || '';
+    report.type='wholesale';
+    var cl=(order.data.catalog||'').split(' | ').filter(function(l){return l.trim();});
+    report.items=cl.map(function(line,i){var m=line.match(/^(.+?)\s*×\s*(\d+)/);var name=m?m[1].trim():line;var ordered=m?parseInt(m[2]):0;var de=document.getElementById('wqty_'+i);return{name:name,ordered:ordered,done:de?parseInt(de.textContent||'0'):0};});
+    report.date=(document.getElementById('done-date')||{}).value||'';
+    report.time=(document.getElementById('done-time')||{}).value||'';
+    sendToAppsScript('exec_opt',{num:order.num,executor:executor,execDate:report.date,execTime:report.time,items:report.items,photos:donePhotos.slice()});
   }
-
-  order.status = 'done';
-  order.doneReport = report;
-  go('screen-orders-list');
+  order.status='done'; order.doneReport=report; go('screen-orders-list');
 }
 
 // Download reference photo
