@@ -704,15 +704,14 @@ const catalogQty = {};
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwkWdT4z7KfHx81s1HfbDIQeBeVQLp060M_74r-7F48jO9YMBinmWNcYA5yraRKFNI/exec';
 
 function sendToAppsScript(type, payload) {
-  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('https://script.google.com/macros/s/AKfycbxBTBrhRJuF47fMEdFsyzPxmgrHGXaQyxzed4xCEEpKU7Jg59mrySQYOHVbni_7KxE/exec')) {
-    console.warn('Apps Script URL не указан', { type, payload });
-    return;
-  }
   fetch(APPS_SCRIPT_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ type: type, payload: payload })
-  }).catch(function(err) { console.error('Ошибка отправки:', err); });
+    mode: 'no-cors',
+    body: JSON.stringify({
+      type: type,
+      payload: payload
+    })
+  });
 }
 
 function getSelectedExpensesPayload() {
@@ -1185,6 +1184,7 @@ function submitIndividual(){
     note:   document.getElementById('ind-note').value||'—',
     refs:   typeof refPhotos !== 'undefined' ? refPhotos.slice() : [],
   };
+    
   const lines=[
     {k:'Клиент',v:data.client,screen:'screen-order-individual'},
     {k:'Телефон',v:data.phone,screen:'screen-order-individual'},
