@@ -1,8 +1,9 @@
-А<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>MÁHAN </title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>MÁHAN </title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
@@ -17,56 +18,16 @@ body{
     max-width:390px;
     margin:0 auto;
     min-height:100vh;
-    background-image:url('https://raw.githubusercontent.com/petrovaalbina699-ux/Alba/main/1.png');
+    background-image:url('ВАШ_URL_ФОТО');
     background-position:center bottom;
     background-size:100% auto;
     background-repeat:no-repeat;
-          
 }
 /* LOGO */
-.logo-plate-wrap{
-    padding:26px 20px 0;
-    display:flex;
-    justify-content:center;
-}
-
-.logo-plate{
-    width:85%;
-    height:90px;
-
-    background:linear-gradient(
-        180deg,
-        #B68D73,
-        #9A755D
-    );
-
-    border-radius:18px;
-
-    box-shadow:0 6px 20px rgba(0,0,0,.10);
-
-    transform:rotate(-0.5deg);
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-}
-
-.logo-title{
-    color:#FFF6EF;
-    font-size:32px;
-    font-weight:600;
-    letter-spacing:10px;
-    line-height:1;
-}
-
-.logo-subtitle{
-    color:rgba(255,246,239,0.75);
-    font-size:9px;
-    font-weight:600;
-    letter-spacing:2px;
-    margin-top:8px;
-}
+.logo-plate-wrap{padding:26px 20px 0;display:flex;justify-content:center;}
+.logo-plate{width:85%;height:90px;background:linear-gradient(180deg,#B68D73,#9A755D);border-radius:18px;box-shadow:0 6px 20px rgba(0,0,0,.10);transform:rotate(-0.5deg);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.logo-title{color:#FFF6EF;font-size:32px;font-weight:600;letter-spacing:10px;line-height:1;}
+.logo-subtitle{color:rgba(255,246,239,0.75);font-size:9px;font-weight:600;letter-spacing:2px;margin-top:8px;}
 
 /* MENU */
 .menu-body{padding:20px 16px 16px;}
@@ -100,7 +61,6 @@ body{
 
 /* BODY */
 .shift-body{padding:20px 16px 32px;}
-  
 
 /* CARDS */
 .section-card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
@@ -136,7 +96,7 @@ body{
 .btn.danger{background:#B03A2E;color:#fff;}
 .btn.success-btn{background:#2E7D32;color:#fff;}
 
-/* DROPDOWN (shared) */
+/* DROPDOWN */
 .dd-wrap{position:relative;}
 .dd-input{width:100%;font-size:14px;font-family:inherit;border:1.5px solid rgba(139,106,83,.25);outline:none;background:var(--icon-bg);border-radius:10px;padding:9px 12px;color:var(--text);}
 .dd-input:focus{border-color:var(--brown);box-shadow:0 0 0 2px rgba(139,106,83,.15);}
@@ -241,7 +201,6 @@ body{
 .badge-wholesale{background:rgba(139,106,83,.12);color:var(--brown);}
 .ocm-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px;}
 .ocm-client{font-size:13px;color:var(--muted);}
-/*.ocm-price{font-size:15px;font-weight:600;color:var(--text);margin-top:6px;}*/
 
 /* ORDER FULL CARD */
 .order-full-section{background:var(--card);border-radius:16px;padding:14px 16px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
@@ -280,77 +239,54 @@ body{
 .order-type-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:20px;max-width:240px;}
 .order-type-btn{width:100%;max-width:280px;height:48px;background:var(--brown);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;}
 
-/* ── EXECUTION FORM ── */
-.exec-wrap { margin-top: 16px; }
-.exec-section { background: var(--card); border-radius: 16px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
-.exec-section-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
-.exec-tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
-.exec-tag { padding: 7px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1.5px solid rgba(139,106,83,.3); background: transparent; color: var(--muted); font-family: inherit; transition: all .15s; -webkit-tap-highlight-color: transparent; }
-.exec-tag.selected { background: var(--brown); color: #fff; border-color: var(--brown); }
-.exec-sub-fields { margin-top: 10px; }
-.exec-sub-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.exec-sub-label { font-size: 13px; color: var(--muted); min-width: 80px; flex-shrink: 0; }
-.exec-sub-input { flex: 1; font-size: 14px; font-family: inherit; border: none; outline: none; background: var(--icon-bg); border-radius: 8px; padding: 7px 10px; color: var(--text); }
-.exec-sub-input:focus { box-shadow: 0 0 0 2px rgba(139,106,83,.3); }
-.exec-simple-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; }
-.exec-simple-label { font-size: 14px; color: var(--text); }
-.exec-simple-input { font-size: 14px; font-family: inherit; border: none; outline: none; background: var(--icon-bg); border-radius: 8px; padding: 6px 10px; width: 120px; text-align: right; color: var(--text); }
-.exec-simple-input:focus { box-shadow: 0 0 0 2px rgba(139,106,83,.3); }
-.exec-note-input { width: 100%; font-size: 13px; font-family: inherit; border: .5px solid rgba(139,106,83,.2); outline: none; background: var(--icon-bg); border-radius: 8px; padding: 8px 10px; color: var(--text); resize: none; height: 60px; margin-top: 6px; }
-.exec-note-input:focus { box-shadow: 0 0 0 2px rgba(139,106,83,.3); }
-
-/* photo download link */
-.ref-download-link { display: block; font-size: 13px; color: var(--brown); font-weight: 600; text-decoration: none; margin-bottom: 6px; }
-.ref-download-link:before { content: '📎 '; }
-
-/* collapsed order card */
-.order-collapsed { background: var(--card); border-radius: 16px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
-.order-collapsed-row { display: flex; justify-content: space-between; font-size: 13px; padding: 4px 0; }
-.order-collapsed-row span:first-child { color: var(--muted); }
-.order-collapsed-row span:last-child { color: var(--text); font-weight: 600; }
-
-/* ── DONE FORM ── */
-.done-section { background: var(--card); border-radius: 16px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
-.done-section-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
-.done-field { margin-bottom: 10px; }
-.done-label { font-size: 13px; color: var(--muted); margin-bottom: 5px; }
-.done-input { width: 100%; font-size: 14px; font-family: inherit; border: none; outline: none; background: var(--icon-bg); border-radius: 8px; padding: 8px 12px; color: var(--text); }
-.done-input:focus { box-shadow: 0 0 0 2px rgba(139,106,83,.3); }
-.done-row-two { display: flex; gap: 8px; }
-.done-row-two .done-field { flex: 1; }
-.done-choice-list { display: flex; flex-direction: column; gap: 6px; }
-.done-choice-item { border-radius: 10px; overflow: hidden; background: var(--icon-bg); }
-.done-choice-btn { width: 100%; padding: 10px 14px; background: none; border: none; font-size: 14px; font-family: inherit; color: var(--text); text-align: left; cursor: pointer; display: flex; align-items: center; gap: 8px; -webkit-tap-highlight-color: transparent; }
-.done-choice-btn.selected { background: rgba(139,106,83,.15); color: var(--brown); font-weight: 600; }
-.done-choice-dot { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid #C4A98E; flex-shrink: 0; transition: all .15s; }
-.done-choice-btn.selected .done-choice-dot { background: var(--brown); border-color: var(--brown); }
-.done-choice-fields { padding: 8px 14px 12px; display: none; background: rgba(139,106,83,.05); }
-.done-choice-fields.show { display: block; }
-.done-photo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 6px; }
-.done-photo-add { aspect-ratio: 1; border-radius: 10px; border: 1.5px dashed rgba(139,106,83,.4); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; gap: 4px; background: transparent; font-family: inherit; }
-.done-photo-add i { font-size: 22px; color: var(--brown); }
-.done-photo-add span { font-size: 10px; color: var(--muted); }
-.done-photo-add input { display: none; }
-.done-photo-thumb { aspect-ratio: 1; border-radius: 10px; overflow: hidden; position: relative; }
-.done-photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.done-photo-del { position: absolute; top: 3px; right: 3px; width: 20px; height: 20px; border-radius: 50%; background: rgba(0,0,0,.5); border: none; color: #fff; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-.collapsed-card { background: var(--icon-bg); border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; }
-.collapsed-card-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-.collapsed-card-row { font-size: 12px; color: var(--muted); line-height: 1.7; }
-.ref-download { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--brown); font-weight: 600; padding: 6px 0; cursor: pointer; text-decoration: none; }
-.ref-download i { font-size: 16px; }
+/* DONE FORM */
+.done-section{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
+.done-section-title{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
+.done-field{margin-bottom:10px;}
+.done-label{font-size:13px;color:var(--muted);margin-bottom:5px;}
+.done-input{width:100%;font-size:14px;font-family:inherit;border:none;outline:none;background:var(--icon-bg);border-radius:8px;padding:8px 12px;color:var(--text);}
+.done-input:focus{box-shadow:0 0 0 2px rgba(139,106,83,.3);}
+.done-row-two{display:flex;gap:8px;}
+.done-row-two .done-field{flex:1;}
+.done-choice-list{display:flex;flex-direction:column;gap:6px;}
+.done-choice-item{border-radius:10px;overflow:hidden;background:var(--icon-bg);}
+.done-choice-btn{width:100%;padding:10px 14px;background:none;border:none;font-size:14px;font-family:inherit;color:var(--text);text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;-webkit-tap-highlight-color:transparent;}
+.done-choice-btn.selected{background:rgba(139,106,83,.15);color:var(--brown);font-weight:600;}
+.done-choice-dot{width:8px;height:8px;border-radius:50%;border:1.5px solid #C4A98E;flex-shrink:0;transition:all .15s;}
+.done-choice-btn.selected .done-choice-dot{background:var(--brown);border-color:var(--brown);}
+.done-choice-fields{padding:8px 14px 12px;display:none;background:rgba(139,106,83,.05);}
+.done-choice-fields.show{display:block;}
+.done-photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px;}
+.done-photo-add{aspect-ratio:1;border-radius:10px;border:1.5px dashed rgba(139,106,83,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:4px;background:transparent;font-family:inherit;}
+.done-photo-add i{font-size:22px;color:var(--brown);}
+.done-photo-add span{font-size:10px;color:var(--muted);}
+.done-photo-add input{display:none;}
+.done-photo-thumb{aspect-ratio:1;border-radius:10px;overflow:hidden;position:relative;}
+.done-photo-thumb img{width:100%;height:100%;object-fit:cover;}
+.done-photo-del{position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.5);border:none;color:#fff;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.collapsed-card{background:var(--icon-bg);border-radius:12px;padding:12px 14px;margin-bottom:12px;}
+.collapsed-card-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.collapsed-card-row{font-size:12px;color:var(--muted);line-height:1.7;}
+.ref-download{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--brown);font-weight:600;padding:6px 0;cursor:pointer;text-decoration:none;}
+.ref-download i{font-size:16px;}
 
 /* WHOLESALE DONE ITEMS */
-.wholesale-done-item { padding: 10px 0; border-bottom: .5px solid rgba(62,44,35,.08); }
-.wholesale-done-item:last-child { border-bottom: none; }
-.wholesale-done-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-.wholesale-done-row { display: flex; align-items: center; justify-content: space-between; }
-.wholesale-done-sub { font-size: 12px; color: var(--muted); }
+.wholesale-done-item{padding:10px 0;border-bottom:.5px solid rgba(62,44,35,.08);}
+.wholesale-done-item:last-child{border-bottom:none;}
+.wholesale-done-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.wholesale-done-row{display:flex;align-items:center;justify-content:space-between;}
+.wholesale-done-sub{font-size:12px;color:var(--muted);}
 
 /* MINI REPORT ON CARD */
-.mini-report-card { margin-top: 8px; background: rgba(46,125,50,.07); border-radius: 8px; padding: 7px 10px; border-left: 2px solid #2E7D32; }
-.mini-report-label { font-size: 11px; font-weight: 600; color: #2E7D32; display: flex; align-items: center; gap: 4px; }
-.mini-report-executor { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.mini-report-card{margin-top:8px;background:rgba(46,125,50,.07);border-radius:8px;padding:7px 10px;border-left:2px solid #2E7D32;}
+.mini-report-label{font-size:11px;font-weight:600;color:#2E7D32;display:flex;align-items:center;gap:4px;}
+.mini-report-executor{font-size:11px;color:var(--muted);margin-top:2px;}
+
+/* ORDER COLLAPSED */
+.order-collapsed{background:var(--card);border-radius:16px;padding:14px 16px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
+.order-collapsed-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;}
+.order-collapsed-row span:first-child{color:var(--muted);}
+.order-collapsed-row span:last-child{color:var(--text);font-weight:600;}
 </style>
 </head>
 <body>
@@ -375,9 +311,9 @@ body{
       <div class="menu-card-text"><div class="menu-card-title">Оформление заказа клиента</div><div class="menu-card-desc">Индивидуальный или оптовый заказ</div></div>
       <i class="ti ti-chevron-right menu-card-arrow"></i>
     </button>
-    <button class="menu-card" onclick="go('screen-orders-list')">
-      <div class="menu-card-icon"><i class="ti ti-clipboard-list"></i></div>
-      <div class="menu-card-text"><div class="menu-card-title">Оформленные заказы</div><div class="menu-card-desc">Просмотр, выполнение и закрытие</div></div>
+    <button class="menu-card" onclick="go('screen-konditer')">
+      <div class="menu-card-icon"><i class="ti ti-chef-hat"></i></div>
+      <div class="menu-card-text"><div class="menu-card-title">Отчёт кондитера</div><div class="menu-card-desc">Выполнение индивидуального или оптового заказа</div></div>
       <i class="ti ti-chevron-right menu-card-arrow"></i>
     </button>
   </div></div>
@@ -416,29 +352,18 @@ body{
     <div class="step-item"><div class="step-circle">4</div><div class="step-label">Итоги</div></div>
   </div></div>
   <div class="shift-body">
-<div class="section-card">
-  <div class="section-label">
-    <i class="ti ti-search" style="font-size:13px"></i> Добавить расход
-  </div>
-
-  <div class="dd-wrap">
-    <input class="dd-input"
-           type="text"
-           id="expense-search"
-           placeholder="Начните вводить расход..."
-           autocomplete="off"
-           oninput="filterExpenses(this.value)"
-           onfocus="showExpenses()">
-
-    <div class="dd-list hidden" id="expense-dropdown"></div>
-  </div>
-</div>
-
-<div class="section-card">
-  <div class="section-label">Выбранные расходы</div>
-  <div id="selected-expenses-list"></div>
-</div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 4px 4px;"><div style="font-size:15px;font-weight:600;color:var(--text)">Итого расходов</div><div style="font-size:18px;font-weight:600;color:var(--brown)" id="exp-grand-total">0 ₽</div></div>
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-search" style="font-size:13px"></i> Добавить расход</div>
+      <div class="dd-wrap">
+        <input class="dd-input" type="text" id="expense-search" placeholder="Начните вводить расход..." autocomplete="off" oninput="filterExpenses(this.value)" onfocus="showExpenses()">
+        <div class="dd-list hidden" id="expense-dropdown"></div>
+      </div>
+    </div>
+    <div class="section-card">
+      <div class="section-label">Выбранные расходы</div>
+      <div id="selected-expenses-list"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 4px 4px;"><div style="font-size:15px;font-weight:600;color:var(--text)">Итого расходов</div><div style="font-size:18px;font-weight:600;color:var(--brown)" id="exp-grand-total">0 ₽</div></div>
     <div class="btn-row" style="margin-top:16px"><button class="btn icon-only" onclick="go('screen-shift-1')"><i class="ti ti-arrow-left"></i></button><button class="btn" onclick="go('screen-shift-3')">Далее <i class="ti ti-chevron-right"></i></button></div>
   </div>
 </div>
@@ -514,10 +439,7 @@ body{
       <div class="section-label"><i class="ti ti-user" style="font-size:13px"></i> Клиент</div>
       <div class="field-row"><div class="field-label">Имя клиента</div><input class="field-input wide" type="text" id="ind-name" placeholder="Имя"/></div>
       <div class="field-row"><div class="field-label">Телефон</div><input class="field-input wide" type="tel" id="ind-phone" placeholder="+7..."/></div>
-    <div class="field-row">
-  <div class="field-label">Адрес</div>
-  <input class="field-input wide" type="text" id="ind-address" placeholder="Адрес доставки"/>
-</div>
+      <div class="field-row"><div class="field-label">Адрес</div><input class="field-input wide" type="text" id="ind-address" placeholder="Адрес доставки"/></div>
     </div>
     <div class="section-card">
       <div class="section-label"><i class="ti ti-cake" style="font-size:13px"></i> Параметры торта</div>
@@ -632,9 +554,13 @@ body{
   </div>
 </div>
 
-<!-- ═══════════════ СПИСОК ЗАКАЗОВ ═══════════════ -->
+<!-- ═══════════════ СПИСОК ЗАКАЗОВ (был отсутствующий экран) ═══════════════ -->
+<!-- FIX #1: Добавлен отсутствующий экран screen-orders-list -->
 <div id="screen-orders-list" class="screen shift-screen">
-  <div class="shift-topbar"><button class="shift-back" onclick="go('screen-home')"><i class="ti ti-arrow-left"></i></button><div><div class="shift-title">Оформленные заказы</div></div></div>
+  <div class="shift-topbar">
+    <button class="shift-back" onclick="go('screen-home')"><i class="ti ti-arrow-left"></i></button>
+    <div><div class="shift-title">Заказы</div><div class="shift-sub">Текущие заказы</div></div>
+  </div>
   <div class="shift-body" style="padding-top:16px">
     <div class="tab-row">
       <button class="tab-btn active" id="tab-ind" onclick="switchTab('ind')">Индивидуальные</button>
@@ -642,6 +568,240 @@ body{
     </div>
     <div id="orders-ind-list"></div>
     <div id="orders-opt-list" style="display:none"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ ОТЧЁТ КОНДИТЕРА: ВЫБОР ТИПА ═══════════════ -->
+<div id="screen-konditer" class="screen shift-screen">
+  <div class="shift-topbar">
+    <button class="shift-back" onclick="go('screen-home')"><i class="ti ti-arrow-left"></i></button>
+    <div><div class="shift-title">Отчёт кондитера</div><div class="shift-sub">Выберите тип заказа</div></div>
+  </div>
+  <div class="shift-body" style="padding-top:24px">
+    <div class="order-type-card" onclick="go('screen-konditer-ind')">
+      <div class="order-type-icon-wrap">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="#F1E5D8"/><g stroke="#8B6A53" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><ellipse cx="32" cy="38" rx="13" ry="6"/><path d="M19 38v4c0 3.31 5.82 6 13 6s13-2.69 13-6v-4"/><rect x="24" y="28" width="16" height="6" rx="1"/><path d="M28 28v-4a4 4 0 0 1 8 0v4"/><circle cx="32" cy="22" r="2" fill="#8B6A53"/><path d="M32 20v-3"/></g></svg>
+      </div>
+      <div class="order-type-title">Индивидуальный заказ</div>
+      <div class="order-type-desc">Отчёт о выполнении торта или десерта для частного клиента</div>
+      <div class="order-type-btn">Выбрать</div>
+    </div>
+    <div class="order-type-card" onclick="go('screen-konditer-opt')">
+      <div class="order-type-icon-wrap">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="#F1E5D8"/><g stroke="#8B6A53" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="18" y="26" width="28" height="22" rx="2"/><path d="M24 26v-4a8 8 0 0 1 16 0v4"/><path d="M18 34h28"/><path d="M26 30v8"/><path d="M38 30v8"/></g></svg>
+      </div>
+      <div class="order-type-title">Оптовый заказ</div>
+      <div class="order-type-desc">Отчёт о выполнении позиций оптового заказа</div>
+      <div class="order-type-btn">Выбрать</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ КОНДИТЕР: ИНДИВИДУАЛЬНЫЙ ═══════════════ -->
+<div id="screen-konditer-ind" class="screen shift-screen">
+  <div class="shift-topbar">
+    <button class="shift-back" onclick="go('screen-konditer')"><i class="ti ti-arrow-left"></i></button>
+    <div><div class="shift-title">Индивидуальный заказ</div><div class="shift-sub">Отчёт кондитера</div></div>
+  </div>
+  <div class="shift-body">
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-hash" style="font-size:13px"></i> Заказ</div>
+      <div class="field-row">
+        <div class="field-label">Номер заказа</div>
+        <input class="field-input wide" type="text" id="ki-num" placeholder="№1-инд"/>
+      </div>
+    </div>
+
+    <!-- БИСКВИТ -->
+    <div class="done-section">
+      <div class="done-section-title">Бисквит</div>
+      <div class="done-choice-list">
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="ki_bis_btn_0" type="button" onclick="toggleKI('bis',0)"><div class="done-choice-dot" id="ki_bis_dot_0"></div>Шоколадный</button>
+          <div class="done-choice-fields" id="ki_bis_fields_0" style="display:none"><div class="done-row-two"><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ki_bis_w_0"/></div><div class="done-field"><div class="done-label">Размер (см)</div><input class="done-input" type="number" placeholder="0" id="ki_bis_s_0"/></div></div></div>
+        </div>
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="ki_bis_btn_1" type="button" onclick="toggleKI('bis',1)"><div class="done-choice-dot" id="ki_bis_dot_1"></div>Фисташковый</button>
+          <div class="done-choice-fields" id="ki_bis_fields_1" style="display:none"><div class="done-row-two"><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ki_bis_w_1"/></div><div class="done-field"><div class="done-label">Размер (см)</div><input class="done-input" type="number" placeholder="0" id="ki_bis_s_1"/></div></div></div>
+        </div>
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="ki_bis_btn_2" type="button" onclick="toggleKI('bis',2)"><div class="done-choice-dot" id="ki_bis_dot_2"></div>Ванильный</button>
+          <div class="done-choice-fields" id="ki_bis_fields_2" style="display:none"><div class="done-row-two"><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ki_bis_w_2"/></div><div class="done-field"><div class="done-label">Размер (см)</div><input class="done-input" type="number" placeholder="0" id="ki_bis_s_2"/></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ПРОПИТКА -->
+    <div class="done-section">
+      <div class="done-section-title">Пропитка</div>
+      <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ki_prop_w"/></div>
+    </div>
+
+    <!-- КРЕМ -->
+    <div class="done-section">
+      <div class="done-section-title">Крем</div>
+      <div class="done-choice-list">
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="ki_cream_btn_0" type="button" onclick="toggleKI('cream',0)"><div class="done-choice-dot" id="ki_cream_dot_0"></div>Ваниль</button>
+          <div class="done-choice-fields" id="ki_cream_fields_0" style="display:none"><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ki_cream_w_0"/></div></div>
+        </div>
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="ki_cream_btn_1" type="button" onclick="toggleKI('cream',1)"><div class="done-choice-dot" id="ki_cream_dot_1"></div>Фисташка</button>
+          <div class="done-choice-fields" id="ki_cream_fields_1" style="display:none"><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ki_cream_w_1"/></div></div>
+        </div>
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="ki_cream_btn_2" type="button" onclick="toggleKI('cream',2)"><div class="done-choice-dot" id="ki_cream_dot_2"></div>Шоколад</button>
+          <div class="done-choice-fields" id="ki_cream_fields_2" style="display:none"><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ki_cream_w_2"/></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- НАЧИНКА -->
+    <div class="done-section">
+      <div class="done-section-title">Начинка</div>
+      <div class="done-choice-list">
+        <div class="done-choice-item"><button class="done-choice-btn" id="ki_fill_btn_0" type="button" onclick="toggleKI('fill',0)"><div class="done-choice-dot" id="ki_fill_dot_0"></div>Ваниль</button><div class="done-choice-fields" id="ki_fill_fields_0" style="display:none"></div></div>
+        <div class="done-choice-item"><button class="done-choice-btn" id="ki_fill_btn_1" type="button" onclick="toggleKI('fill',1)"><div class="done-choice-dot" id="ki_fill_dot_1"></div>Клубника</button><div class="done-choice-fields" id="ki_fill_fields_1" style="display:none"></div></div>
+        <div class="done-choice-item"><button class="done-choice-btn" id="ki_fill_btn_2" type="button" onclick="toggleKI('fill',2)"><div class="done-choice-dot" id="ki_fill_dot_2"></div>Банан</button><div class="done-choice-fields" id="ki_fill_fields_2" style="display:none"></div></div>
+        <div class="done-choice-item"><button class="done-choice-btn" id="ki_fill_btn_3" type="button" onclick="toggleKI('fill',3)"><div class="done-choice-dot" id="ki_fill_dot_3"></div>Шоколад – малина – банан</button><div class="done-choice-fields" id="ki_fill_fields_3" style="display:none"></div></div>
+        <div class="done-choice-item"><button class="done-choice-btn" id="ki_fill_btn_4" type="button" onclick="toggleKI('fill',4)"><div class="done-choice-dot" id="ki_fill_dot_4"></div>Шоколад – малина</button><div class="done-choice-fields" id="ki_fill_fields_4" style="display:none"></div></div>
+        <div class="done-choice-item"><button class="done-choice-btn" id="ki_fill_btn_5" type="button" onclick="toggleKI('fill',5)"><div class="done-choice-dot" id="ki_fill_dot_5"></div>Сникерс</button><div class="done-choice-fields" id="ki_fill_fields_5" style="display:none"></div></div>
+        <div class="done-choice-item"><button class="done-choice-btn" id="ki_fill_btn_6" type="button" onclick="toggleKI('fill',6)"><div class="done-choice-dot" id="ki_fill_dot_6"></div>Малина – банан</button><div class="done-choice-fields" id="ki_fill_fields_6" style="display:none"></div></div>
+        <div class="done-choice-item"><button class="done-choice-btn" id="ki_fill_btn_7" type="button" onclick="toggleKI('fill',7)"><div class="done-choice-dot" id="ki_fill_dot_7"></div>Безе – орех</button><div class="done-choice-fields" id="ki_fill_fields_7" style="display:none"></div></div>
+        <div class="done-choice-item"><button class="done-choice-btn" id="ki_fill_btn_8" type="button" onclick="toggleKI('fill',8)"><div class="done-choice-dot" id="ki_fill_dot_8"></div>Фисташка с малиной</button><div class="done-choice-fields" id="ki_fill_fields_8" style="display:none"></div></div>
+      </div>
+    </div>
+
+    <!-- ГАНАШ -->
+    <div class="done-section">
+      <div class="done-section-title">Ганаш</div>
+      <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ki_ganash_w"/></div>
+    </div>
+
+    <!-- FIX #2: Декор — убраны template literals из HTML, заменены статическим HTML -->
+    <div class="done-section">
+      <div class="done-section-title">Декор</div>
+      <div class="done-choice-list">
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="ki_dec_btn_berry" type="button" onclick="toggleKIDecor('berry')">
+            <div class="done-choice-dot" id="ki_dec_dot_berry"></div>Ягодное оформление
+          </button>
+          <div class="done-choice-fields" id="ki_dec_fields_berry" style="display:none">
+            <div class="done-field"><div class="done-label">Клубника (г)</div><input class="done-input" type="number" placeholder="0" id="ki_berry_Клубника"/></div>
+            <div class="done-field"><div class="done-label">Голубика (г)</div><input class="done-input" type="number" placeholder="0" id="ki_berry_Голубика"/></div>
+            <div class="done-field"><div class="done-label">Малина (г)</div><input class="done-input" type="number" placeholder="0" id="ki_berry_Малина"/></div>
+          </div>
+        </div>
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="ki_dec_btn_mastika" type="button" onclick="toggleKIDecor('mastika')">
+            <div class="done-choice-dot" id="ki_dec_dot_mastika"></div>Мастика
+          </button>
+          <div class="done-choice-fields" id="ki_dec_fields_mastika" style="display:none">
+            <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ki_dec_w_mastika"/></div>
+          </div>
+        </div>
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="ki_dec_btn_velour" type="button" onclick="toggleKIDecor('velour')">
+            <div class="done-choice-dot" id="ki_dec_dot_velour"></div>Вилюр
+          </button>
+          <div class="done-choice-fields" id="ki_dec_fields_velour" style="display:none">
+            <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ki_dec_w_velour"/></div>
+          </div>
+        </div>
+        <div class="done-choice-item">
+          <button class="done-choice-btn" id="ki_dec_btn_other" type="button" onclick="toggleKIDecor('other')">
+            <div class="done-choice-dot" id="ki_dec_dot_other"></div>Другой
+          </button>
+          <div class="done-choice-fields" id="ki_dec_fields_other" style="display:none">
+            <div class="done-field"><div class="done-label">Комментарий</div><input class="done-input" type="text" placeholder="Опишите декор..." id="ki_dec_comment"/></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-calendar" style="font-size:13px"></i> Дата и время выполнения</div>
+      <div class="field-row"><div class="field-label">Дата</div><input class="field-input" type="date" id="ki-date"/></div>
+      <div class="field-row"><div class="field-label">Время</div><input class="field-input" type="time" id="ki-time"/></div>
+    </div>
+
+    <div class="done-section">
+      <div class="done-section-title">Фото готового изделия <span class="photo-required">Обязательно</span></div>
+      <div class="done-photo-grid" id="ki-photo-grid">
+        <label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addKIPhotos(this)"></label>
+      </div>
+      <div id="ki-photo-error" style="display:none;margin-top:8px;font-size:12px;color:#B03A2E;font-weight:600">Добавьте фото изделия</div>
+    </div>
+
+    <div class="done-section">
+      <div class="done-section-title">Исполнитель</div>
+      <div class="done-field"><div class="done-label">Имя кондитера</div><input class="done-input" type="text" id="ki-executor" placeholder="Ваше имя"/></div>
+      <div id="ki-executor-error" style="display:none;margin-top:6px;font-size:12px;color:#B03A2E;font-weight:600">Укажите имя</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn icon-only" type="button" onclick="go('screen-konditer')"><i class="ti ti-arrow-left"></i></button>
+      <button class="btn primary" type="button" onclick="submitKonditerInd()"><i class="ti ti-send"></i> Отправить отчёт</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ КОНДИТЕР: ОПТОВЫЙ ═══════════════ -->
+<div id="screen-konditer-opt" class="screen shift-screen">
+  <div class="shift-topbar">
+    <button class="shift-back" onclick="go('screen-konditer')"><i class="ti ti-arrow-left"></i></button>
+    <div><div class="shift-title">Оптовый заказ</div><div class="shift-sub">Отчёт кондитера</div></div>
+  </div>
+  <div class="shift-body">
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-hash" style="font-size:13px"></i> Заказ</div>
+      <div class="field-row">
+        <div class="field-label">Номер заказа</div>
+        <input class="field-input wide" type="text" id="ko-num" placeholder="№1-опт"/>
+      </div>
+      <div class="field-row" style="flex-direction:column;align-items:flex-start;gap:6px;padding-top:10px">
+        <div class="field-label">Клиент</div>
+        <div class="dd-wrap" style="width:100%">
+          <input class="dd-input" type="text" id="ko-client-input" placeholder="Выберите клиента..." readonly onclick="toggleKOClientDD()"/>
+          <div class="dd-list hidden" id="ko-client-dd"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="done-section">
+      <div class="done-section-title">Позиции заказа</div>
+      <div id="ko-items-list"></div>
+      <div class="dd-wrap" style="margin-top:8px">
+        <input class="dd-input" type="text" id="ko-item-search" placeholder="Найти и добавить позицию..." autocomplete="off" oninput="filterKOItems(this.value)" onfocus="filterKOItems(this.value)"/>
+        <div class="dd-list hidden" id="ko-item-dd"></div>
+      </div>
+      <div id="ko-selected-items" style="margin-top:8px"></div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-label"><i class="ti ti-calendar" style="font-size:13px"></i> Дата и время выполнения</div>
+      <div class="field-row"><div class="field-label">Дата</div><input class="field-input" type="date" id="ko-date"/></div>
+      <div class="field-row"><div class="field-label">Время</div><input class="field-input" type="time" id="ko-time"/></div>
+    </div>
+
+    <div class="done-section">
+      <div class="done-section-title">Фото выполненной работы <span class="photo-required">Обязательно</span></div>
+      <div class="done-photo-grid" id="ko-photo-grid">
+        <label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addKOPhotos(this)"></label>
+      </div>
+      <div id="ko-photo-error" style="display:none;margin-top:8px;font-size:12px;color:#B03A2E;font-weight:600">Добавьте фото</div>
+    </div>
+
+    <div class="done-section">
+      <div class="done-section-title">Исполнитель</div>
+      <div class="done-field"><div class="done-label">Имя кондитера</div><input class="done-input" type="text" id="ko-executor" placeholder="Ваше имя"/></div>
+      <div id="ko-executor-error" style="display:none;margin-top:6px;font-size:12px;color:#B03A2E;font-weight:600">Укажите имя</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn icon-only" type="button" onclick="go('screen-konditer')"><i class="ti ti-arrow-left"></i></button>
+      <button class="btn primary" type="button" onclick="submitKonditerOpt()"><i class="ti ti-send"></i> Отправить отчёт</button>
+    </div>
   </div>
 </div>
 
@@ -676,419 +836,505 @@ body{
 </div><!-- /app-wrap -->
 
 <script>
-
 /* safe element getter */
 function $el(id){ return document.getElementById(id) || {}; }
-function $cls(id){ var e=document.getElementById(id); return e?e.classList:{contains:function(){return false;},add:function(){},remove:function(){},toggle:function(){}}; }
 
 /* ════════════════════════════════════════════
    GLOBALS
 ════════════════════════════════════════════ */
-let indCount = 0, optCount = 0;
-let currentReviewType = '';
-let allOrders = []; // {id, type, num, data, status:'new'|'done'|'closed'}
-let detailOrderId = null;
-let totalExp = 0, totalDebt = 0;
-const photos = [];
-const refPhotos = [];
-const selectedFillings = [];
-let selectedClient = null;
-let inscriptionVisible = false;
-const catalogQty = {};
+var indCount = 0, optCount = 0;
+var currentReviewType = '';
+var allOrders = [];
+var detailOrderId = null;
+var totalExp = 0, totalDebt = 0;
+var photos = [];
+var refPhotos = [];
+var selectedFillings = [];
+var selectedClient = null;
+var inscriptionVisible = false;
+var catalogQty = {};
 
-/* ════════════════════════════════════════════
-   TELEGRAM / APPS SCRIPT
-   Вставьте сюда ссылку Web App из Google Apps Script
-════════════════════════════════════════════ */
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxnu4mb0N7klTFpg5jkVlsvW6p60Q7t9S-kWXnG5h1_nldJHFrqKzjn3tEpw4NMsKE/exec';
 
 function sendToAppsScript(type, payload) {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('ВСТАВЬТЕ')) {
+    console.warn('Apps Script URL не указан', { type, payload });
+    return;
+  }
   fetch(APPS_SCRIPT_URL, {
     method: 'POST',
-    mode: 'no-cors',
-    body: JSON.stringify({
-      type: type,
-      payload: payload
-    })
-  });
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ type: type, payload: payload })
+  }).catch(function(err) { console.error('Ошибка отправки:', err); });
 }
 
-function getSelectedExpensesPayload() {
-  if (Array.isArray(selectedExpenses) && selectedExpenses.length) {
-    return selectedExpenses
-      .filter(item => item.amount > 0)
-      .map(item => ({
-        name: item.name,
-        amount: item.amount
-      }));
-  }
-
-  const result = [];
-
-  EXP_CATS.forEach(cat => {
-    cat.items.forEach(item => {
-      const state = itemState[item.id];
-      if (state && state.selected && state.amount > 0) {
-        const noteEl = document.getElementById('note_' + item.id);
-        result.push({
-          name: item.label,
-          amount: state.amount,
-          comment: noteEl ? noteEl.value : ''
-        });
-      }
-    });
-  });
-
-  return result;
-}
-
-function buildShiftPayload() {
-  return {
-    date: document.getElementById('p1-date').value || '',
-    employee: document.getElementById('p1-name').value || '',
-    startCash: document.getElementById('p1-cash').value || 0,
-    expenses: getSelectedExpensesPayload(),
-    expensesTotal: totalExp,
-    debtTotal: totalDebt,
-    revenue: document.getElementById('f-revenue').value || 0,
-    card: document.getElementById('f-card').value || 0,
-    collect: document.getElementById('f-collect').value || 0,
-    remain: document.getElementById('f-remain').value || 0,
-    diffLabel: document.getElementById('diff-label').textContent || '',
-    diffValue: document.getElementById('diff-value').textContent || '',
-    comment: document.getElementById('reason-input').value || ''
-  };
-}
-
-
-    
 /* ════════════════════════════════════════════
    NAVIGATION
 ════════════════════════════════════════════ */
 function go(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+  var el = document.getElementById(id);
+  if (!el) { console.error('Screen not found: ' + id); return; }
+  el.classList.add('active');
   window.scrollTo(0, 0);
-  if(id!=='screen-order-wholesale'){var bar=document.getElementById('catalog-total-row');if(bar)bar.style.display='none';}
+  if (id !== 'screen-order-wholesale') {
+    var bar = document.getElementById('catalog-total-row');
+    if (bar) bar.style.display = 'none';
+  }
   if (id === 'screen-order-wholesale') initWholesaleDefaults();
   if (id === 'screen-orders-list') renderOrdersList();
+  if (id === 'screen-konditer-ind') { kiPhotos = []; renderKIPhotos(); initKonditerDates('ki'); }
+  if (id === 'screen-konditer-opt') { koPhotos = []; koSelectedItems = []; renderKOSelectedItems(); renderKOPhotos(); initKonditerDates('ko'); }
 }
 
 function goShift() {
   document.getElementById('p1-date').value = new Date().toISOString().split('T')[0];
   go('screen-shift-1');
 }
+
 function initWholesaleDefaults() {
-  const d = document.getElementById('who-date');
-  const t = document.getElementById('who-time');
+  var d = document.getElementById('who-date');
+  var t = document.getElementById('who-time');
   if (!d.value) {
-    const tom = new Date(); tom.setDate(tom.getDate()+1);
+    var tom = new Date(); tom.setDate(tom.getDate() + 1);
     d.value = tom.toISOString().split('T')[0];
   }
   if (!t.value) t.value = '12:00';
 }
 
 /* ════════════════════════════════════════════
-   EXPENSE CATS (shift step 2 & 3)
+   DEBT CATS (shift step 3)
 ════════════════════════════════════════════ */
-const EXP_CATS = [
-  {id:'zakup',label:'Закуп и поставщики',items:[
-    {id:'e_custom', label:'Свой вариант', note:true, notePh:'Укажите комментарий к расходу'},
-    {id:'e_zakup_mokhm',label:'Закуп (Мохьмада)'},
-    {id:'e_zakup_fort',label:'Фортайм'},
-    {id:'e_zakup_ver',label:'Верона'},{id:'e_zakup_ice',label:'Мороженое'},
-    {id:'e_zakup_crois',label:'Круассаны'},{id:'e_zakup_fortk',label:'Фортайм кондитер'},
-    {id:'e_zakup_tart',label:'Тартин'},{id:'e_zakup_add',label:'Аддуми'},
-    {id:'e_zakup_cream',label:'Сливки'},
-    {id:'e_zakup_other',label:'Другой поставщик',note:true},
-    {id:'e_zakup_shop',label:'Магазин',note:true},
-  ]},
-  {id:'salary',label:'Зарплата и авансы',items:[
-    {id:'e_sal_tech',label:'Техперсонал'},{id:'e_sal_adv',label:'Аванс сотруднику',note:true},
-  ]},
-  {id:'delivery',label:'Доставка',items:[
-    {id:'e_del_point',label:'До точки'},{id:'e_del_client',label:'До клиента'},
-  ]},
-  {id:'other',label:'Прочее',items:[
-    {id:'e_oth_misc',label:'Прочее'},
-    {id:'e_oth_decor',label:'Декор / Интерьер',note:true,notePh:'Цветы, свечи и т.п.'},
-    {id:'e_oth_eqrep',label:'Ремонт оборудования'},
-    {id:'e_oth_rep',label:'Ремонт на точке'},
-    {id:'e_oth_inv',label:'Инвентарь'},
-  ]},
-];
 const DEBT_CATS = [
   {id:'debt',label:'Долговые накладные',items:[
     {id:'d_debt_dom',label:'Дом кондитера'},{id:'d_debt_kon',label:'Коника'},
     {id:'d_debt_gold',label:'Золотой'},{id:'d_debt_other',label:'Другой поставщик',note:true},
   ]},
 ];
-const itemState = {};
+var itemState = {};
 
 function buildSection(cats, containerId) {
-  const c = document.getElementById(containerId);
-  c.innerHTML = cats.map(cat => {
-    const rows = cat.items.map(item => {
+  var c = document.getElementById(containerId);
+  if (!c) return;
+  c.innerHTML = cats.map(function(cat) {
+    var rows = cat.items.map(function(item) {
       itemState[item.id] = {selected:false, amount:0};
-      const note = item.note ? `<textarea class="simple-textarea" style="height:40px;margin-top:6px" id="note_${item.id}" placeholder="${item.notePh||'Комментарий...'}"></textarea>` : '';
-      return `<div>
-        <div class="catalog-item" id="row_${item.id}" data-id="${item.id}" data-cat="${cat.id}" data-cont="${containerId}" style="cursor:pointer" onclick="toggleExpItem('${item.id}','${cat.id}','${containerId}')">
-          <div class="catalog-item-info"><div class="catalog-item-name">${item.label}</div></div>
-          <div class="item-dot" id="dot_${item.id}" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #C4A98E;flex-shrink:0;margin-right:4px"></div>
-        </div>
-        <div id="inp_${item.id}" style="display:none;padding:6px 0 8px 12px">
-          <div style="display:flex;align-items:center;gap:8px">
-            <div style="font-size:12px;color:var(--muted);width:64px">Сумма, ₽</div>
-            <input style="flex:1;font-size:14px;font-family:inherit;border:none;outline:none;background:var(--card);border-radius:8px;padding:6px 10px;text-align:right;color:var(--text)" type="number" id="amt_${item.id}" placeholder="0" oninput="updateExpAmt('${item.id}','${cat.id}','${containerId}')"/>
-          </div>${note}
-        </div>
-      </div>`;
+      var note = item.note ? '<textarea class="simple-textarea" style="height:40px;margin-top:6px" id="note_'+item.id+'" placeholder="'+(item.notePh||'Комментарий...')+'"></textarea>' : '';
+      return '<div>' +
+        '<div class="catalog-item" id="row_'+item.id+'" style="cursor:pointer" onclick="toggleExpItem(\''+item.id+'\',\''+cat.id+'\',\''+containerId+'\')">' +
+          '<div class="catalog-item-info"><div class="catalog-item-name">'+item.label+'</div></div>' +
+          '<div class="item-dot" id="dot_'+item.id+'" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #C4A98E;flex-shrink:0;margin-right:4px"></div>' +
+        '</div>' +
+        '<div id="inp_'+item.id+'" style="display:none;padding:6px 0 8px 12px">' +
+          '<div style="display:flex;align-items:center;gap:8px">' +
+            '<div style="font-size:12px;color:var(--muted);width:64px">Сумма, ₽</div>' +
+            '<input style="flex:1;font-size:14px;font-family:inherit;border:none;outline:none;background:var(--card);border-radius:8px;padding:6px 10px;text-align:right;color:var(--text)" type="number" id="amt_'+item.id+'" placeholder="0" oninput="updateExpAmt(\''+item.id+'\',\''+cat.id+'\',\''+containerId+'\')"/>' +
+          '</div>'+note+
+        '</div>' +
+      '</div>';
     }).join('');
-    return `<div style="margin-bottom:12px">
-      <button type="button" style="width:100%;height:54px;background:var(--brown);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:600;font-family:inherit;display:flex;align-items:center;justify-content:space-between;padding:0 18px;cursor:pointer" onclick="toggleExpCat('${cat.id}')">
-        <span>${cat.label}</span>
-        <div style="display:flex;align-items:center;gap:8px;pointer-events:none">
-          <span style="font-size:13px;font-weight:600;opacity:.85" id="camt_${cat.id}"></span>
-          <i class="ti ti-chevron-down" id="cchev_${cat.id}" style="font-size:18px;transition:transform .25s"></i>
-        </div>
-      </button>
-      <div id="clist_${cat.id}" style="display:none;background:var(--card);border-radius:0 0 12px 12px;padding:0 12px">${rows}</div>
-    </div>`;
+    return '<div style="margin-bottom:12px">' +
+      '<button type="button" style="width:100%;height:54px;background:var(--brown);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:600;font-family:inherit;display:flex;align-items:center;justify-content:space-between;padding:0 18px;cursor:pointer" onclick="toggleExpCat(\''+cat.id+'\')">' +
+        '<span>'+cat.label+'</span>' +
+        '<div style="display:flex;align-items:center;gap:8px;pointer-events:none">' +
+          '<span style="font-size:13px;font-weight:600;opacity:.85" id="camt_'+cat.id+'"></span>' +
+          '<i class="ti ti-chevron-down" id="cchev_'+cat.id+'" style="font-size:18px;transition:transform .25s"></i>' +
+        '</div>' +
+      '</button>' +
+      '<div id="clist_'+cat.id+'" style="display:none;background:var(--card);border-radius:0 0 12px 12px;padding:0 12px">'+rows+'</div>' +
+    '</div>';
   }).join('');
 }
 
 function toggleExpCat(catId) {
-  const l = document.getElementById('clist_'+catId);
-  const ch = document.getElementById('cchev_'+catId);
-  const open = l.style.display === 'none';
+  var l = document.getElementById('clist_'+catId);
+  var ch = document.getElementById('cchev_'+catId);
+  var open = l.style.display === 'none';
   l.style.display = open ? 'block' : 'none';
   ch.style.transform = open ? 'rotate(180deg)' : '';
 }
 
 function toggleExpItem(itemId, catId, cont) {
-  const s = itemState[itemId];
+  var s = itemState[itemId];
   s.selected = !s.selected;
-  const dot = document.getElementById('dot_'+itemId);
+  var dot = document.getElementById('dot_'+itemId);
   dot.style.background = s.selected ? 'var(--brown)' : '';
   dot.style.borderColor = s.selected ? 'var(--brown)' : '#C4A98E';
-  const inp = document.getElementById('inp_'+itemId);
+  var inp = document.getElementById('inp_'+itemId);
   inp.style.display = s.selected ? 'block' : 'none';
-  if (!s.selected) { s.amount=0; const f=document.getElementById('amt_'+itemId); if(f) f.value=''; }
+  if (!s.selected) { s.amount = 0; var f = document.getElementById('amt_'+itemId); if (f) f.value = ''; }
   recalcExpCat(catId, cont);
 }
 
 function updateExpAmt(itemId, catId, cont) {
-  itemState[itemId].amount = parseFloat(document.getElementById('amt_'+itemId).value)||0;
+  itemState[itemId].amount = parseFloat(document.getElementById('amt_'+itemId).value) || 0;
   recalcExpCat(catId, cont);
 }
 
 function recalcExpCat(catId, cont) {
-  const cats = cont==='cat-exp-container' ? EXP_CATS : DEBT_CATS;
-  const cat = cats.find(c=>c.id===catId); if(!cat) return;
-  const t = cat.items.reduce((s,i)=>s+(itemState[i.id].selected?itemState[i.id].amount:0),0);
-  const el = document.getElementById('camt_'+catId); if(el) el.textContent=t>0?t.toLocaleString('ru-RU')+' ₽':'';
-  let grand=0;
-  cats.forEach(c=>{ grand+=c.items.reduce((s,i)=>s+(itemState[i.id].selected?itemState[i.id].amount:0),0); });
-  const totalId = cont==='cat-exp-container'?'exp-grand-total':'debt-grand-total';
-  document.getElementById(totalId).textContent=grand.toLocaleString('ru-RU')+' ₽';
-  if(cont==='cat-exp-container') totalExp=grand; else totalDebt=grand;
+  var cat = DEBT_CATS.find(function(c) { return c.id === catId; });
+  if (!cat) return;
+  var t = cat.items.reduce(function(s,i) { return s + (itemState[i.id].selected ? itemState[i.id].amount : 0); }, 0);
+  var el = document.getElementById('camt_'+catId);
+  if (el) el.textContent = t > 0 ? t.toLocaleString('ru-RU') + ' ₽' : '';
+  var grand = 0;
+  DEBT_CATS.forEach(function(c) {
+    grand += c.items.reduce(function(s,i) { return s + (itemState[i.id].selected ? itemState[i.id].amount : 0); }, 0);
+  });
+  document.getElementById('debt-grand-total').textContent = grand.toLocaleString('ru-RU') + ' ₽';
+  totalDebt = grand;
   calcDiff();
+}
+
+/* ════════════════════════════════════════════
+   EXPENSES (shift step 2)
+════════════════════════════════════════════ */
+var smartExpenses = [
+  'Поставщик','Закуп','Продукт','Доставка на точку','Доставка клиенту',
+  'Декор','ЗП Техперсонал','Хоз. расход','Аванс','Расходник',
+  'Списание','Оборудование','Ремонт'
+];
+var selectedExpenses = [];
+
+function showExpenses() {
+  filterExpenses(document.getElementById('expense-search').value);
+}
+
+function filterExpenses(value) {
+  var dropdown = document.getElementById('expense-dropdown');
+  var search = value.trim().toLowerCase();
+  var found = smartExpenses.filter(function(name) { return name.toLowerCase().includes(search); });
+  var html = found.map(function(name) {
+    return '<div class="dd-opt" onclick="selectExpense(\'' + name.replace(/'/g,"\\'") + '\')"><i class="ti ti-receipt"></i> ' + name + '</div>';
+  }).join('');
+  var trimmed = value.trim();
+  if (trimmed && !smartExpenses.some(function(n) { return n.toLowerCase() === search; })) {
+    html += '<div class="dd-opt custom" onclick="selectExpense(\'' + trimmed.replace(/'/g,"\\'") + '\')"><i class="ti ti-plus"></i> Добавить «' + trimmed + '»</div>';
+  }
+  if (!html) { dropdown.classList.add('hidden'); return; }
+  dropdown.innerHTML = html;
+  dropdown.classList.remove('hidden');
+}
+
+function selectExpense(name) {
+  selectedExpenses.push({ name: name, amount: 0, comment: '' });
+  document.getElementById('expense-search').value = '';
+  document.getElementById('expense-dropdown').classList.add('hidden');
+  renderSelectedExpenses();
+}
+
+function renderSelectedExpenses() {
+  var list = document.getElementById('selected-expenses-list');
+  if (!selectedExpenses.length) {
+    list.innerHTML = '<div style="font-size:13px;color:var(--muted)">Расходы не выбраны</div>';
+    recalcSelectedExpenses();
+    return;
+  }
+  list.innerHTML = selectedExpenses.map(function(item, i) {
+    return '<div style="padding:10px 0;border-bottom:.5px solid rgba(62,44,35,.08)">' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">' +
+        '<div style="font-size:14px;color:var(--text);font-weight:500">' + item.name + '</div>' +
+        '<button class="tag-del" onclick="removeSelectedExpense(' + i + ')" style="flex-shrink:0;margin-left:8px">&times;</button>' +
+      '</div>' +
+      '<div style="display:flex;gap:8px">' +
+        '<input class="field-input" type="number" placeholder="Сумма ₽" value="' + (item.amount||'') + '" oninput="updateSelectedExpense(' + i + ',\'amount\',this.value)" style="width:110px;text-align:right;flex-shrink:0">' +
+        '<input class="field-input" type="text" placeholder="Комментарий" value="' + (item.comment||'') + '" oninput="updateSelectedExpense(' + i + ',\'comment\',this.value)" style="flex:1;text-align:left">' +
+      '</div>' +
+    '</div>';
+  }).join('');
+  recalcSelectedExpenses();
+}
+
+function updateSelectedExpense(index, field, value) {
+  if (field === 'amount') selectedExpenses[index].amount = parseFloat(value) || 0;
+  else if (field === 'comment') selectedExpenses[index].comment = value;
+  recalcSelectedExpenses();
+}
+
+function removeSelectedExpense(index) {
+  selectedExpenses.splice(index, 1);
+  renderSelectedExpenses();
+}
+
+function recalcSelectedExpenses() {
+  totalExp = selectedExpenses.reduce(function(sum, item) { return sum + item.amount; }, 0);
+  document.getElementById('exp-grand-total').textContent = totalExp.toLocaleString('ru-RU') + ' ₽';
+  calcDiff();
+}
+
+function getSelectedExpensesPayload() {
+  return selectedExpenses.filter(function(item) { return item.amount > 0; }).map(function(item) {
+    return { name: item.name, amount: item.amount, comment: item.comment || '' };
+  });
 }
 
 /* ════════════════════════════════════════════
    SHIFT STEP 4 — FINANCE
 ════════════════════════════════════════════ */
 function calcDiff() {
-  const startCash = parseFloat(document.getElementById('p1-cash').value)||0;
-  const revenue   = parseFloat(document.getElementById('f-revenue').value)||0;
-  const card      = parseFloat(document.getElementById('f-card').value)||0;
-  const collect   = parseFloat(document.getElementById('f-collect').value)||0;
-  const remain    = parseFloat(document.getElementById('f-remain').value)||0;
-  const el   = document.getElementById('diff-value');
-  const lbl  = document.getElementById('diff-label');
-  const rb   = document.getElementById('reason-block');
-  if(!revenue && !remain) { el.textContent='—'; el.className='diff-value'; return; }
-  const expected = startCash + revenue - totalExp - card - collect;
-  const diff = expected - remain;
-  if(diff > 0) {
-    lbl.textContent='Недостача'; el.textContent='-'+diff.toLocaleString('ru-RU')+' ₽'; el.className='diff-value bad'; rb.classList.add('show');
+  var startCash = parseFloat(document.getElementById('p1-cash').value) || 0;
+  var revenue   = parseFloat(document.getElementById('f-revenue').value) || 0;
+  var card      = parseFloat(document.getElementById('f-card').value) || 0;
+  var collect   = parseFloat(document.getElementById('f-collect').value) || 0;
+  var remain    = parseFloat(document.getElementById('f-remain').value) || 0;
+  var el   = document.getElementById('diff-value');
+  var lbl  = document.getElementById('diff-label');
+  var rb   = document.getElementById('reason-block');
+  if (!revenue && !remain) { el.textContent = '—'; el.className = 'diff-value'; return; }
+  var expected = startCash + revenue - totalExp - card - collect;
+  var diff = expected - remain;
+  if (diff > 0) {
+    lbl.textContent = 'Недостача';
+    el.textContent = '-' + diff.toLocaleString('ru-RU') + ' ₽';
+    el.className = 'diff-value bad';
+    rb.classList.add('show');
   } else {
-    const s=Math.abs(diff); lbl.textContent=s>0?'Излишек':'Сходится'; el.textContent=s>0?'+'+s.toLocaleString('ru-RU')+' ₽':'0 ₽'; el.className='diff-value ok'; rb.classList.remove('show');
+    var s = Math.abs(diff);
+    lbl.textContent = s > 0 ? 'Излишек' : 'Сходится';
+    el.textContent = s > 0 ? '+' + s.toLocaleString('ru-RU') + ' ₽' : '0 ₽';
+    el.className = 'diff-value ok';
+    rb.classList.remove('show');
   }
-  checkSubmit();
 }
+
 function checkSubmit() {
-  const btn = document.getElementById('submit-btn');
+  var btn = document.getElementById('submit-btn');
   btn.disabled = false;
   btn.style.opacity = '1';
 }
+
 function trySubmit() {
-  if(photos.length===0) { document.getElementById('photo-error').style.display='block'; return; }
+  if (photos.length === 0) { document.getElementById('photo-error').style.display = 'block'; return; }
   buildShiftSummary();
 }
+
 function addPhotos(input) {
-  Array.from(input.files).forEach(f=>{const r=new FileReader();r.onload=e=>{photos.push(e.target.result);renderPhotos();};r.readAsDataURL(f);});
-  input.value='';
-}
-function renderPhotos() {
-  const g=document.getElementById('photo-grid');
-  g.innerHTML=photos.map((s,i)=>`<div class="photo-thumb"><img src="${s}"><button class="del-btn" onclick="photos.splice(${i},1);renderPhotos()"><i class="ti ti-x"></i></button></div>`).join('')+`<label class="photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addPhotos(this)"></label>`;
-  document.getElementById('photo-error').style.display='none';
-}
-function buildShiftSummary() {
-  const lines=[
-    {k:'Дата',v:document.getElementById('p1-date').value||'—',screen:'screen-shift-1'},
-    {k:'Сотрудник',v:document.getElementById('p1-name').value||'—',screen:'screen-shift-1'},
-    {k:'Касса на начало',v:fmt(document.getElementById('p1-cash').value),screen:'screen-shift-1'},
-  ];
-  if(typeof selectedExpenses!=='undefined'){
-    selectedExpenses.forEach(function(item){
-      if(item.amount>0){var lbl=item.name+(item.comment?' ('+item.comment+')':'');lines.push({k:lbl,v:fmt(item.amount),screen:'screen-shift-2'});}
-    });
-  }
-  if(typeof DEBT_CATS!=='undefined'&&typeof itemState!=='undefined'){
-    DEBT_CATS.forEach(function(cat){cat.items.forEach(function(item){var s=itemState[item.id];if(s&&s.selected&&s.amount>0)lines.push({k:item.label,v:fmt(s.amount),screen:'screen-shift-3'});});});
-  }
-  lines.push(
-    {k:'Выручка',v:fmt(document.getElementById('f-revenue').value),screen:'screen-shift-4'},
-    {k:'Безнал',v:fmt(document.getElementById('f-card').value),screen:'screen-shift-4'},
-    {k:'Инкассация',v:fmt(document.getElementById('f-collect').value),screen:'screen-shift-4'},
-    {k:'Остаток в кассе',v:fmt(document.getElementById('f-remain').value),screen:'screen-shift-4'},
-    {k:document.getElementById('diff-label').textContent,v:document.getElementById('diff-value').textContent,screen:null},
-  );
-  var reason=document.getElementById('reason-input').value.trim();
-  if(reason)lines.push({k:'Причина недостачи',v:reason,screen:'screen-shift-4'});
-  showPreview('shift','Отчёт по смене','Смена',lines,confirmShift);
-}
-function confirmShift() {
-  var expTotal=0, expList=[];
-  if (typeof selectedExpenses!=='undefined') {
-    selectedExpenses.forEach(function(item){
-      expTotal+=item.amount||0;
-      expList.push(item.name+(item.comment?' ('+item.comment+')':'')+': '+(item.amount||0)+' ₽');
-    });
-  }
-  var debtTotal=0;
-  if (typeof DEBT_CATS!=='undefined'&&typeof itemState!=='undefined') {
-    DEBT_CATS.forEach(function(cat){cat.items.forEach(function(item){var s=itemState[item.id];if(s&&s.selected)debtTotal+=s.amount||0;});});
-  }
-  var diffEl=document.getElementById('diff-value'), diffLbl=document.getElementById('diff-label');
-  sendToAppsScript('shift',{
-    date:(document.getElementById('p1-date')||{}).value||'',
-    staff:(document.getElementById('p1-name')||{}).value||'',
-    startCash:parseFloat((document.getElementById('p1-cash')||{}).value)||0,
-    expOther:expTotal, expDebt:debtTotal, expTotal:expTotal, expDetails:expList.join('; '),
-    revenue:parseFloat((document.getElementById('f-revenue')||{}).value)||0,
-    card:parseFloat((document.getElementById('f-card')||{}).value)||0,
-    collect:parseFloat((document.getElementById('f-collect')||{}).value)||0,
-    remain:parseFloat((document.getElementById('f-remain')||{}).value)||0,
-    diff:diffEl?diffEl.textContent:'', diffLabel:diffLbl?diffLbl.textContent:'',
-    diffReason:(document.getElementById('reason-input')||{}).value||'',
-    photos:typeof photos!=='undefined'?photos.slice():[],
+  Array.from(input.files).forEach(function(f) {
+    var r = new FileReader();
+    r.onload = function(e) { photos.push(e.target.result); renderPhotos(); };
+    r.readAsDataURL(f);
   });
-    sendToAppsScript('shift', buildShiftPayload());
-  confirmPreview('Отчёт отправлен!','');
+  input.value = '';
+}
+
+function renderPhotos() {
+  var g = document.getElementById('photo-grid');
+  g.innerHTML = photos.map(function(s,i) {
+    return '<div class="photo-thumb"><img src="'+s+'"><button class="del-btn" onclick="photos.splice('+i+',1);renderPhotos()"><i class="ti ti-x"></i></button></div>';
+  }).join('') + '<label class="photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addPhotos(this)"></label>';
+  document.getElementById('photo-error').style.display = 'none';
+}
+
+function buildShiftSummary() {
+  var lines = [
+    {k:'Дата', v:document.getElementById('p1-date').value||'—', screen:'screen-shift-1'},
+    {k:'Сотрудник', v:document.getElementById('p1-name').value||'—', screen:'screen-shift-1'},
+    {k:'Касса на начало', v:fmt(document.getElementById('p1-cash').value), screen:'screen-shift-1'},
+  ];
+  selectedExpenses.forEach(function(item) {
+    if (item.amount > 0) {
+      var lbl = item.name + (item.comment ? ' (' + item.comment + ')' : '');
+      lines.push({k:lbl, v:fmt(item.amount), screen:'screen-shift-2'});
+    }
+  });
+  DEBT_CATS.forEach(function(cat) {
+    cat.items.forEach(function(item) {
+      var s = itemState[item.id];
+      if (s && s.selected && s.amount > 0) lines.push({k:item.label, v:fmt(s.amount), screen:'screen-shift-3'});
+    });
+  });
+  lines.push(
+    {k:'Выручка', v:fmt(document.getElementById('f-revenue').value), screen:'screen-shift-4'},
+    {k:'Безнал', v:fmt(document.getElementById('f-card').value), screen:'screen-shift-4'},
+    {k:'Инкассация', v:fmt(document.getElementById('f-collect').value), screen:'screen-shift-4'},
+    {k:'Остаток в кассе', v:fmt(document.getElementById('f-remain').value), screen:'screen-shift-4'},
+    {k:document.getElementById('diff-label').textContent, v:document.getElementById('diff-value').textContent, screen:null}
+  );
+  var reason = document.getElementById('reason-input').value.trim();
+  if (reason) lines.push({k:'Причина недостачи', v:reason, screen:'screen-shift-4'});
+  showPreview('shift', 'Отчёт по смене', 'Смена', lines, confirmShift);
+}
+
+function confirmShift() {
+  var expList = selectedExpenses.map(function(item) {
+    return item.name + (item.comment ? ' (' + item.comment + ')' : '') + ': ' + (item.amount||0) + ' ₽';
+  });
+  sendToAppsScript('shift', {
+    date: document.getElementById('p1-date').value || '',
+    staff: document.getElementById('p1-name').value || '',
+    startCash: parseFloat(document.getElementById('p1-cash').value) || 0,
+    expOther: totalExp, expDebt: totalDebt, expTotal: totalExp,
+    expDetails: expList.join('; '),
+    revenue: parseFloat(document.getElementById('f-revenue').value) || 0,
+    card: parseFloat(document.getElementById('f-card').value) || 0,
+    collect: parseFloat(document.getElementById('f-collect').value) || 0,
+    remain: parseFloat(document.getElementById('f-remain').value) || 0,
+    diff: document.getElementById('diff-value').textContent,
+    diffLabel: document.getElementById('diff-label').textContent,
+    diffReason: document.getElementById('reason-input').value || '',
+    photos: photos.slice(),
+  });
+  confirmPreview('Отчёт отправлен!', '');
 }
 
 /* ════════════════════════════════════════════
    FILLINGS
 ════════════════════════════════════════════ */
-const FILLINGS_LIST=['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'];
+var FILLINGS_LIST = ['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'];
 
 function filterFillings(q) {
-  q=q.trim().toLowerCase();
-  const dd=document.getElementById('filling-dropdown');
+  q = q.trim().toLowerCase();
+  var dd = document.getElementById('filling-dropdown');
   dd.classList.remove('hidden');
-  let matches=FILLINGS_LIST.filter(f=>f.toLowerCase().includes(q)&&!selectedFillings.includes(f));
-  let h=matches.map(f=>`<div class="dd-opt" onclick="addFilling('${f}')"><i class="ti ti-circle-check" style="color:var(--brown);font-size:14px"></i>${f}</div>`).join('');
-  if(q&&!FILLINGS_LIST.some(f=>f.toLowerCase()===q)&&!selectedFillings.includes(q)){
-    h+=`<div class="dd-opt custom" onclick="addFillingCustom()"><i class="ti ti-plus" style="font-size:14px"></i>Добавить «${q}»</div>`;
+  var matches = FILLINGS_LIST.filter(function(f) { return f.toLowerCase().includes(q) && !selectedFillings.includes(f); });
+  var h = matches.map(function(f) {
+    return '<div class="dd-opt" onclick="addFilling(\'' + f.replace(/'/g,"\\'") + '\')"><i class="ti ti-circle-check" style="color:var(--brown);font-size:14px"></i>' + f + '</div>';
+  }).join('');
+  if (q && !FILLINGS_LIST.some(function(f) { return f.toLowerCase() === q; }) && !selectedFillings.includes(q)) {
+    h += '<div class="dd-opt custom" onclick="addFillingCustom()"><i class="ti ti-plus" style="font-size:14px"></i>Добавить «' + q + '»</div>';
   }
-  if(!h){dd.classList.add('hidden');return;}
-  dd.innerHTML=h;
+  if (!h) { dd.classList.add('hidden'); return; }
+  dd.innerHTML = h;
 }
-function showFillingDropdown(){filterFillings(document.getElementById('filling-search').value);}
-function addFilling(name){if(!name.trim()||selectedFillings.includes(name)) return; selectedFillings.push(name);renderFillingTags();document.getElementById('filling-search').value='';document.getElementById('filling-dropdown').classList.add('hidden');}
-function addFillingCustom(){const v=document.getElementById('filling-search').value.trim();if(v)addFilling(v);}
-function removeFilling(name){const i=selectedFillings.indexOf(name);if(i>-1)selectedFillings.splice(i,1);renderFillingTags();}
-function renderFillingTags(){const w=document.getElementById('filling-tags');w.innerHTML=selectedFillings.map(f=>`<div class="tag">${f}<button class="tag-del" onclick="removeFilling('${f}')"><i class="ti ti-x"></i></button></div>`).join('');}
+
+function showFillingDropdown() { filterFillings(document.getElementById('filling-search').value); }
+
+function addFilling(name) {
+  if (!name.trim() || selectedFillings.includes(name)) return;
+  selectedFillings.push(name);
+  renderFillingTags();
+  document.getElementById('filling-search').value = '';
+  document.getElementById('filling-dropdown').classList.add('hidden');
+}
+
+function addFillingCustom() {
+  var v = document.getElementById('filling-search').value.trim();
+  if (v) addFilling(v);
+}
+
+function removeFilling(name) {
+  var i = selectedFillings.indexOf(name);
+  if (i > -1) selectedFillings.splice(i, 1);
+  renderFillingTags();
+}
+
+function renderFillingTags() {
+  var w = document.getElementById('filling-tags');
+  w.innerHTML = selectedFillings.map(function(f) {
+    return '<div class="tag">' + f + '<button class="tag-del" onclick="removeFilling(\'' + f.replace(/'/g,"\\'") + '\')"><i class="ti ti-x"></i></button></div>';
+  }).join('');
+}
 
 /* ════════════════════════════════════════════
    INSCRIPTION + REF PHOTOS
 ════════════════════════════════════════════ */
-function toggleExtra(type){
-  if(type==='inscription'){
-    inscriptionVisible=!inscriptionVisible;
-    document.getElementById('inscription-row').style.display=inscriptionVisible?'block':'none';
-    const btn=document.getElementById('btn-add-inscription');
-    btn.classList.toggle('active',inscriptionVisible);
-    btn.innerHTML=inscriptionVisible?'<i class="ti ti-minus"></i> Надпись':'<i class="ti ti-plus"></i> Надпись';
-    if(inscriptionVisible) document.getElementById('ind-inscription').focus();
+function toggleExtra(type) {
+  if (type === 'inscription') {
+    inscriptionVisible = !inscriptionVisible;
+    document.getElementById('inscription-row').style.display = inscriptionVisible ? 'block' : 'none';
+    var btn = document.getElementById('btn-add-inscription');
+    btn.classList.toggle('active', inscriptionVisible);
+    btn.innerHTML = inscriptionVisible ? '<i class="ti ti-minus"></i> Надпись' : '<i class="ti ti-plus"></i> Надпись';
+    if (inscriptionVisible) document.getElementById('ind-inscription').focus();
   }
 }
-function triggerRefPhoto(){document.getElementById('ref-input').click();}
-function addRefPhotos(input){Array.from(input.files).forEach(f=>{const r=new FileReader();r.onload=e=>{refPhotos.push(e.target.result);renderRefPhotos();};r.readAsDataURL(f);});input.value='';}
-function removeRefPhoto(i){refPhotos.splice(i,1);renderRefPhotos();}
-function renderRefPhotos(){
-  const w=document.getElementById('ref-photos-wrap'),g=document.getElementById('ref-grid');
-  if(!refPhotos.length){w.style.display='none';document.getElementById('btn-add-ref').classList.remove('active');return;}
-  w.style.display='block'; document.getElementById('btn-add-ref').classList.add('active');
-  g.innerHTML=refPhotos.map((s,i)=>`<div class="ref-thumb"><img src="${s}"><button class="ref-del" onclick="removeRefPhoto(${i})"><i class="ti ti-x"></i></button></div>`).join('');
+
+function triggerRefPhoto() { document.getElementById('ref-input').click(); }
+
+function addRefPhotos(input) {
+  Array.from(input.files).forEach(function(f) {
+    var r = new FileReader();
+    r.onload = function(e) { refPhotos.push(e.target.result); renderRefPhotos(); };
+    r.readAsDataURL(f);
+  });
+  input.value = '';
+}
+
+function removeRefPhoto(i) { refPhotos.splice(i, 1); renderRefPhotos(); }
+
+function renderRefPhotos() {
+  var w = document.getElementById('ref-photos-wrap');
+  var g = document.getElementById('ref-grid');
+  if (!refPhotos.length) {
+    w.style.display = 'none';
+    document.getElementById('btn-add-ref').classList.remove('active');
+    return;
+  }
+  w.style.display = 'block';
+  document.getElementById('btn-add-ref').classList.add('active');
+  g.innerHTML = refPhotos.map(function(s,i) {
+    return '<div class="ref-thumb"><img src="'+s+'"><button class="ref-del" onclick="removeRefPhoto('+i+')"><i class="ti ti-x"></i></button></div>';
+  }).join('');
 }
 
 /* ════════════════════════════════════════════
    CLIENT SEARCH
 ════════════════════════════════════════════ */
-const CLIENTS_LIST=[
-  {name:'АнНур',initials:'АН',sub:'Оптовый клиент'},
-  {name:'Май Татли',initials:'МТ',sub:'Оптовый клиент'},
-    {name:'Май Татли',initials:'МТ',sub:'Новый клиент'},
+var CLIENTS_LIST = [
+  {name:'АнНур', initials:'АН', sub:'Оптовый клиент'},
+  {name:'Май Татли', initials:'МТ', sub:'Оптовый клиент'},
 ];
-function filterClients(q){
-  q=q.trim().toLowerCase();
-  const dd=document.getElementById('client-dropdown');
-  const matches=CLIENTS_LIST.filter(c=>c.name.toLowerCase().includes(q));
-  if(!q||!matches.length){dd.classList.add('hidden');return;}
+
+function filterClients(q) {
+  q = q.trim().toLowerCase();
+  var dd = document.getElementById('client-dropdown');
+  var matches = CLIENTS_LIST.filter(function(c) { return c.name.toLowerCase().includes(q); });
+  if (!q || !matches.length) { dd.classList.add('hidden'); return; }
   dd.classList.remove('hidden');
-  dd.innerHTML=matches.map(c=>`<div class="dd-opt" onclick="selectClient('${c.name}')"><div class="client-avatar" style="width:28px;height:28px;font-size:11px;border-radius:50%;background:var(--brown);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0">${c.initials}</div>${c.name}</div>`).join('');
+  dd.innerHTML = matches.map(function(c) {
+    return '<div class="dd-opt" onclick="selectClient(\'' + c.name.replace(/'/g,"\\'") + '\')">' +
+      '<div class="client-avatar" style="width:28px;height:28px;font-size:11px;border-radius:50%;background:var(--brown);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0">' + c.initials + '</div>' +
+      c.name + '</div>';
+  }).join('');
 }
-function showClients(){filterClients(document.getElementById('who-name').value);}
-function selectClient(name){
-  const c=CLIENTS_LIST.find(x=>x.name===name);if(!c) return;
-  selectedClient=c;
-  document.getElementById('who-name').value=c.name;
+
+function showClients() { filterClients(document.getElementById('who-name').value); }
+
+function selectClient(name) {
+  var c = CLIENTS_LIST.find(function(x) { return x.name === name; });
+  if (!c) return;
+  selectedClient = c;
+  document.getElementById('who-name').value = c.name;
   document.getElementById('client-dropdown').classList.add('hidden');
-  document.getElementById('client-selected-block').style.display='block';
-  document.getElementById('client-selected-card').innerHTML=`<div class="client-avatar">${c.initials}</div><div class="client-info"><div class="client-info-name">${c.name}</div><div class="client-info-sub">${c.sub}</div></div><button class="client-clear" onclick="clearClient()"><i class="ti ti-x"></i></button>`;
-  Object.keys(catalogQty).forEach(k=>catalogQty[k]=0);
+  document.getElementById('client-selected-block').style.display = 'block';
+  document.getElementById('client-selected-card').innerHTML =
+    '<div class="client-avatar">' + c.initials + '</div>' +
+    '<div class="client-info"><div class="client-info-name">' + c.name + '</div><div class="client-info-sub">' + c.sub + '</div></div>' +
+    '<button class="client-clear" onclick="clearClient()"><i class="ti ti-x"></i></button>';
+  Object.keys(catalogQty).forEach(function(k) { catalogQty[k] = 0; });
   renderCatalog();
 }
-function clearClient(){
-  selectedClient=null;
-  document.getElementById('who-name').value='';
-  document.getElementById('client-selected-block').style.display='none';
+
+function clearClient() {
+  selectedClient = null;
+  document.getElementById('who-name').value = '';
+  document.getElementById('client-selected-block').style.display = 'none';
   renderCatalog();
 }
 
 /* ════════════════════════════════════════════
    STAFF DROPDOWN
 ════════════════════════════════════════════ */
-const STAFF_LIST=['@mahan_admin','@barista_aisha','@barista_khadija','@konditer_sara','@konditer_mariam'];
-function toggleStaffDD(){
-  const dd=document.getElementById('staff-dropdown');
-  if(!dd.classList.contains('hidden')){dd.classList.add('hidden');return;}
-  dd.innerHTML=STAFF_LIST.map(s=>`<div class="dd-opt" onclick="selectStaff('${s}')"><i class="ti ti-at" style="color:var(--brown);font-size:14px"></i>${s}</div>`).join('');
+var STAFF_LIST = ['@mahan_admin','@barista_aisha','@barista_khadija','@konditer_sara','@konditer_mariam'];
+
+function toggleStaffDD() {
+  var dd = document.getElementById('staff-dropdown');
+  if (!dd.classList.contains('hidden')) { dd.classList.add('hidden'); return; }
+  dd.innerHTML = STAFF_LIST.map(function(s) {
+    return '<div class="dd-opt" onclick="selectStaff(\'' + s + '\')"><i class="ti ti-at" style="color:var(--brown);font-size:14px"></i>' + s + '</div>';
+  }).join('');
   dd.classList.remove('hidden');
 }
-function selectStaff(name){
-  document.getElementById('who-staff').value=name;
+
+function selectStaff(name) {
+  document.getElementById('who-staff').value = name;
   document.getElementById('staff-dropdown').classList.add('hidden');
 }
 
 /* ════════════════════════════════════════════
    CATALOG
 ════════════════════════════════════════════ */
-const CATALOG_ALL=[
+var CATALOG_ALL = [
   {id:'tart_malin',name:'Тарт малиновый',price:250,priceAN:230},
   {id:'tart_golub',name:'Тарт голубика',price:250,priceAN:230},
   {id:'pavlova',name:'Павлова',price:250,priceAN:220},
@@ -1111,1119 +1357,846 @@ const CATALOG_ALL=[
   {id:'kokos',name:'Кокос',price:280,priceAN:280},
   {id:'mango',name:'Манго',price:300,priceAN:300},
   {id:'roche',name:'Роше',price:280,priceAN:280},
-  {id:'rozhok',name:"Рожок «Белые ночи»",price:300,priceAN:300},
+  {id:'rozhok',name:'Рожок «Белые ночи»',price:300,priceAN:300},
 ];
-const CATALOG_AN_ONLY=[
+var CATALOG_AN_ONLY = [
   {id:'dubai',name:'Дубайский десерт',price:400,priceAN:400},
   {id:'beze_finik',name:'Безе с финиковым кремом',price:250,priceAN:250},
   {id:'tiramisu_urd',name:'Тирамису с миндальным урбечем',price:350,priceAN:350},
 ];
-function renderCatalog(){
-  const isAN=selectedClient&&selectedClient.name==='АнНур';
-  const list=document.getElementById('catalog-list'),hint=document.getElementById('catalog-hint');
-  const bar=document.getElementById('catalog-total-row');
-  if(!selectedClient){hint.style.display='block';list.style.display='none';bar.style.display='none';return;}
-  hint.style.display='none';list.style.display='block';bar.style.display='block';
-  const allItems=isAN?[...CATALOG_ALL,...CATALOG_AN_ONLY]:CATALOG_ALL;
-  allItems.forEach(i=>{if(!(i.id in catalogQty)) catalogQty[i.id]=0;});
-  list.innerHTML=renderCatSection('Десерты',CATALOG_ALL,isAN)+(isAN?renderCatSection('Только для АнНур',CATALOG_AN_ONLY,true):'');
-  updateCatalogTotal(allItems,isAN);
+
+function renderCatalog() {
+  var isAN = selectedClient && selectedClient.name === 'АнНур';
+  var list = document.getElementById('catalog-list');
+  var hint = document.getElementById('catalog-hint');
+  var bar = document.getElementById('catalog-total-row');
+  if (!selectedClient) { hint.style.display = 'block'; list.style.display = 'none'; bar.style.display = 'none'; return; }
+  hint.style.display = 'none'; list.style.display = 'block'; bar.style.display = 'block';
+  var allItems = isAN ? CATALOG_ALL.concat(CATALOG_AN_ONLY) : CATALOG_ALL;
+  allItems.forEach(function(i) { if (!(i.id in catalogQty)) catalogQty[i.id] = 0; });
+  list.innerHTML = renderCatSection('Десерты', CATALOG_ALL, isAN) + (isAN ? renderCatSection('Только для АнНур', CATALOG_AN_ONLY, true) : '');
+  updateCatalogTotal(allItems, isAN);
 }
-function renderCatSection(title,items,isAN){
-  return `<div class="catalog-section-hdr">${title}</div>`+items.map(item=>{
-    const price=isAN?item.priceAN:item.price,qty=catalogQty[item.id]||0;
-    const sub=qty>0?(qty*price).toLocaleString('ru-RU')+' ₽':price+' ₽/шт';
-    return `<div class="catalog-item"><div class="catalog-item-info"><div class="catalog-item-name">${item.name}</div><div class="catalog-item-sub ${qty>0?'active':''}" id="sub_${item.id}">${sub}</div></div><div class="qty-ctrl"><button class="qty-btn" onclick="changeQty('${item.id}',-1)">−</button><div class="qty-num ${qty>0?'nonzero':''}" id="qty_${item.id}">${qty||''}</div><button class="qty-btn" onclick="changeQty('${item.id}',1)">+</button></div></div>`;
+
+function renderCatSection(title, items, isAN) {
+  return '<div class="catalog-section-hdr">' + title + '</div>' + items.map(function(item) {
+    var price = isAN ? item.priceAN : item.price;
+    var qty = catalogQty[item.id] || 0;
+    var sub = qty > 0 ? (qty * price).toLocaleString('ru-RU') + ' ₽' : price + ' ₽/шт';
+    return '<div class="catalog-item">' +
+      '<div class="catalog-item-info"><div class="catalog-item-name">' + item.name + '</div>' +
+      '<div class="catalog-item-sub ' + (qty > 0 ? 'active' : '') + '" id="sub_' + item.id + '">' + sub + '</div></div>' +
+      '<div class="qty-ctrl">' +
+        '<button class="qty-btn" onclick="changeQty(\'' + item.id + '\',-1)">−</button>' +
+        '<div class="qty-num ' + (qty > 0 ? 'nonzero' : '') + '" id="qty_' + item.id + '">' + (qty || '') + '</div>' +
+        '<button class="qty-btn" onclick="changeQty(\'' + item.id + '\',1)">+</button>' +
+      '</div></div>';
   }).join('');
 }
-function changeQty(id,delta){
-  const isAN=selectedClient&&selectedClient.name==='АнНур';
-  catalogQty[id]=Math.max(0,(catalogQty[id]||0)+delta);
-  const qty=catalogQty[id],qe=document.getElementById('qty_'+id);
-  if(qe){qe.textContent=qty||'';qe.className='qty-num'+(qty>0?' nonzero':'');}
-  const allItems=isAN?[...CATALOG_ALL,...CATALOG_AN_ONLY]:CATALOG_ALL;
-  const item=allItems.find(i=>i.id===id),se=document.getElementById('sub_'+id);
-  if(item&&se){const p=isAN?item.priceAN:item.price;se.textContent=qty>0?(qty*p).toLocaleString('ru-RU')+' ₽':p+' ₽/шт';se.className='catalog-item-sub'+(qty>0?' active':'');}
-  updateCatalogTotal(allItems,isAN);
+
+function changeQty(id, delta) {
+  var isAN = selectedClient && selectedClient.name === 'АнНур';
+  catalogQty[id] = Math.max(0, (catalogQty[id] || 0) + delta);
+  var qty = catalogQty[id];
+  var qe = document.getElementById('qty_' + id);
+  if (qe) { qe.textContent = qty || ''; qe.className = 'qty-num' + (qty > 0 ? ' nonzero' : ''); }
+  var allItems = isAN ? CATALOG_ALL.concat(CATALOG_AN_ONLY) : CATALOG_ALL;
+  var item = allItems.find(function(i) { return i.id === id; });
+  var se = document.getElementById('sub_' + id);
+  if (item && se) { var p = isAN ? item.priceAN : item.price; se.textContent = qty > 0 ? (qty*p).toLocaleString('ru-RU') + ' ₽' : p + ' ₽/шт'; se.className = 'catalog-item-sub' + (qty > 0 ? ' active' : ''); }
+  updateCatalogTotal(allItems, isAN);
 }
-function updateCatalogTotal(allItems,isAN){
-  let count=0,sum=0;
-  allItems.forEach(item=>{const q=catalogQty[item.id]||0;if(q>0){count+=q;sum+=q*(isAN?item.priceAN:item.price);}});
-  document.getElementById('catalog-count').textContent=count;
-  document.getElementById('catalog-sum').textContent=sum.toLocaleString('ru-RU')+' ₽';
+
+function updateCatalogTotal(allItems, isAN) {
+  var count = 0, sum = 0;
+  allItems.forEach(function(item) { var q = catalogQty[item.id] || 0; if (q > 0) { count += q; sum += q * (isAN ? item.priceAN : item.price); } });
+  document.getElementById('catalog-count').textContent = count;
+  document.getElementById('catalog-sum').textContent = sum.toLocaleString('ru-RU') + ' ₽';
 }
-function getCatalogSummary(){
-  const isAN=selectedClient&&selectedClient.name==='АнНур';
-  const allItems=isAN?[...CATALOG_ALL,...CATALOG_AN_ONLY]:CATALOG_ALL;
-  const lines=[];let total=0;
-  allItems.forEach(item=>{const q=catalogQty[item.id]||0;if(q>0){const p=isAN?item.priceAN:item.price;lines.push(`${item.name} × ${q} = ${(q*p).toLocaleString('ru-RU')} ₽`);total+=q*p;}});
-  return {text:lines.join(' | ')||'—',total};
+
+function getCatalogSummary() {
+  var isAN = selectedClient && selectedClient.name === 'АнНур';
+  var allItems = isAN ? CATALOG_ALL.concat(CATALOG_AN_ONLY) : CATALOG_ALL;
+  var lines = []; var total = 0;
+  allItems.forEach(function(item) {
+    var q = catalogQty[item.id] || 0;
+    if (q > 0) { var p = isAN ? item.priceAN : item.price; lines.push(item.name + ' × ' + q + ' = ' + (q*p).toLocaleString('ru-RU') + ' ₽'); total += q * p; }
+  });
+  return {text: lines.join(' | ') || '—', total: total};
 }
 
 /* ════════════════════════════════════════════
    SUBMIT ORDERS
 ════════════════════════════════════════════ */
-function submitIndividual(){
+function submitIndividual() {
   indCount++;
-  const num='№'+indCount+'-инд';
-  const data={
-    type:'individual', num,
-    client: document.getElementById('ind-name').value||'—',
-    phone:  document.getElementById('ind-phone').value||'—',
+  var num = '№' + indCount + '-инд';
+  var data = {
+    type: 'individual', num: num,
+    client: document.getElementById('ind-name').value || '—',
+    phone: document.getElementById('ind-phone').value || '—',
     address: document.getElementById('ind-address').value || '—',
-    cakeName: document.getElementById('ind-cake-name').value||'—',
-    weight: document.getElementById('ind-weight').value||'—',
-    diameter: document.getElementById('ind-diameter').value||'—',
-    filling: selectedFillings.join(', ')||'—',
-    decor:  document.getElementById('ind-decor').value||'—',
-    inscription: inscriptionVisible?document.getElementById('ind-inscription').value:'',
-    date:   document.getElementById('ind-date').value||'—',
-    time:   document.getElementById('ind-time').value||'—',
-    price:  parseFloat(document.getElementById('ind-price').value)||0,
-    prepay: parseFloat(document.getElementById('ind-prepay').value)||0,
-    note:   document.getElementById('ind-note').value||'—',
-    refs:   typeof refPhotos !== 'undefined' ? refPhotos.slice() : [],
+    cakeName: document.getElementById('ind-cake-name').value || '—',
+    weight: document.getElementById('ind-weight').value || '—',
+    diameter: document.getElementById('ind-diameter').value || '—',
+    filling: selectedFillings.join(', ') || '—',
+    decor: document.getElementById('ind-decor').value || '—',
+    inscription: inscriptionVisible ? document.getElementById('ind-inscription').value : '',
+    date: document.getElementById('ind-date').value || '—',
+    time: document.getElementById('ind-time').value || '—',
+    price: parseFloat(document.getElementById('ind-price').value) || 0,
+    prepay: parseFloat(document.getElementById('ind-prepay').value) || 0,
+    note: document.getElementById('ind-note').value || '—',
+    refs: refPhotos.slice(),
   };
-    
-  const lines=[
-    {k:'Клиент',v:data.client,screen:'screen-order-individual'},
-    {k:'Телефон',v:data.phone,screen:'screen-order-individual'},
-     {k:'Адрес', v:data.address, screen:'screen-order-individual'}, 
-    {k:'Название',v:data.cakeName,screen:'screen-order-individual'},
-    {k:'Вес',v:data.weight+' кг',screen:'screen-order-individual'},
-    {k:'Диаметр',v:data.diameter+' см',screen:'screen-order-individual'},
-    {k:'Начинка',v:data.filling,screen:'screen-order-individual'},
-    {k:'Декор',v:data.decor,screen:'screen-order-individual'},
-    ...(data.inscription?[{k:'Надпись',v:data.inscription,screen:'screen-order-individual'}]:[]),
-    {k:'Дата выдачи',v:data.date+' '+data.time,screen:'screen-order-individual'},
-    {k:'Сумма',v:fmt(data.price),screen:'screen-order-individual'},
-    {k:'Предоплата',v:fmt(data.prepay),screen:'screen-order-individual'},
-    {k:'Комментарий',v:data.note,screen:'screen-order-individual'},
+  var lines = [
+    {k:'Клиент', v:data.client, screen:'screen-order-individual'},
+    {k:'Телефон', v:data.phone, screen:'screen-order-individual'},
+    {k:'Адрес', v:data.address, screen:'screen-order-individual'},
+    {k:'Название', v:data.cakeName, screen:'screen-order-individual'},
+    {k:'Вес', v:data.weight + ' кг', screen:'screen-order-individual'},
+    {k:'Диаметр', v:data.diameter + ' см', screen:'screen-order-individual'},
+    {k:'Начинка', v:data.filling, screen:'screen-order-individual'},
+    {k:'Декор', v:data.decor, screen:'screen-order-individual'},
   ];
-  showPreview('individual',num,'Индивидуальный заказ',lines,()=>confirmOrder(data,lines));
+  if (data.inscription) lines.push({k:'Надпись', v:data.inscription, screen:'screen-order-individual'});
+  lines.push(
+    {k:'Дата выдачи', v:data.date + ' ' + data.time, screen:'screen-order-individual'},
+    {k:'Сумма', v:fmt(data.price), screen:'screen-order-individual'},
+    {k:'Предоплата', v:fmt(data.prepay), screen:'screen-order-individual'},
+    {k:'Комментарий', v:data.note, screen:'screen-order-individual'}
+  );
+  showPreview('individual', num, 'Индивидуальный заказ', lines, function() { confirmOrder(data, lines); });
 }
 
-function submitWholesale(){
+function submitWholesale() {
   optCount++;
-  const num='№'+optCount+'-опт';
-  const catalog=getCatalogSummary();
-  const data={
-    type:'wholesale', num,
-    client: selectedClient?selectedClient.name:(document.getElementById('who-name').value||'—'),
-    staff:  document.getElementById('who-staff').value||'—',
+  var num = '№' + optCount + '-опт';
+  var catalog = getCatalogSummary();
+  var data = {
+    type: 'wholesale', num: num,
+    client: selectedClient ? selectedClient.name : (document.getElementById('who-name').value || '—'),
+    staff: document.getElementById('who-staff').value || '—',
     catalog: catalog.text,
-    total:  catalog.total,
-    date:   document.getElementById('who-date').value||'—',
-    time:   document.getElementById('who-time').value||'—',
-    prepay: parseFloat(document.getElementById('who-prepay').value)||0,
-    note:   document.getElementById('who-note').value||'—',
+    total: catalog.total,
+    date: document.getElementById('who-date').value || '—',
+    time: document.getElementById('who-time').value || '—',
+    prepay: parseFloat(document.getElementById('who-prepay').value) || 0,
+    note: document.getElementById('who-note').value || '—',
   };
-  const lines=[
-    {k:'Клиент',v:data.client,screen:'screen-order-wholesale'},
-    {k:'Ответственный',v:data.staff,screen:'screen-order-wholesale'},
-    {k:'Состав',v:data.catalog,screen:'screen-order-wholesale'},
-    {k:'Сумма',v:fmt(data.total),screen:'screen-order-wholesale'},
-    {k:'Дата поставки',v:data.date+' '+data.time,screen:'screen-order-wholesale'},
-    {k:'Предоплата',v:fmt(data.prepay),screen:'screen-order-wholesale'},
-    {k:'Комментарий',v:data.note,screen:'screen-order-wholesale'},
+  var lines = [
+    {k:'Клиент', v:data.client, screen:'screen-order-wholesale'},
+    {k:'Ответственный', v:data.staff, screen:'screen-order-wholesale'},
+    {k:'Состав', v:data.catalog, screen:'screen-order-wholesale'},
+    {k:'Сумма', v:fmt(data.total), screen:'screen-order-wholesale'},
+    {k:'Дата поставки', v:data.date + ' ' + data.time, screen:'screen-order-wholesale'},
+    {k:'Предоплата', v:fmt(data.prepay), screen:'screen-order-wholesale'},
+    {k:'Комментарий', v:data.note, screen:'screen-order-wholesale'},
   ];
-  showPreview('wholesale',num,'Оптовый заказ',lines,()=>confirmOrder(data,lines));
+  showPreview('wholesale', num, 'Оптовый заказ', lines, function() { confirmOrder(data, lines); });
 }
 
 function confirmOrder(data, lines) {
   allOrders.unshift({
-    id:Date.now(), type:data.type, num:data.num,
-    data:data, lines:lines, status:'new',
-    doneRef:typeof refPhotos!=='undefined'?refPhotos.slice():[],
+    id: Date.now(), type: data.type, num: data.num,
+    data: data, lines: lines, status: 'new',
+    doneRef: refPhotos.slice(),
   });
-  if (data.type==='individual') {
-    sendToAppsScript('individual',{
-      num:data.num, client:data.client, phone:data.phone,
-      cakeName:data.cakeName, weight:data.weight, diameter:data.diameter,
-      filling:data.filling, decor:data.decor, inscription:data.inscription||'',
-      date:data.date, time:data.time, price:data.price, prepay:data.prepay,
-      note:data.note, refPhotos:typeof refPhotos!=='undefined'?refPhotos.slice():[],
+  if (data.type === 'individual') {
+    sendToAppsScript('individual', {
+      num: data.num, client: data.client, phone: data.phone, address: data.address,
+      cakeName: data.cakeName, weight: data.weight, diameter: data.diameter,
+      filling: data.filling, decor: data.decor, inscription: data.inscription || '',
+      date: data.date, time: data.time, price: data.price, prepay: data.prepay,
+      note: data.note, refPhotos: refPhotos.slice(),
     });
-  } else if (data.type==='wholesale') {
-    sendToAppsScript('wholesale',{
-      num:data.num, client:data.client, staff:data.staff,
-      catalog:data.catalog, total:data.total, prepay:data.prepay,
-      date:data.date, time:data.time, note:data.note,
+  } else if (data.type === 'wholesale') {
+    sendToAppsScript('wholesale', {
+      num: data.num, client: data.client, staff: data.staff,
+      catalog: data.catalog, total: data.total, prepay: data.prepay,
+      date: data.date, time: data.time, note: data.note,
     });
   }
-  confirmPreview(data.num+' оформлен','');
+  confirmPreview(data.num + ' оформлен', '');
 }
 
 /* ════════════════════════════════════════════
    PREVIEW / SUCCESS
 ════════════════════════════════════════════ */
-function showPreview(type,num,label,lines,onConfirm){
-  currentReviewType=type;
-  document.getElementById('success-icon-area').innerHTML=`<div class="success-icon"><i class="ti ti-clipboard-check"></i></div>`;
-  document.getElementById('success-title-text').textContent='Проверьте данные';
-  document.getElementById('success-order-num').textContent=num;
-  document.getElementById('summary-label').textContent=label;
-  document.getElementById('success-hint').style.display='block';
-  document.getElementById('success-btn-text').textContent='Подтвердить';
-  document.getElementById('success-btn-icon').className='ti ti-check';
-  document.getElementById('summary-lines').innerHTML=lines.map(({k,v,screen})=>{
-    const ed=screen?`onclick="go('${screen}')"`:'';
-    return `<div class="summary-line" ${ed} style="${!screen?'cursor:default':''}">
-      <span>${k}</span><span>${v}</span>
-      ${screen?'<i class="ti ti-pencil edit-icon"></i>':''}
-    </div>`;
+function showPreview(type, num, label, lines, onConfirm) {
+  currentReviewType = type;
+  document.getElementById('success-icon-area').innerHTML = '<div class="success-icon"><i class="ti ti-clipboard-check"></i></div>';
+  document.getElementById('success-title-text').textContent = 'Проверьте данные';
+  document.getElementById('success-order-num').textContent = num;
+  document.getElementById('summary-label').textContent = label;
+  document.getElementById('success-hint').style.display = 'block';
+  document.getElementById('success-btn-text').textContent = 'Подтвердить';
+  document.getElementById('success-btn-icon').className = 'ti ti-check';
+  document.getElementById('summary-lines').innerHTML = lines.map(function(l) {
+    var ed = l.screen ? 'onclick="go(\'' + l.screen + '\')"' : '';
+    return '<div class="summary-line" ' + ed + ' style="' + (!l.screen ? 'cursor:default' : '') + '">' +
+      '<span>' + l.k + '</span><span>' + l.v + '</span>' +
+      (l.screen ? '<i class="ti ti-pencil edit-icon"></i>' : '') +
+      '</div>';
   }).join('');
-  const btn=document.getElementById('success-main-btn');
-  btn.onclick=onConfirm;
+  var btn = document.getElementById('success-main-btn');
+  btn.onclick = onConfirm;
   go('screen-success');
 }
 
-function confirmPreview(title,num){
-  document.getElementById('success-icon-area').innerHTML=`<div class="success-icon"><i class="ti ti-circle-check"></i></div>`;
-  document.getElementById('success-title-text').textContent=title;
-  document.getElementById('success-order-num').textContent=num;
-  document.getElementById('success-hint').style.display='none';
-  document.querySelectorAll('.summary-line').forEach(el=>{el.removeAttribute('onclick');el.style.cursor='default';const ic=el.querySelector('.edit-icon');if(ic)ic.remove();});
-  document.getElementById('success-btn-text').textContent='Готово';
-  document.getElementById('success-btn-icon').className='ti ti-home';
-  document.getElementById('success-main-btn').onclick=()=>go('screen-home');
+function confirmPreview(title, num) {
+  document.getElementById('success-icon-area').innerHTML = '<div class="success-icon"><i class="ti ti-circle-check"></i></div>';
+  document.getElementById('success-title-text').textContent = title;
+  document.getElementById('success-order-num').textContent = num;
+  document.getElementById('success-hint').style.display = 'none';
+  document.querySelectorAll('.summary-line').forEach(function(el) {
+    el.removeAttribute('onclick'); el.style.cursor = 'default';
+    var ic = el.querySelector('.edit-icon'); if (ic) ic.remove();
+  });
+  document.getElementById('success-btn-text').textContent = 'Готово';
+  document.getElementById('success-btn-icon').className = 'ti ti-home';
+  document.getElementById('success-main-btn').onclick = function() { go('screen-home'); };
 }
 
 /* ════════════════════════════════════════════
    ORDERS LIST
 ════════════════════════════════════════════ */
-let currentTab='ind';
-function switchTab(tab){
-  currentTab=tab;
-  document.getElementById('tab-ind').classList.toggle('active',tab==='ind');
-  document.getElementById('tab-opt').classList.toggle('active',tab==='opt');
-  document.getElementById('orders-ind-list').style.display=tab==='ind'?'block':'none';
-  document.getElementById('orders-opt-list').style.display=tab==='opt'?'block':'none';
+var currentTab = 'ind';
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.getElementById('tab-ind').classList.toggle('active', tab === 'ind');
+  document.getElementById('tab-opt').classList.toggle('active', tab === 'opt');
+  document.getElementById('orders-ind-list').style.display = tab === 'ind' ? 'block' : 'none';
+  document.getElementById('orders-opt-list').style.display = tab === 'opt' ? 'block' : 'none';
 }
-function renderOrdersList(){
-  const indOrders=allOrders.filter(o=>o.type==='individual'&&o.status!=='closed');
-  const optOrders=allOrders.filter(o=>o.type==='wholesale'&&o.status!=='closed');
-  renderTabList('orders-ind-list',indOrders);
-  renderTabList('orders-opt-list',optOrders);
+
+function renderOrdersList() {
+  var indOrders = allOrders.filter(function(o) { return o.type === 'individual' && o.status !== 'closed'; });
+  var optOrders = allOrders.filter(function(o) { return o.type === 'wholesale' && o.status !== 'closed'; });
+  renderTabList('orders-ind-list', indOrders);
+  renderTabList('orders-opt-list', optOrders);
 }
+
 function renderTabList(containerId, orders) {
-  const el = document.getElementById(containerId);
-  if (!orders.length) { el.innerHTML='<div class="empty-state"><i class="ti ti-clipboard-off"></i>Заказов нет</div>'; return; }
-  el.innerHTML = orders.map(o => {
-    const d=o.data, isInd=o.type==='individual';
-    const title=isInd?(d.cakeName&&d.cakeName!=='—'?d.cakeName:d.client):d.client;
-    let sub='';
-    if(isInd){sub=d.client||'';}
-    else{
-      const lines=(d.catalog||'').split(' | ').filter(Boolean);
-      sub=lines.map(line=>{const m=line.match(/^(.+?)\s*\xd7\s*(\d+)/);return m?m[1].trim()+' = '+m[2]+' \u0448\u0442':line;}).slice(0,2).join('; ');
-      if(lines.length>2)sub+='\u2026';
+  var el = document.getElementById(containerId);
+  if (!orders.length) { el.innerHTML = '<div class="empty-state"><i class="ti ti-clipboard-off"></i>Заказов нет</div>'; return; }
+  el.innerHTML = orders.map(function(o) {
+    var d = o.data, isInd = o.type === 'individual';
+    var title = isInd ? (d.cakeName && d.cakeName !== '—' ? d.cakeName : d.client) : d.client;
+    var sub = '';
+    if (isInd) { sub = d.client || ''; }
+    else {
+      var lines = (d.catalog || '').split(' | ').filter(Boolean);
+      sub = lines.map(function(line) { var m = line.match(/^(.+?)\s*×\s*(\d+)/); return m ? m[1].trim() + ' = ' + m[2] + ' шт' : line; }).slice(0,2).join('; ');
+      if (lines.length > 2) sub += '…';
     }
-    const badgeCls=o.status==='done'?'badge-done':'badge-new';
-    const badgeTxt=o.status==='done'?'\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d':'\u041e\u0436\u0438\u0434\u0430\u0435\u0442 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f';
-    let rSnip='';
-    if(o.doneReport){const r=o.doneReport;rSnip=`<div class="mini-report-card"><div class="mini-report-label"><i class="ti ti-clipboard-check" style="font-size:12px"></i> \u041e\u0442\u0447\u0451\u0442 \u043a\u043e\u043d\u0434\u0438\u0442\u0435\u0440\u0430 \xb7 ${r.date||''} ${r.time||''}</div><div class="mini-report-executor">\u0418\u0441\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c: ${r.executor}</div></div>`;}
-    return `<div class="order-card-mini" onclick="openOrderDetail(${o.id})"><div class="ocm-top"><div class="ocm-num">${o.num}</div><div class="ocm-date">${d.date||''}</div><div class="ocm-badge ${badgeCls}">${badgeTxt}</div></div><div class="ocm-title">${title}</div><div class="ocm-client">${sub}</div>${rSnip}</div>`;
+    var badgeCls = o.status === 'done' ? 'badge-done' : 'badge-new';
+    var badgeTxt = o.status === 'done' ? 'Выполнен' : 'Ожидает выполнения';
+    var rSnip = '';
+    if (o.doneReport) {
+      var r = o.doneReport;
+      rSnip = '<div class="mini-report-card"><div class="mini-report-label"><i class="ti ti-clipboard-check" style="font-size:12px"></i> Отчёт кондитера · ' + (r.date||'') + ' ' + (r.time||'') + '</div><div class="mini-report-executor">Исполнитель: ' + r.executor + '</div></div>';
+    }
+    return '<div class="order-card-mini" onclick="openOrderDetail(' + o.id + ')"><div class="ocm-top"><div class="ocm-num">' + o.num + '</div><div class="ocm-date">' + (d.date||'') + '</div><div class="ocm-badge ' + badgeCls + '">' + badgeTxt + '</div></div><div class="ocm-title">' + title + '</div><div class="ocm-client">' + sub + '</div>' + rSnip + '</div>';
   }).join('');
 }
 
 /* ════════════════════════════════════════════
    ORDER DETAIL
 ════════════════════════════════════════════ */
-
-/* ── ORDER DETAIL ── */
 function buildOrderCard(order) {
-  const d=order.data;
-  const badgeCls=order.status==='done'?'badge-done':'badge-new';
-  const badgeTxt=order.status==='done'?'\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d':'\u041e\u0436\u0438\u0434\u0430\u0435\u0442 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f';
-  if(order.type==='individual'){
-    const refs=(d.refs&&d.refs.length)?d.refs:[];
-    const refBlock=refs.length?`<div style="margin-top:14px"><div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">\u0420\u0435\u0444\u0435\u0440\u0435\u043d\u0441</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">${refs.map(src=>`<div style="aspect-ratio:1;border-radius:10px;overflow:hidden"><img src="${src}" style="width:100%;height:100%;object-fit:cover"></div>`).join('')}</div></div>`:'';
-    return `<div class="order-full-section"><div class="ofc-row"><span>\u0422\u0438\u043f</span><span>\u0418\u043d\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043b\u044c\u043d\u044b\u0439</span></div><div class="ofc-row"><span>\u0421\u0442\u0430\u0442\u0443\u0441</span><span><span class="ocm-badge ${badgeCls}">${badgeTxt}</span></span></div><div class="ofc-row"><span>\u0414\u0430\u0442\u0430 \u0432\u044b\u0434\u0430\u0447\u0438</span><span>${d.date} ${d.time}</span></div></div><div class="order-full-section"><div class="section-label" style="margin-bottom:8px">\u041a\u043b\u0438\u0435\u043d\u0442</div><div style="font-size:15px;font-weight:600;color:var(--text)">${d.client}</div><div style="font-size:13px;color:var(--muted);margin-top:3px">${d.phone}</div></div><div class="order-full-section"><div class="section-label" style="margin-bottom:8px">\u0418\u0437\u0434\u0435\u043b\u0438\u0435</div><div class="ofc-row"><span>\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435</span><span>${d.cakeName}</span></div><div class="ofc-row"><span>\u0412\u0435\u0441</span><span>${d.weight} \u043a\u0433</span></div><div class="ofc-row"><span>\u0414\u0438\u0430\u043c\u0435\u0442\u0440</span><span>${d.diameter} \u0441\u043c</span></div><div class="ofc-row"><span>\u041d\u0430\u0447\u0438\u043d\u043a\u0430</span><span>${d.filling}</span></div><div class="ofc-row"><span>\u0414\u0435\u043a\u043e\u0440</span><span>${d.decor}</span></div>${d.inscription?`<div class="ofc-row"><span>\u041d\u0430\u0434\u043f\u0438\u0441\u044c</span><span>${d.inscription}</span></div>`:''}${refBlock}</div>${d.note&&d.note!=='\u2014'?`<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439</div><div style="font-size:13px;color:var(--text)">${d.note}</div></div>`:''}`;
+  var d = order.data;
+  var badgeCls = order.status === 'done' ? 'badge-done' : 'badge-new';
+  var badgeTxt = order.status === 'done' ? 'Выполнен' : 'Ожидает выполнения';
+  if (order.type === 'individual') {
+    var refs = (d.refs && d.refs.length) ? d.refs : [];
+    var refBlock = refs.length ? '<div style="margin-top:14px"><div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Референс</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">' + refs.map(function(src) { return '<div style="aspect-ratio:1;border-radius:10px;overflow:hidden"><img src="'+src+'" style="width:100%;height:100%;object-fit:cover"></div>'; }).join('') + '</div></div>' : '';
+    return '<div class="order-full-section"><div class="ofc-row"><span>Тип</span><span>Индивидуальный</span></div><div class="ofc-row"><span>Статус</span><span><span class="ocm-badge '+badgeCls+'">'+badgeTxt+'</span></span></div><div class="ofc-row"><span>Дата выдачи</span><span>'+d.date+' '+d.time+'</span></div></div>' +
+      '<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">Клиент</div><div style="font-size:15px;font-weight:600;color:var(--text)">'+d.client+'</div><div style="font-size:13px;color:var(--muted);margin-top:3px">'+d.phone+'</div></div>' +
+      '<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">Изделие</div><div class="ofc-row"><span>Название</span><span>'+d.cakeName+'</span></div><div class="ofc-row"><span>Вес</span><span>'+d.weight+' кг</span></div><div class="ofc-row"><span>Диаметр</span><span>'+d.diameter+' см</span></div><div class="ofc-row"><span>Начинка</span><span>'+d.filling+'</span></div><div class="ofc-row"><span>Декор</span><span>'+d.decor+'</span></div>'+(d.inscription?'<div class="ofc-row"><span>Надпись</span><span>'+d.inscription+'</span></div>':'')+refBlock+'</div>' +
+      (d.note && d.note !== '—' ? '<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">Комментарий</div><div style="font-size:13px;color:var(--text)">'+d.note+'</div></div>' : '');
   } else {
-    const lines=(d.catalog||'').split(' | ').filter(Boolean);
-    const catalogRows=lines.map(line=>{const m=line.match(/^(.+?)\s*\xd7\s*(\d+)/);return m?`<div class="ofc-row"><span>${m[1].trim()}</span><span>${m[2]} \u0448\u0442</span></div>`:`<div class="ofc-row"><span>${line}</span><span></span></div>`;}).join('');
-    return `<div class="order-full-section"><div class="ofc-row"><span>\u0422\u0438\u043f</span><span>\u041e\u043f\u0442\u043e\u0432\u044b\u0439</span></div><div class="ofc-row"><span>\u0421\u0442\u0430\u0442\u0443\u0441</span><span><span class="ocm-badge ${badgeCls}">${badgeTxt}</span></span></div><div class="ofc-row"><span>\u041a\u043b\u0438\u0435\u043d\u0442</span><span>${d.client}</span></div><div class="ofc-row"><span>\u041e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439</span><span>${d.staff||'\u2014'}</span></div><div class="ofc-row"><span>\u0414\u0430\u0442\u0430 \u043f\u043e\u0441\u0442\u0430\u0432\u043a\u0438</span><span>${d.date} ${d.time}</span></div></div><div class="order-full-section"><div class="section-label" style="margin-bottom:8px">\u0421\u043e\u0441\u0442\u0430\u0432 \u0437\u0430\u043a\u0430\u0437\u0430</div>${catalogRows||'<div style="font-size:13px;color:var(--muted)">\u041f\u043e\u0437\u0438\u0446\u0438\u0438 \u043d\u0435 \u0443\u043a\u0430\u0437\u0430\u043d\u044b</div>'}</div>${d.note&&d.note!=='\u2014'?`<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439</div><div style="font-size:13px;color:var(--text)">${d.note}</div></div>`:''}`;
+    var lines = (d.catalog || '').split(' | ').filter(Boolean);
+    var catalogRows = lines.map(function(line) { var m = line.match(/^(.+?)\s*×\s*(\d+)/); return m ? '<div class="ofc-row"><span>'+m[1].trim()+'</span><span>'+m[2]+' шт</span></div>' : '<div class="ofc-row"><span>'+line+'</span><span></span></div>'; }).join('');
+    return '<div class="order-full-section"><div class="ofc-row"><span>Тип</span><span>Оптовый</span></div><div class="ofc-row"><span>Статус</span><span><span class="ocm-badge '+badgeCls+'">'+badgeTxt+'</span></span></div><div class="ofc-row"><span>Клиент</span><span>'+d.client+'</span></div><div class="ofc-row"><span>Ответственный</span><span>'+(d.staff||'—')+'</span></div><div class="ofc-row"><span>Дата поставки</span><span>'+d.date+' '+d.time+'</span></div></div>' +
+      '<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">Состав заказа</div>'+(catalogRows||'<div style="font-size:13px;color:var(--muted)">Позиции не указаны</div>')+'</div>' +
+      (d.note && d.note !== '—' ? '<div class="order-full-section"><div class="section-label" style="margin-bottom:8px">Комментарий</div><div style="font-size:13px;color:var(--text)">'+d.note+'</div></div>' : '');
   }
 }
 
 function buildCollapsedCard(order) {
-  const d = order.data;
-  const isInd = order.type === 'individual';
-  const rows = isInd
-    ? [['Заказ', order.num], ['Клиент', d.client], ['Изделие', d.cakeName], ['Дата', d.date+' '+d.time]]
-    : [['Заказ', order.num], ['Клиент', d.client], ['Дата', d.date+' '+d.time]];
-  return `<div class="order-collapsed">
-    ${rows.map(([k,v]) => `<div class="order-collapsed-row"><span>${k}</span><span>${v}</span></div>`).join('')}
-    <div style="margin-top:6px"><span class="ocm-badge badge-done">Выполнен</span></div>
-  </div>`;
+  var d = order.data;
+  var isInd = order.type === 'individual';
+  var rows = isInd
+    ? [['Заказ', order.num], ['Клиент', d.client], ['Изделие', d.cakeName], ['Дата', d.date + ' ' + d.time]]
+    : [['Заказ', order.num], ['Клиент', d.client], ['Дата', d.date + ' ' + d.time]];
+  return '<div class="order-collapsed">' +
+    rows.map(function(r) { return '<div class="order-collapsed-row"><span>'+r[0]+'</span><span>'+r[1]+'</span></div>'; }).join('') +
+    '<div style="margin-top:6px"><span class="ocm-badge badge-done">Выполнен</span></div>' +
+  '</div>';
 }
 
 function openOrderDetail(id) {
-  const order = allOrders.find(o => o.id === id);
+  var order = allOrders.find(function(o) { return o.id === id; });
   if (!order) return;
   detailOrderId = id;
   document.getElementById('detail-title').textContent = 'Заказ ' + order.num;
   document.getElementById('detail-content').innerHTML = buildOrderCard(order);
-  const actions = document.getElementById('detail-actions');
+  var actions = document.getElementById('detail-actions');
   if (order.status === 'new') {
-    actions.innerHTML = `
-      <button class="btn success-btn" onclick="startMarkDone(${id})"><i class="ti ti-check"></i> Выполнен</button>
-      <button class="btn danger" onclick="closeOrder(${id})"><i class="ti ti-lock"></i> Закрыть</button>`;
+    actions.innerHTML = '<button class="btn success-btn" onclick="startMarkDone(' + id + ')"><i class="ti ti-check"></i> Выполнен</button><button class="btn danger" onclick="closeOrder(' + id + ')"><i class="ti ti-lock"></i> Закрыть</button>';
   } else if (order.status === 'done') {
-    actions.innerHTML = `
-      <button class="btn" style="background:var(--soft-bg);color:var(--soft-color);cursor:default"><i class="ti ti-check"></i> Выполнен</button>
-      <button class="btn danger" onclick="closeOrder(${id})"><i class="ti ti-lock"></i> Закрыть</button>`;
+    actions.innerHTML = '<button class="btn" style="background:var(--soft-bg);color:var(--soft-color);cursor:default"><i class="ti ti-check"></i> Выполнен</button><button class="btn danger" onclick="closeOrder(' + id + ')"><i class="ti ti-lock"></i> Закрыть</button>';
   } else {
     actions.innerHTML = '';
   }
-  // Show done report if exists
   if (order.doneReport) {
-    const repDiv = document.createElement('div');
+    var repDiv = document.createElement('div');
     repDiv.innerHTML = buildDoneReportCard(order);
     document.getElementById('detail-content').appendChild(repDiv);
   }
-
   go('screen-order-detail');
 }
 
 function buildDoneReportCard(order) {
-  const r = order.doneReport;
+  var r = order.doneReport;
   if (!r) return '';
-  let rows = '';
+  var rows = '';
   if (r.type === 'individual') {
-    if(r.biscuits&&r.biscuits.length) rows+=r.biscuits.map(b=>`<div class="ofc-row"><span>Бисквит</span><span>${b.name}${b.weight?' · '+b.weight+' г':''}${b.size?' · '+b.size+' см':''}</span></div>`).join('');
-    if(r.propitka) rows+=`<div class="ofc-row"><span>Пропитка</span><span>${r.propitka} г</span></div>`;
-    if(r.creams&&r.creams.length) rows+=r.creams.map(c=>`<div class="ofc-row"><span>Крем</span><span>${c.name}${c.weight?' · '+c.weight+' г':''}</span></div>`).join('');
-    if(r.fillings2&&r.fillings2.length) rows+=`<div class="ofc-row"><span>Начинка</span><span>${r.fillings2.join(', ')}</span></div>`;
-    if(r.ganash) rows+=`<div class="ofc-row"><span>Ганаш</span><span>${r.ganash} г</span></div>`;
-    if(r.decor&&r.decor.length) r.decor.forEach(d=>{
-      if(d.type==='berry'&&d.berries) rows+=d.berries.map(b=>`<div class="ofc-row"><span>Ягода: ${b.name}</span><span>${b.weight} г</span></div>`).join('');
-      else if(d.type==='mastika') rows+=`<div class="ofc-row"><span>Мастика</span><span>${d.weight} г</span></div>`;
-      else if(d.type==='velour') rows+=`<div class="ofc-row"><span>Вилюр</span><span>${d.weight} г</span></div>`;
-      else if(d.type==='other') rows+=`<div class="ofc-row"><span>Декор</span><span>${d.comment}</span></div>`;
-    });
+    if (r.biscuits && r.biscuits.length) rows += r.biscuits.map(function(b) { return '<div class="ofc-row"><span>Бисквит</span><span>'+b.name+(b.weight?' · '+b.weight+' г':'')+(b.size?' · '+b.size+' см':'')+'</span></div>'; }).join('');
+    if (r.propitka) rows += '<div class="ofc-row"><span>Пропитка</span><span>'+r.propitka+' г</span></div>';
+    if (r.creams && r.creams.length) rows += r.creams.map(function(c) { return '<div class="ofc-row"><span>Крем</span><span>'+c.name+(c.weight?' · '+c.weight+' г':'')+'</span></div>'; }).join('');
+    if (r.fillings && r.fillings.length) rows += '<div class="ofc-row"><span>Начинка</span><span>'+r.fillings.join(', ')+'</span></div>';
+    if (r.ganash) rows += '<div class="ofc-row"><span>Ганаш</span><span>'+r.ganash+' г</span></div>';
   } else {
-    if(r.items&&r.items.length) rows+=r.items.filter(i=>i.done>0).map(i=>`<div class="ofc-row"><span>${i.name}</span><span>${i.done} из ${i.ordered} шт</span></div>`).join('');
+    if (r.items && r.items.length) rows += r.items.filter(function(i) { return i.done > 0; }).map(function(i) { return '<div class="ofc-row"><span>'+i.name+'</span><span>'+i.done+' из '+i.ordered+' шт</span></div>'; }).join('');
   }
-  let photosHtml='';
-  if(r.photos&&r.photos.length){
-    photosHtml=`<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px">`+r.photos.map(src=>`<div style="aspect-ratio:1;border-radius:10px;overflow:hidden"><img src="${src}" style="width:100%;height:100%;object-fit:cover"></div>`).join('')+'</div>';
+  var photosHtml = '';
+  if (r.photos && r.photos.length) {
+    photosHtml = '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px">' + r.photos.map(function(src) { return '<div style="aspect-ratio:1;border-radius:10px;overflow:hidden"><img src="'+src+'" style="width:100%;height:100%;object-fit:cover"></div>'; }).join('') + '</div>';
   }
-  return `<div class="order-full-section" style="border-top:2px solid var(--brown);margin-top:0">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-      <div class="section-label" style="margin-bottom:0"><i class="ti ti-clipboard-check" style="font-size:13px"></i> Отчёт кондитера</div>
-      <div class="ocm-badge badge-done">Выполнен</div>
-    </div>
-    ${rows}
-    <div class="ofc-row"><span>Дата</span><span>${r.date} ${r.time}</span></div>
-    <div class="ofc-row"><span>Кондитер</span><span>${r.executor}</span></div>
-    ${photosHtml}
-  </div>`;
+  return '<div class="order-full-section" style="border-top:2px solid var(--brown);margin-top:0">' +
+    '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">' +
+      '<div class="section-label" style="margin-bottom:0"><i class="ti ti-clipboard-check" style="font-size:13px"></i> Отчёт кондитера</div>' +
+      '<div class="ocm-badge badge-done">Выполнен</div>' +
+    '</div>' +
+    rows +
+    '<div class="ofc-row"><span>Дата</span><span>' + (r.date||'') + ' ' + (r.time||'') + '</span></div>' +
+    '<div class="ofc-row"><span>Кондитер</span><span>' + r.executor + '</span></div>' +
+    photosHtml +
+  '</div>';
 }
-
-/* ── EXECUTION FORM ── */
-const BISCUITS = ['Шоколадный','Фисташковый','Ванильный'];
-const CREAMS   = ['Ваниль','Фисташка','Шоколад'];
-const FILLINGS_EXEC = ['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'];
-
-let execBiscuits = [];   // [{name, weight, size}]
-let execCreams   = [];   // [{name, weight}]
-let execFillings = [];   // [name]
-let execPhotos   = [];
-let execFilling_search = '';
-
-function showExecForm(id) {
-  execBiscuits=[]; execCreams=[]; execFillings=[]; execPhotos=[];
-  const order = allOrders.find(o=>o.id===id);
-  const collapsed = buildCollapsedCard(order);
-  const form = `
-  <div class="exec-wrap" id="exec-form">
-
-    <!-- БИСКВИТ -->
-    <div class="exec-section">
-      <div class="exec-section-title">Бисквит</div>
-      <div class="exec-tag-row" id="biscuit-tags">
-        ${BISCUITS.map(b=>`<button type="button" class="exec-tag" onclick="toggleBiscuit('${b}')" id="btag_${b.replace(/ /g,'_')}">${b}</button>`).join('')}
-      </div>
-      <div id="biscuit-fields"></div>
-    </div>
-
-    <!-- ПРОПИТКА -->
-    <div class="exec-section">
-      <div class="exec-section-title">Пропитка</div>
-      <div class="exec-simple-row">
-        <div class="exec-simple-label">Вес (г)</div>
-        <input class="exec-simple-input" type="number" id="exec-propitka" placeholder="0"/>
-      </div>
-    </div>
-
-    <!-- КРЕМ -->
-    <div class="exec-section">
-      <div class="exec-section-title">Крем</div>
-      <div class="exec-tag-row" id="cream-tags">
-        ${CREAMS.map(c=>`<button type="button" class="exec-tag" onclick="toggleCream('${c}')" id="ctag_${c}">${c}</button>`).join('')}
-      </div>
-      <div id="cream-fields"></div>
-    </div>
-
-    <!-- НАЧИНКА -->
-    <div class="exec-section">
-      <div class="exec-section-title">Начинка</div>
-      <div class="dd-wrap" style="margin-bottom:8px">
-        <input class="dd-input" type="text" id="exec-filling-search" placeholder="Начните вводить начинку..." autocomplete="off"
-          oninput="filterExecFillings(this.value)" onfocus="filterExecFillings(this.value)"/>
-        <div class="dd-list hidden" id="exec-filling-dd"></div>
-      </div>
-      <div class="exec-tag-row" id="exec-filling-tags"></div>
-    </div>
-
-    <!-- ГАНАШ -->
-    <div class="exec-section">
-      <div class="exec-section-title">Ганаш</div>
-      <div class="exec-simple-row">
-        <div class="exec-simple-label">Вес (г)</div>
-        <input class="exec-simple-input" type="number" id="exec-ganash" placeholder="0"/>
-      </div>
-    </div>
-
-    <!-- ДЕКОР -->
-    <div class="exec-section">
-      <div class="exec-section-title">Декор</div>
-
-      <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">Ягодное оформление</div>
-      ${[['Клубника','exec-berry-kl'],['Голубика','exec-berry-go'],['Малина','exec-berry-ma']].map(([name,id])=>`
-      <div class="exec-simple-row">
-        <div class="exec-simple-label">${name}</div>
-        <input class="exec-simple-input" type="number" id="${id}" placeholder="г"/>
-      </div>`).join('')}
-
-      <div style="border-top:.5px solid rgba(62,44,35,.1);margin:12px 0 10px"></div>
-
-      <div class="exec-simple-row">
-        <div class="exec-simple-label">Мастика (г)</div>
-        <input class="exec-simple-input" type="number" id="exec-mastika" placeholder="0"/>
-      </div>
-      <div class="exec-simple-row" style="margin-top:6px">
-        <div class="exec-simple-label">Вилюр (г)</div>
-        <input class="exec-simple-input" type="number" id="exec-vilur" placeholder="0"/>
-      </div>
-      <div style="margin-top:10px">
-        <div class="exec-simple-label" style="margin-bottom:6px;font-size:13px;color:var(--muted)">Другое</div>
-        <textarea class="exec-note-input" id="exec-decor-other" placeholder="Комментарий..."></textarea>
-      </div>
-    </div>
-
-    <!-- ФОТО + ИМЯ -->
-    <div class="exec-section">
-      <div class="exec-section-title">Фото выполненной работы <span style="color:#B03A2E">*</span></div>
-      <div class="photo-grid" id="exec-photo-grid">
-        <label class="photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addExecPhotos(this)"></label>
-      </div>
-      <div id="exec-photo-error" style="display:none;margin-top:8px;font-size:12px;color:#B03A2E;font-weight:600">Прикрепите фото</div>
-      <div style="margin-top:14px">
-        <div class="exec-section-title" style="margin-bottom:8px">Выполнил</div>
-        <input class="dd-input" type="text" id="exec-performer" placeholder="Имя кондитера"/>
-      </div>
-    </div>
-
-    <div class="btn-row">
-      <button class="btn" onclick="cancelExec()"><i class="ti ti-x"></i> Отмена</button>
-      <button class="btn primary" onclick="submitExec(${id})"><i class="ti ti-check"></i> Подтвердить</button>
-    </div>
-  </div>`;
-
-  document.getElementById('detail-content').innerHTML = collapsed + form;
-  document.getElementById('detail-actions').innerHTML = '';
-  window.scrollTo(0,0);
-}
-
-function toggleBiscuit(name) {
-  const btn = document.getElementById('btag_'+name.replace(/ /g,'_'));
-  const exists = execBiscuits.find(b=>b.name===name);
-  if (exists) {
-    execBiscuits = execBiscuits.filter(b=>b.name!==name);
-    btn.classList.remove('selected');
-  } else {
-    execBiscuits.push({name, weight:'', size:''});
-    btn.classList.add('selected');
-  }
-  renderBiscuitFields();
-}
-function renderBiscuitFields() {
-  document.getElementById('biscuit-fields').innerHTML = execBiscuits.map(b=>`
-    <div class="exec-sub-fields" style="border-top:.5px solid rgba(62,44,35,.08);padding-top:10px;margin-top:8px">
-      <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">${b.name}</div>
-      <div class="exec-sub-row"><div class="exec-sub-label">Вес (г)</div><input class="exec-sub-input" type="number" placeholder="0" id="biw_${b.name.replace(/ /g,'_')}" value="${b.weight}" oninput="execBiscuits.find(x=>x.name==='${b.name}').weight=this.value"/></div>
-      <div class="exec-sub-row"><div class="exec-sub-label">Размер (см)</div><input class="exec-sub-input" type="number" placeholder="0" id="bis_${b.name.replace(/ /g,'_')}" value="${b.size}" oninput="execBiscuits.find(x=>x.name==='${b.name}').size=this.value"/></div>
-    </div>`).join('');
-}
-
-function toggleCream(name) {
-  const btn = document.getElementById('ctag_'+name);
-  const exists = execCreams.find(c=>c.name===name);
-  if (exists) {
-    execCreams = execCreams.filter(c=>c.name!==name);
-    btn.classList.remove('selected');
-  } else {
-    execCreams.push({name, weight:''});
-    btn.classList.add('selected');
-  }
-  renderCreamFields();
-}
-function renderCreamFields() {
-  document.getElementById('cream-fields').innerHTML = execCreams.map(c=>`
-    <div class="exec-sub-fields" style="border-top:.5px solid rgba(62,44,35,.08);padding-top:10px;margin-top:8px">
-      <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">${c.name}</div>
-      <div class="exec-sub-row"><div class="exec-sub-label">Вес (г)</div><input class="exec-sub-input" type="number" placeholder="0" id="crw_${c.name}" value="${c.weight}" oninput="execCreams.find(x=>x.name==='${c.name}').weight=this.value"/></div>
-    </div>`).join('');
-}
-
-function filterExecFillings(q) {
-  q = q.trim().toLowerCase();
-  const dd = document.getElementById('exec-filling-dd');
-  const matches = FILLINGS_EXEC.filter(f=>f.toLowerCase().includes(q)&&!execFillings.includes(f));
-  if (!q && !matches.length) { dd.classList.add('hidden'); return; }
-  let h = matches.map(f=>`<div class="dd-opt" onclick="addExecFilling('${f}')"><i class="ti ti-circle-check" style="color:var(--brown);font-size:14px"></i>${f}</div>`).join('');
-  if (q && !FILLINGS_EXEC.some(f=>f.toLowerCase()===q) && !execFillings.includes(q)) {
-    h += `<div class="dd-opt custom" onclick="addExecFilling(document.getElementById('exec-filling-search').value.trim())"><i class="ti ti-plus" style="font-size:14px"></i>Добавить «${q}»</div>`;
-  }
-  if (!h) { dd.classList.add('hidden'); return; }
-  dd.innerHTML = h;
-  dd.classList.remove('hidden');
-}
-function addExecFilling(name) {
-  name = name.trim();
-  if (!name || execFillings.includes(name)) return;
-  execFillings.push(name);
-  renderExecFillingTags();
-  document.getElementById('exec-filling-search').value = '';
-  document.getElementById('exec-filling-dd').classList.add('hidden');
-}
-function removeExecFilling(name) {
-  execFillings = execFillings.filter(f=>f!==name);
-  renderExecFillingTags();
-}
-function renderExecFillingTags() {
-  document.getElementById('exec-filling-tags').innerHTML = execFillings.map(f=>`<div class="tag">${f}<button class="tag-del" onclick="removeExecFilling('${f}')"><i class="ti ti-x"></i></button></div>`).join('');
-}
-
-function addExecPhotos(input) {
-  Array.from(input.files).forEach(f=>{const r=new FileReader();r.onload=e=>{execPhotos.push(e.target.result);renderExecPhotos();};r.readAsDataURL(f);});
-  input.value='';
-}
-function renderExecPhotos() {
-  const g = document.getElementById('exec-photo-grid');
-  if (!g) return;
-  g.innerHTML = execPhotos.map((s,i)=>`<div class="photo-thumb"><img src="${s}"><button class="del-btn" onclick="execPhotos.splice(${i},1);renderExecPhotos()"><i class="ti ti-x"></i></button></div>`).join('')
-    + `<label class="photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addExecPhotos(this)"></label>`;
-  document.getElementById('exec-photo-error').style.display = 'none';
-}
-
-function cancelExec() {
-  openOrderDetail(detailOrderId);
-}
-
-function submitExec(id) {
-  if (!execPhotos.length) { document.getElementById('exec-photo-error').style.display='block'; return; }
-  const performer = document.getElementById('exec-performer').value.trim();
-  if (!performer) { document.getElementById('exec-performer').focus(); return; }
-  const order = allOrders.find(o=>o.id===id);
-  if (order) {
-    order.status = 'done';
-    order.execution = {
-      biscuits: execBiscuits,
-      propitka: document.getElementById('exec-propitka').value,
-      creams: execCreams,
-      fillings: execFillings,
-      ganash: document.getElementById('exec-ganash').value,
-      berries: {kl:document.getElementById('exec-berry-kl').value, go:document.getElementById('exec-berry-go').value, ma:document.getElementById('exec-berry-ma').value},
-      mastika: document.getElementById('exec-mastika').value,
-      vilur:   document.getElementById('exec-vilur').value,
-      decorOther: document.getElementById('exec-decor-other').value,
-      photos: execPhotos,
-      performer,
-    };
-  }
-  openOrderDetail(id);
-}
-
-function markDone(id) { startMarkDone(id); }
-function closeOrder(id){
-  const o=allOrders.find(x=>x.id===id);
-  if(o) o.status='closed';
-  go('screen-orders-list');
-}
-
-/* ════════════════════════════════════════════
-   UTILS
-════════════════════════════════════════════ */
-function fmt(n){return (parseFloat(n)||0).toLocaleString('ru-RU')+' ₽';}
-
-// Close dropdowns on outside click
-document.addEventListener('click',function(e){
-  if(!e.target.closest('.dd-wrap')) {
-    document.querySelectorAll('.dd-list').forEach(d=>d.classList.add('hidden'));
-  }
-  if(!e.target.closest('#staff-dropdown')&&!e.target.closest('#who-staff')){
-    const sd=document.getElementById('staff-dropdown');if(sd)sd.classList.add('hidden');
-  }
-});
-
-/* ════════════════════════════════════════════
-   INIT
-════════════════════════════════════════════ */
 
 /* ════════════════════════════════════════════
    MARK DONE FLOW
 ════════════════════════════════════════════ */
-const BISCUIT_LIST = ['Шоколадный', 'Фисташковый', 'Ванильный'];
-const CREAM_LIST   = ['Ваниль', 'Фисташка', 'Шоколад'];
-const FILLING2_LIST= ['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'];
-const BERRY_LIST   = ['Клубника','Голубика','Малина'];
-
-let donePhotos = [];
+var donePhotos = [];
 
 function startMarkDone(orderId) {
-  const order = allOrders.find(o => o.id === orderId);
+  var order = allOrders.find(function(o) { return o.id === orderId; });
   if (!order) return;
   detailOrderId = orderId;
   donePhotos = [];
-  const d = order.data;
+  var d = order.data;
 
-  /* ── collapsed summary ── */
-  const collapsed = `<div class="collapsed-card">
-    <div class="collapsed-card-title">${order.num} — ${order.type === 'individual' ? (d.cakeName && d.cakeName !== '—' ? d.cakeName : d.client) : d.client}</div>
-    <div class="collapsed-card-row">${order.type === 'individual'
-      ? 'Клиент: ' + d.client + ' · ' + d.date + ' ' + d.time
-      : 'Клиент: ' + d.client + ' · Поставка: ' + d.date + ' ' + d.time}
-    </div>
-    ${order.doneRef && order.doneRef.length ? '<a class="ref-download" onclick="downloadRef(' + orderId + ')"><i class="ti ti-download"></i> Скачать референс</a>' : ''}
-  </div>`;
+  var collapsed = '<div class="collapsed-card">' +
+    '<div class="collapsed-card-title">' + order.num + ' — ' + (order.type === 'individual' ? (d.cakeName && d.cakeName !== '—' ? d.cakeName : d.client) : d.client) + '</div>' +
+    '<div class="collapsed-card-row">' + (order.type === 'individual' ? 'Клиент: ' + d.client + ' · ' + d.date + ' ' + d.time : 'Клиент: ' + d.client + ' · Поставка: ' + d.date + ' ' + d.time) + '</div>' +
+    (order.doneRef && order.doneRef.length ? '<a class="ref-download" onclick="downloadRef(' + orderId + ')"><i class="ti ti-download"></i> Скачать референс</a>' : '') +
+  '</div>';
 
-  let form = '';
+  var form = '';
 
-  /* ═══════════ ИНДИВИДУАЛЬНЫЙ ═══════════ */
   if (order.type === 'individual') {
-    form = `
-    <!-- БИСКВИТ -->
-    <div class="done-section">
-      <div class="done-section-title">Бисквит</div>
-      <div class="done-choice-list" id="biscuit-list">
-        ${['Шоколадный','Фисташковый','Ванильный'].map((name,i) => `
-        <div class="done-choice-item">
-          <button class="done-choice-btn" id="bis_btn_${i}" onclick="toggleDoneChoice('bis',${i})">
-            <div class="done-choice-dot" id="bis_dot_${i}"></div>${name}
-          </button>
-          <div class="done-choice-fields" id="bis_fields_${i}">
-            <div class="done-row-two">
-              <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="bis_w_${i}"/></div>
-              <div class="done-field"><div class="done-label">Размер (см)</div><input class="done-input" type="number" placeholder="0" id="bis_s_${i}"/></div>
-            </div>
-          </div>
-        </div>`).join('')}
-      </div>
-    </div>
+    form = '' +
+    '<div class="done-section"><div class="done-section-title">Бисквит</div><div class="done-choice-list">' +
+      ['Шоколадный','Фисташковый','Ванильный'].map(function(name, i) {
+        return '<div class="done-choice-item"><button class="done-choice-btn" id="bis_btn_'+i+'" onclick="toggleDoneChoice(\'bis\','+i+')"><div class="done-choice-dot" id="bis_dot_'+i+'"></div>'+name+'</button><div class="done-choice-fields" id="bis_fields_'+i+'"><div class="done-row-two"><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="bis_w_'+i+'"/></div><div class="done-field"><div class="done-label">Размер (см)</div><input class="done-input" type="number" placeholder="0" id="bis_s_'+i+'"/></div></div></div></div>';
+      }).join('') +
+    '</div></div>' +
+    '<div class="done-section"><div class="done-section-title">Пропитка</div><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="prop_w"/></div></div>' +
+    '<div class="done-section"><div class="done-section-title">Крем</div><div class="done-choice-list">' +
+      ['Ваниль','Фисташка','Шоколад'].map(function(name, i) {
+        return '<div class="done-choice-item"><button class="done-choice-btn" id="cream_btn_'+i+'" onclick="toggleDoneChoice(\'cream\','+i+')"><div class="done-choice-dot" id="cream_dot_'+i+'"></div>'+name+'</button><div class="done-choice-fields" id="cream_fields_'+i+'"><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="cream_w_'+i+'"/></div></div></div>';
+      }).join('') +
+    '</div></div>' +
+    '<div class="done-section"><div class="done-section-title">Начинка</div><div class="done-choice-list">' +
+      ['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'].map(function(name, i) {
+        return '<div class="done-choice-item"><button class="done-choice-btn" id="fill_btn_'+i+'" onclick="toggleDoneChoice(\'fill\','+i+')"><div class="done-choice-dot" id="fill_dot_'+i+'"></div>'+name+'</button><div class="done-choice-fields" id="fill_fields_'+i+'" style="display:none"></div></div>';
+      }).join('') +
+    '</div></div>' +
+    '<div class="done-section"><div class="done-section-title">Ганаш</div><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ganash_w"/></div></div>' +
+    '<div class="done-section"><div class="done-section-title">Декор</div><div class="done-choice-list">' +
+      '<div class="done-choice-item"><button class="done-choice-btn" id="dec_btn_berry" onclick="toggleDecorBerry()"><div class="done-choice-dot" id="dec_dot_berry"></div>Ягодное оформление</button><div class="done-choice-fields" id="dec_fields_berry"><div class="done-field"><div class="done-label">Клубника (г)</div><input class="done-input" type="number" placeholder="0" id="berry_Клубника"/></div><div class="done-field"><div class="done-label">Голубика (г)</div><input class="done-input" type="number" placeholder="0" id="berry_Голубика"/></div><div class="done-field"><div class="done-label">Малина (г)</div><input class="done-input" type="number" placeholder="0" id="berry_Малина"/></div></div></div>' +
+      '<div class="done-choice-item"><button class="done-choice-btn" id="dec_btn_mastika" onclick="toggleDecorItem(\'mastika\')"><div class="done-choice-dot" id="dec_dot_mastika"></div>Мастика</button><div class="done-choice-fields" id="dec_fields_mastika"><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="dec_w_mastika"/></div></div></div>' +
+      '<div class="done-choice-item"><button class="done-choice-btn" id="dec_btn_velour" onclick="toggleDecorItem(\'velour\')"><div class="done-choice-dot" id="dec_dot_velour"></div>Вилюр</button><div class="done-choice-fields" id="dec_fields_velour"><div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="dec_w_velour"/></div></div></div>' +
+      '<div class="done-choice-item"><button class="done-choice-btn" id="dec_btn_other" onclick="toggleDecorItem(\'other\')"><div class="done-choice-dot" id="dec_dot_other"></div>Другой</button><div class="done-choice-fields" id="dec_fields_other"><div class="done-field"><div class="done-label">Комментарий</div><input class="done-input" type="text" placeholder="Опишите декор..." id="dec_comment"/></div></div></div>' +
+    '</div></div>' +
+    /* FIX #4: Добавлены поля даты/времени для индивидуального заказа */
+    '<div class="done-section"><div class="done-section-title">Дата и время выполнения</div><div class="done-row-two"><div class="done-field"><div class="done-label">Дата</div><input class="done-input" type="date" id="done-date"/></div><div class="done-field"><div class="done-label">Время</div><input class="done-input" type="time" id="done-time"/></div></div></div>' +
+    '<div class="done-section"><div class="done-section-title">Фото готового изделия <span class="photo-required">Обязательно</span></div><div class="done-photo-grid" id="done-photo-grid"><label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addDonePhotos(this)"></label></div><div id="done-photo-error" style="display:none;margin-top:8px;font-size:12px;color:#B03A2E;font-weight:600">Добавьте фото изделия</div></div>' +
+    '<div class="done-section"><div class="done-section-title">Исполнитель</div><div class="done-field"><div class="done-label">Имя кондитера</div><input class="done-input" type="text" id="done-executor" placeholder="Ваше имя"/></div><div id="done-executor-error" style="display:none;margin-top:6px;font-size:12px;color:#B03A2E;font-weight:600">Укажите имя</div></div>';
 
-    <!-- ПРОПИТКА -->
-    <div class="done-section">
-      <div class="done-section-title">Пропитка</div>
-      <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="prop_w"/></div>
-    </div>
-
-    <!-- КРЕМ -->
-    <div class="done-section">
-      <div class="done-section-title">Крем</div>
-      <div class="done-choice-list">
-        ${['Ваниль','Фисташка','Шоколад'].map((name,i) => `
-        <div class="done-choice-item">
-          <button class="done-choice-btn" id="cream_btn_${i}" onclick="toggleDoneChoice('cream',${i})">
-            <div class="done-choice-dot" id="cream_dot_${i}"></div>${name}
-          </button>
-          <div class="done-choice-fields" id="cream_fields_${i}">
-            <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="cream_w_${i}"/></div>
-          </div>
-        </div>`).join('')}
-      </div>
-    </div>
-
-    <!-- НАЧИНКА -->
-    <div class="done-section">
-      <div class="done-section-title">Начинка</div>
-      <div class="done-choice-list">
-        ${['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'].map((name,i) => `
-        <div class="done-choice-item">
-          <button class="done-choice-btn" id="fill_btn_${i}" onclick="toggleDoneChoice('fill',${i})">
-            <div class="done-choice-dot" id="fill_dot_${i}"></div>${name}
-          </button>
-          <div class="done-choice-fields" id="fill_fields_${i}" style="display:none"></div>
-        </div>`).join('')}
-      </div>
-    </div>
-
-    <!-- ГАНАШ -->
-    <div class="done-section">
-      <div class="done-section-title">Ганаш</div>
-      <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="ganash_w"/></div>
-    </div>
-
-    <!-- ДЕКОР -->
-    <div class="done-section">
-      <div class="done-section-title">Декор</div>
-      <div class="done-choice-list">
-        <!-- Ягодное -->
-        <div class="done-choice-item">
-          <button class="done-choice-btn" id="dec_btn_berry" onclick="toggleDecorBerry()">
-            <div class="done-choice-dot" id="dec_dot_berry"></div>Ягодное оформление
-          </button>
-          <div class="done-choice-fields" id="dec_fields_berry">
-            ${['Клубника','Голубика','Малина'].map(b => `
-            <div class="done-field"><div class="done-label">${b} (г)</div><input class="done-input" type="number" placeholder="0" id="berry_${b}"/></div>`).join('')}
-          </div>
-        </div>
-        <!-- Мастика -->
-        <div class="done-choice-item">
-          <button class="done-choice-btn" id="dec_btn_mastika" onclick="toggleDecorItem('mastika')">
-            <div class="done-choice-dot" id="dec_dot_mastika"></div>Мастика
-          </button>
-          <div class="done-choice-fields" id="dec_fields_mastika">
-            <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="dec_w_mastika"/></div>
-          </div>
-        </div>
-        <!-- Вилюр -->
-        <div class="done-choice-item">
-          <button class="done-choice-btn" id="dec_btn_velour" onclick="toggleDecorItem('velour')">
-            <div class="done-choice-dot" id="dec_dot_velour"></div>Вилюр
-          </button>
-          <div class="done-choice-fields" id="dec_fields_velour">
-            <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="dec_w_velour"/></div>
-          </div>
-        </div>
-        <!-- Другой -->
-        <div class="done-choice-item">
-          <button class="done-choice-btn" id="dec_btn_other" onclick="toggleDecorItem('other')">
-            <div class="done-choice-dot" id="dec_dot_other"></div>Другой
-          </button>
-          <div class="done-choice-fields" id="dec_fields_other">
-            <div class="done-field"><div class="done-label">Комментарий</div><input class="done-input" type="text" placeholder="Опишите декор..." id="dec_comment"/></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ФОТО -->
-    <div class="done-section">
-      <div class="done-section-title">Фото готового изделия <span class="photo-required">Обязательно</span></div>
-      <div class="done-photo-grid" id="done-photo-grid">
-        <label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addDonePhotos(this)"></label>
-      </div>
-      <div id="done-photo-error" style="display:none;margin-top:8px;font-size:12px;color:#B03A2E;font-weight:600">Добавьте фото изделия</div>
-    </div>
-
-    <!-- ИСПОЛНИТЕЛЬ -->
-    <div class="done-section">
-      <div class="done-section-title">Исполнитель</div>
-      <div class="done-field">
-        <div class="done-label">Имя кондитера</div>
-        <input class="done-input" type="text" id="done-executor" placeholder="Ваше имя"/>
-      </div>
-      <div id="done-executor-error" style="display:none;margin-top:6px;font-size:12px;color:#B03A2E;font-weight:600">Укажите имя</div>
-    </div>`;
-
-  /* ═══════════ ОПТОВЫЙ ═══════════ */
   } else {
-    const catalogLines = (d.catalog || '').split(' | ').filter(l => l.trim());
-    const itemRows = catalogLines.map((line, i) => {
-      const match = line.match(/^(.+?)\s*×\s*(\d+)/);
-      const name = match ? match[1].trim() : line;
-      const orderedQty = match ? parseInt(match[2]) : 0;
-      return `<div class="wholesale-done-item">
-        <div class="wholesale-done-name">${name}</div>
-        <div class="wholesale-done-row">
-          <div class="wholesale-done-sub">Заказано: ${orderedQty} шт</div>
-          <div style="display:flex;align-items:center;gap:8px">
-            <div style="font-size:12px;color:var(--muted)">Сделано:</div>
-            <div class="qty-ctrl">
-              <button class="qty-btn" type="button" onclick="changeWQty('wqty_${i}',-1,${orderedQty})">−</button>
-              <div class="qty-num" id="wqty_${i}">0</div>
-              <button class="qty-btn" type="button" onclick="changeWQty('wqty_${i}',1,${orderedQty})">+</button>
-            </div>
-          </div>
-        </div>
-      </div>`;
+    /* ОПТОВЫЙ */
+    var catalogLines = (d.catalog || '').split(' | ').filter(function(l) { return l.trim(); });
+    var itemRows = catalogLines.map(function(line, i) {
+      var match = line.match(/^(.+?)\s*×\s*(\d+)/);
+      var name = match ? match[1].trim() : line;
+      var orderedQty = match ? parseInt(match[2]) : 0;
+      return '<div class="wholesale-done-item">' +
+        '<div class="wholesale-done-name">' + name + '</div>' +
+        '<div class="wholesale-done-row">' +
+          '<div class="wholesale-done-sub">Заказано: ' + orderedQty + ' шт</div>' +
+          '<div style="display:flex;align-items:center;gap:8px">' +
+            '<div style="font-size:12px;color:var(--muted)">Сделано:</div>' +
+            '<div class="qty-ctrl">' +
+              '<button class="qty-btn" type="button" onclick="changeWQty(\'wqty_' + i + '\',-1,' + orderedQty + ')">−</button>' +
+              '<div class="qty-num" id="wqty_' + i + '">0</div>' +
+              '<button class="qty-btn" type="button" onclick="changeWQty(\'wqty_' + i + '\',1,' + orderedQty + ')">+</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
     }).join('');
 
-    form = `
-    <div class="done-section">
-      <div class="done-section-title">Выполненные позиции</div>
-      ${itemRows || '<div class="done-label">Позиции не указаны</div>'}
-    </div>
-
-    <!-- ДАТА И ВРЕМЯ -->
-    <div class="done-section">
-      <div class="done-section-title">Дата и время выполнения</div>
-      <div class="done-row-two">
-        <div class="done-field"><div class="done-label">Дата</div><input class="done-input" type="date" id="done-date"/></div>
-        <div class="done-field"><div class="done-label">Время</div><input class="done-input" type="time" id="done-time"/></div>
-      </div>
-    </div>
-
-    <!-- ФОТО -->
-    <div class="done-section">
-      <div class="done-section-title">Фото выполненной работы <span class="photo-required">Обязательно</span></div>
-      <div class="done-photo-grid" id="done-photo-grid">
-        <label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addDonePhotos(this)"></label>
-      </div>
-      <div id="done-photo-error" style="display:none;margin-top:8px;font-size:12px;color:#B03A2E;font-weight:600">Добавьте фото</div>
-    </div>
-
-    <!-- ИСПОЛНИТЕЛЬ -->
-    <div class="done-section">
-      <div class="done-section-title">Исполнитель</div>
-      <div class="done-field"><div class="done-label">Имя кондитера</div><input class="done-input" type="text" id="done-executor" placeholder="Ваше имя"/></div>
-      <div id="done-executor-error" style="display:none;margin-top:6px;font-size:12px;color:#B03A2E;font-weight:600">Укажите имя</div>
-    </div>`;
+    form = '<div class="done-section"><div class="done-section-title">Выполненные позиции</div>' + (itemRows || '<div class="done-label">Позиции не указаны</div>') + '</div>' +
+      '<div class="done-section"><div class="done-section-title">Дата и время выполнения</div><div class="done-row-two"><div class="done-field"><div class="done-label">Дата</div><input class="done-input" type="date" id="done-date"/></div><div class="done-field"><div class="done-label">Время</div><input class="done-input" type="time" id="done-time"/></div></div></div>' +
+      '<div class="done-section"><div class="done-section-title">Фото выполненной работы <span class="photo-required">Обязательно</span></div><div class="done-photo-grid" id="done-photo-grid"><label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addDonePhotos(this)"></label></div><div id="done-photo-error" style="display:none;margin-top:8px;font-size:12px;color:#B03A2E;font-weight:600">Добавьте фото</div></div>' +
+      '<div class="done-section"><div class="done-section-title">Исполнитель</div><div class="done-field"><div class="done-label">Имя кондитера</div><input class="done-input" type="text" id="done-executor" placeholder="Ваше имя"/></div><div id="done-executor-error" style="display:none;margin-top:6px;font-size:12px;color:#B03A2E;font-weight:600">Укажите имя</div></div>';
   }
 
-  form += `<div class="btn-row" style="margin-top:4px">
-    <button class="btn icon-only" type="button" onclick="openOrderDetail(${orderId})"><i class="ti ti-arrow-left"></i></button>
-    <button class="btn primary" type="button" onclick="confirmDone(${orderId})"><i class="ti ti-check"></i> Подтвердить выполнение</button>
-  </div>`;
+  form += '<div class="btn-row" style="margin-top:4px"><button class="btn icon-only" type="button" onclick="openOrderDetail(' + orderId + ')"><i class="ti ti-arrow-left"></i></button><button class="btn primary" type="button" onclick="confirmDone(' + orderId + ')"><i class="ti ti-check"></i> Подтвердить выполнение</button></div>';
 
   document.getElementById('detail-content').innerHTML = collapsed + form;
   document.getElementById('detail-actions').innerHTML = '';
   document.getElementById('detail-title').textContent = 'Отметить выполненным';
 
-  // Set default date/time for wholesale
-  if (order.type === 'wholesale') {
-    const now = new Date();
-    const dateEl = document.getElementById('done-date');
-    const timeEl = document.getElementById('done-time');
-    if (dateEl) dateEl.value = now.toISOString().split('T')[0];
-    if (timeEl) timeEl.value = now.toTimeString().slice(0,5);
-  }
-}
-function buildWholesaleDoneForm(catalogText, orderId) {
-  if(!catalogText || catalogText==='—') return '<div class="done-section"><div class="done-section-title">Состав заказа</div><div class="done-field"><div class="done-label">Состав не указан</div></div></div>';
-  
-  const lines = catalogText.split('\n').filter(l=>l.trim());
-  const itemsHtml = lines.map((line, i) => {
-    // parse "Тарт малиновый × 6 = 1 500 ₽" → name and ordered qty
-    const match = line.match(/^(.+?)\s*×\s*(\d+)/);
-    const name = match ? match[1].trim() : line;
-    const orderedQty = match ? parseInt(match[2]) : 0;
-    return `<div class="wholesale-done-item">
-      <div class="wholesale-done-name">${name}</div>
-      <div class="wholesale-done-row">
-        <div class="wholesale-done-sub">Заказано: ${orderedQty} шт</div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <div style="font-size:12px;color:var(--muted)">Выполнено:</div>
-          <div class="qty-ctrl">
-            <button class="qty-btn" onclick="changeWQty('wqty_${i}',-1,${orderedQty})">−</button>
-            <div class="qty-num nonzero" id="wqty_${i}">0</div>
-            <button class="qty-btn" onclick="changeWQty('wqty_${i}',1,${orderedQty})">+</button>
-          </div>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-  
-  return `<div class="done-section">
-    <div class="done-section-title">Укажите выполненное количество</div>
-    <div id="wholesale-done-items">${itemsHtml}</div>
-  </div>`;
+  var now = new Date();
+  var dateEl = document.getElementById('done-date');
+  var timeEl = document.getElementById('done-time');
+  if (dateEl) dateEl.value = now.toISOString().split('T')[0];
+  if (timeEl) timeEl.value = now.toTimeString().slice(0,5);
 }
 
 function changeWQty(elId, delta, max) {
-  const el = document.getElementById(elId);
-  if(!el) return;
-  let v = parseInt(el.textContent||'0');
-  v = Math.max(0, Math.min(max||999, v+delta));
+  var el = document.getElementById(elId);
+  if (!el) return;
+  var v = parseInt(el.textContent || '0');
+  v = Math.max(0, Math.min(max || 999, v + delta));
   el.textContent = v;
-  el.className = 'qty-num' + (v>0?' nonzero':'');
+  el.className = 'qty-num' + (v > 0 ? ' nonzero' : '');
 }
 
-function buildChoiceSection(prefix, title, list, withWeight) {
-  const items = list.map((item, i) => `
-    <div class="done-choice-item">
-      <button class="done-choice-btn" id="${prefix}_btn_${i}" onclick="toggleDoneChoice('${prefix}',${i},${withWeight})">
-        <div class="done-choice-dot" id="${prefix}_dot_${i}"></div>
-        ${item}
-      </button>
-      <div class="done-choice-fields" id="${prefix}_fields_${i}">
-        ${withWeight ? `
-        <div class="done-row-two">
-          <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="${prefix}_w_${i}"/></div>
-          <div class="done-field"><div class="done-label">Размер (см)</div><input class="done-input" type="number" placeholder="0" id="${prefix}_s_${i}"/></div>
-        </div>` : ''}
-      </div>
-    </div>`).join('');
-  return `<div class="done-section"><div class="done-section-title">${title}</div><div class="done-choice-list">${items}</div></div>`;
-}
-
-function buildWeightSection(prefix, title) {
-  return `<div class="done-section">
-    <div class="done-section-title">${title}</div>
-    <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="${prefix}_weight"/></div>
-  </div>`;
-}
-
-function buildDecorSection() {
-  return `<div class="done-section">
-    <div class="done-section-title">Декор</div>
-    <div class="done-choice-list">
-      <!-- ЯГОДНОЕ ОФОРМЛЕНИЕ -->
-      <div class="done-choice-item">
-        <button class="done-choice-btn" id="decor_btn_berry" onclick="toggleDecorBerry()">
-          <div class="done-choice-dot" id="decor_dot_berry"></div>
-          Ягодное оформление
-        </button>
-        <div class="done-choice-fields" id="decor_fields_berry">
-          ${['Клубника','Голубика','Малина'].map(b=>`
-          <div class="done-field">
-            <div class="done-label">${b}, г</div>
-            <input class="done-input" type="number" placeholder="0" id="berry_${b}"/>
-          </div>`).join('')}
-        </div>
-      </div>
-      <!-- МАСТИКА -->
-      <div class="done-choice-item">
-        <button class="done-choice-btn" id="decor_btn_mastika" onclick="toggleDoneDecor('mastika')">
-          <div class="done-choice-dot" id="decor_dot_mastika"></div>
-          Мастика
-        </button>
-        <div class="done-choice-fields" id="decor_fields_mastika">
-          <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="decor_w_mastika"/></div>
-        </div>
-      </div>
-      <!-- ВИЛЮР -->
-      <div class="done-choice-item">
-        <button class="done-choice-btn" id="decor_btn_velour" onclick="toggleDoneDecor('velour')">
-          <div class="done-choice-dot" id="decor_dot_velour"></div>
-          Вилюр
-        </button>
-        <div class="done-choice-fields" id="decor_fields_velour">
-          <div class="done-field"><div class="done-label">Вес (г)</div><input class="done-input" type="number" placeholder="0" id="decor_w_velour"/></div>
-        </div>
-      </div>
-      <!-- ДРУГОЕ -->
-      <div class="done-choice-item">
-        <button class="done-choice-btn" id="decor_btn_other" onclick="toggleDoneDecor('other')">
-          <div class="done-choice-dot" id="decor_dot_other"></div>
-          Другой
-        </button>
-        <div class="done-choice-fields" id="decor_fields_other">
-          <div class="done-field"><div class="done-label">Комментарий</div><input class="done-input" type="text" placeholder="Опишите декор..." id="decor_comment"/></div>
-        </div>
-      </div>
-    </div>
-  </div>`;
-}
-
-const doneChoiceState = {};
-    const smartExpenses = [
- 'Поставщик',
-  'Закуп',
-  'Продукт',
-  'Доставка на точку',
-  'Доставка клиенту',
-  'Декор',
-  'ЗП Техперсонал',
-  'Хоз. расход',
-  'Аванс',
-  'Расходник',
-  'Списание',
-  'Оборудование',
-  'Ремонт'
-];
-
-const selectedExpenses = [];
-function showExpenses() {
-  filterExpenses(document.getElementById('expense-search').value);
-}
-
-function filterExpenses(value) {
-  const dropdown = document.getElementById('expense-dropdown');
-  const search = value.trim().toLowerCase();
-  const found = smartExpenses.filter(name => name.toLowerCase().includes(search));
-  let html = found.map(name => `<div class="dd-opt" onclick="selectExpense('${name}')"><i class="ti ti-receipt"></i> ${name}</div>`).join('');
-  const trimmed = value.trim();
-  if (trimmed && !smartExpenses.some(n => n.toLowerCase() === search)) {
-    html += `<div class="dd-opt custom" onclick="selectExpense('${trimmed}')"><i class="ti ti-plus"></i> Добавить «${trimmed}»</div>`;
-  }
-  if (!html) { dropdown.classList.add('hidden'); return; }
-  dropdown.innerHTML = html;
-  dropdown.classList.remove('hidden');
-}
-
-function selectExpense(name) {
-  selectedExpenses.push({
-    name: name,
-    amount: 0
-  });
-
-  document.getElementById('expense-search').value = '';
-  document.getElementById('expense-dropdown').classList.add('hidden');
-
-  renderSelectedExpenses();
-}
-    function renderSelectedExpenses() {
-  const list = document.getElementById('selected-expenses-list');
-  if (!selectedExpenses.length) {
-    list.innerHTML = '<div style="font-size:13px;color:var(--muted)">\u0420\u0430\u0441\u0445\u043e\u0434\u044b \u043d\u0435 \u0432\u044b\u0431\u0440\u0430\u043d\u044b</div>';
-    recalcSelectedExpenses(); return;
-  }
-  list.innerHTML = selectedExpenses.map((item, i) => `
-    <div style="padding:10px 0;border-bottom:.5px solid rgba(62,44,35,.08)">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
-        <div style="font-size:14px;color:var(--text);font-weight:500">${item.name}</div>
-        <button class="tag-del" onclick="removeSelectedExpense(${i})" style="flex-shrink:0;margin-left:8px">\xd7</button>
-      </div>
-      <div style="display:flex;gap:8px">
-        <input class="field-input" type="number" placeholder="\u0421\u0443\u043c\u043c\u0430 \u20bd"
-          value="${item.amount||''}" oninput="updateSelectedExpense(${i},'amount',this.value)"
-          style="width:110px;text-align:right;flex-shrink:0">
-        <input class="field-input" type="text" placeholder="\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439"
-          value="${item.comment||''}" oninput="updateSelectedExpense(${i},'comment',this.value)"
-          style="flex:1;text-align:left">
-      </div>
-    </div>`).join('');
-  recalcSelectedExpenses();
-}
-
-function updateSelectedExpense(index, field, value) {
-  if(field==='amount') selectedExpenses[index].amount=parseFloat(value)||0;
-  else if(field==='comment') selectedExpenses[index].comment=value;
-  recalcSelectedExpenses();
-}
-
-function removeSelectedExpense(index) {
-  selectedExpenses.splice(index, 1);
-  renderSelectedExpenses();
-}
-
-function recalcSelectedExpenses() {
-  totalExp = selectedExpenses.reduce((sum, item) => sum + item.amount, 0);
-
-  document.getElementById('exp-grand-total').textContent =
-    totalExp.toLocaleString('ru-RU') + ' ₽';
-
-  calcDiff();
-}
 function toggleDoneChoice(prefix, i) {
-  const btnId = prefix + '_btn_' + i;
-  const dotId = prefix + '_dot_' + i;
-  const fieldId = prefix + '_fields_' + i;
-  const btn = document.getElementById(btnId);
-  const dot = document.getElementById(dotId);
-  const fields = document.getElementById(fieldId);
+  var btn = document.getElementById(prefix + '_btn_' + i);
+  var dot = document.getElementById(prefix + '_dot_' + i);
+  var fields = document.getElementById(prefix + '_fields_' + i);
   if (!btn) return;
-  const active = !btn.classList.contains('selected');
+  var active = !btn.classList.contains('selected');
   btn.classList.toggle('selected', active);
   if (dot) { dot.style.background = active ? 'var(--brown)' : ''; dot.style.borderColor = active ? 'var(--brown)' : '#C4A98E'; }
   if (fields) { fields.classList.toggle('show', active); fields.style.display = active ? 'block' : 'none'; }
 }
-function toggleDoneDecor(type) {
-  const active = !document.getElementById(`decor_btn_${type}`).classList.contains('selected');
-  document.getElementById(`decor_btn_${type}`).classList.toggle('selected', active);
-  const dot = document.getElementById(`decor_dot_${type}`);
-  dot.style.background = active ? 'var(--brown)' : '';
-  dot.style.borderColor = active ? 'var(--brown)' : '#C4A98E';
-  const f = document.getElementById(`decor_fields_${type}`);
-  if(f) f.classList.toggle('show', active);
-}
-
 
 function toggleDecorBerry() {
-  const btn = document.getElementById('dec_btn_berry');
+  var btn = document.getElementById('dec_btn_berry');
   if (!btn) return;
-  const active = !btn.classList.contains('selected');
+  var active = !btn.classList.contains('selected');
   btn.classList.toggle('selected', active);
-  const dot = document.getElementById('dec_dot_berry');
+  var dot = document.getElementById('dec_dot_berry');
   if (dot) { dot.style.background = active ? 'var(--brown)' : ''; dot.style.borderColor = active ? 'var(--brown)' : '#C4A98E'; }
-  const f = document.getElementById('dec_fields_berry');
+  var f = document.getElementById('dec_fields_berry');
   if (f) { f.classList.toggle('show', active); f.style.display = active ? 'block' : 'none'; }
 }
 
 function toggleDecorItem(type) {
-  const btn = document.getElementById('dec_btn_' + type);
+  var btn = document.getElementById('dec_btn_' + type);
   if (!btn) return;
-  const active = !btn.classList.contains('selected');
+  var active = !btn.classList.contains('selected');
   btn.classList.toggle('selected', active);
-  const dot = document.getElementById('dec_dot_' + type);
+  var dot = document.getElementById('dec_dot_' + type);
   if (dot) { dot.style.background = active ? 'var(--brown)' : ''; dot.style.borderColor = active ? 'var(--brown)' : '#C4A98E'; }
-  const f = document.getElementById('dec_fields_' + type);
+  var f = document.getElementById('dec_fields_' + type);
   if (f) { f.classList.toggle('show', active); f.style.display = active ? 'block' : 'none'; }
 }
 
 function addDonePhotos(input) {
-  Array.from(input.files).forEach(f => {
-    const r = new FileReader();
-    r.onload = e => { donePhotos.push(e.target.result); renderDonePhotos(); };
+  Array.from(input.files).forEach(function(f) {
+    var r = new FileReader();
+    r.onload = function(e) { donePhotos.push(e.target.result); renderDonePhotos(); };
     r.readAsDataURL(f);
   });
   input.value = '';
 }
 
 function renderDonePhotos() {
-  const g = document.getElementById('done-photo-grid');
-  g.innerHTML = donePhotos.map((s,i)=>`
-    <div class="done-photo-thumb">
-      <img src="${s}">
-      <button class="done-photo-del" onclick="donePhotos.splice(${i},1);renderDonePhotos()"><i class="ti ti-x"></i></button>
-    </div>`).join('') +
-    `<label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addDonePhotos(this)"></label>`;
-  const errEl = document.getElementById('done-photo-error');
+  var g = document.getElementById('done-photo-grid');
+  g.innerHTML = donePhotos.map(function(s,i) {
+    return '<div class="done-photo-thumb"><img src="'+s+'"><button class="done-photo-del" onclick="donePhotos.splice('+i+',1);renderDonePhotos()"><i class="ti ti-x"></i></button></div>';
+  }).join('') + '<label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addDonePhotos(this)"></label>';
+  var errEl = document.getElementById('done-photo-error');
   if (errEl) errEl.style.display = 'none';
 }
 
+/* FIX #5: confirmDone — корректно собирает дату/время для обоих типов заказов */
 function confirmDone(orderId) {
-  var order=allOrders.find(function(o){return o.id===orderId;}); if(!order) return;
-  if(!donePhotos.length){var e=document.getElementById('done-photo-error');if(e)e.style.display='block';return;}
-  var execEl=document.getElementById('done-executor'), executor=execEl?execEl.value.trim():'';
-  if(!executor){var ee=document.getElementById('done-executor-error');if(ee)ee.style.display='block';if(execEl)execEl.focus();return;}
-  var report={executor:executor, photos:donePhotos.slice()};
-  if(order.type==='individual'){
-    report.type='individual';
-    var BN=['Шоколадный','Фисташковый','Ванильный'];
-    report.biscuits=BN.map(function(name,i){var btn=document.getElementById('bis_btn_'+i);if(!btn||!btn.classList.contains('selected'))return null;return{name:name,weight:(document.getElementById('bis_w_'+i)||{}).value||'',size:(document.getElementById('bis_s_'+i)||{}).value||''};}).filter(Boolean);
-    report.propitka=(document.getElementById('prop_w')||{}).value||'';
-    var CN=['Ваниль','Фисташка','Шоколад'];
-    report.creams=CN.map(function(name,i){var btn=document.getElementById('cream_btn_'+i);if(!btn||!btn.classList.contains('selected'))return null;return{name:name,weight:(document.getElementById('cream_w_'+i)||{}).value||''};}).filter(Boolean);
-    var FN=['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'];
-    report.fillings=FN.map(function(name,i){var b=document.getElementById('fill_btn_'+i);return(b&&b.classList.contains('selected'))?name:null;}).filter(Boolean);
-    report.ganash=(document.getElementById('ganash_w')||{}).value||'';
-    report.decor=[];
-    var bb=document.getElementById('dec_btn_berry');
-    if(bb&&bb.classList.contains('selected'))report.decor.push({type:'berry',items:['Клубника','Голубика','Малина'].map(function(b){return{name:b,weight:(document.getElementById('berry_'+b)||{}).value||''};})});
-    ['mastika','velour'].forEach(function(t){var btn=document.getElementById('dec_btn_'+t);if(btn&&btn.classList.contains('selected'))report.decor.push({type:t,weight:(document.getElementById('dec_w_'+t)||{}).value||''});});
-    var ob=document.getElementById('dec_btn_other');if(ob&&ob.classList.contains('selected'))report.decor.push({type:'other',comment:(document.getElementById('dec_comment')||{}).value||''});
-    sendToAppsScript('exec_ind',{num:order.num,executor:executor,execDate:(document.getElementById('done-date')||{}).value||new Date().toLocaleDateString('ru'),execTime:(document.getElementById('done-time')||{}).value||'',biscuits:report.biscuits,propitka:report.propitka,creams:report.creams,fillings:report.fillings,ganash:report.ganash,decor:report.decor,photos:donePhotos.slice()});
+  var order = allOrders.find(function(o) { return o.id === orderId; });
+  if (!order) return;
+  if (!donePhotos.length) { var e = document.getElementById('done-photo-error'); if (e) e.style.display = 'block'; return; }
+  var execEl = document.getElementById('done-executor');
+  var executor = execEl ? execEl.value.trim() : '';
+  if (!executor) { var ee = document.getElementById('done-executor-error'); if (ee) ee.style.display = 'block'; if (execEl) execEl.focus(); return; }
+
+  var doneDate = (document.getElementById('done-date') || {}).value || '';
+  var doneTime = (document.getElementById('done-time') || {}).value || '';
+
+  var report = { executor: executor, photos: donePhotos.slice(), date: doneDate, time: doneTime };
+
+  if (order.type === 'individual') {
+    report.type = 'individual';
+    var BN = ['Шоколадный','Фисташковый','Ванильный'];
+    report.biscuits = BN.map(function(name,i) {
+      var btn = document.getElementById('bis_btn_'+i);
+      if (!btn || !btn.classList.contains('selected')) return null;
+      return { name: name, weight: (document.getElementById('bis_w_'+i)||{}).value||'', size: (document.getElementById('bis_s_'+i)||{}).value||'' };
+    }).filter(Boolean);
+    report.propitka = (document.getElementById('prop_w')||{}).value || '';
+    var CN = ['Ваниль','Фисташка','Шоколад'];
+    report.creams = CN.map(function(name,i) {
+      var btn = document.getElementById('cream_btn_'+i);
+      if (!btn || !btn.classList.contains('selected')) return null;
+      return { name: name, weight: (document.getElementById('cream_w_'+i)||{}).value||'' };
+    }).filter(Boolean);
+    var FN = ['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'];
+    report.fillings = FN.map(function(name,i) {
+      var b = document.getElementById('fill_btn_'+i);
+      return (b && b.classList.contains('selected')) ? name : null;
+    }).filter(Boolean);
+    report.ganash = (document.getElementById('ganash_w')||{}).value || '';
+    report.decor = [];
+    var bb = document.getElementById('dec_btn_berry');
+    if (bb && bb.classList.contains('selected')) {
+      report.decor.push({ type:'berry', items: ['Клубника','Голубика','Малина'].map(function(b) { return { name:b, weight:(document.getElementById('berry_'+b)||{}).value||'' }; }) });
+    }
+    ['mastika','velour'].forEach(function(t) {
+      var btn = document.getElementById('dec_btn_'+t);
+      if (btn && btn.classList.contains('selected')) report.decor.push({ type:t, weight:(document.getElementById('dec_w_'+t)||{}).value||'' });
+    });
+    var ob = document.getElementById('dec_btn_other');
+    if (ob && ob.classList.contains('selected')) report.decor.push({ type:'other', comment:(document.getElementById('dec_comment')||{}).value||'' });
+
+    sendToAppsScript('exec_ind', {
+      num: order.num, executor: executor, execDate: doneDate, execTime: doneTime,
+      biscuits: report.biscuits, propitka: report.propitka, creams: report.creams,
+      fillings: report.fillings, ganash: report.ganash, decor: report.decor,
+      photos: donePhotos.slice()
+    });
   } else {
-    report.type='wholesale';
-    var cl=(order.data.catalog||'').split(' | ').filter(function(l){return l.trim();});
-    report.items=cl.map(function(line,i){var m=line.match(/^(.+?)\s*×\s*(\d+)/);var name=m?m[1].trim():line;var ordered=m?parseInt(m[2]):0;var de=document.getElementById('wqty_'+i);return{name:name,ordered:ordered,done:de?parseInt(de.textContent||'0'):0};});
-    report.date=(document.getElementById('done-date')||{}).value||'';
-    report.time=(document.getElementById('done-time')||{}).value||'';
-    sendToAppsScript('exec_opt',{num:order.num,executor:executor,execDate:report.date,execTime:report.time,items:report.items,photos:donePhotos.slice()});
+    report.type = 'wholesale';
+    var cl = (order.data.catalog || '').split(' | ').filter(function(l) { return l.trim(); });
+    report.items = cl.map(function(line, i) {
+      var m = line.match(/^(.+?)\s*×\s*(\d+)/);
+      var name = m ? m[1].trim() : line;
+      var ordered = m ? parseInt(m[2]) : 0;
+      var de = document.getElementById('wqty_' + i);
+      return { name: name, ordered: ordered, done: de ? parseInt(de.textContent || '0') : 0 };
+    });
+    sendToAppsScript('exec_opt', {
+      num: order.num, executor: executor, execDate: doneDate, execTime: doneTime,
+      items: report.items, photos: donePhotos.slice()
+    });
   }
-  order.status='done'; order.doneReport=report; go('screen-orders-list');
+  order.status = 'done';
+  order.doneReport = report;
+  go('screen-orders-list');
 }
 
-// Download reference photo
+function closeOrder(id) {
+  var o = allOrders.find(function(x) { return x.id === id; });
+  if (o) o.status = 'closed';
+  go('screen-orders-list');
+}
+
 function downloadRef(orderId) {
-  const order = allOrders.find(o => o.id === orderId);
+  var order = allOrders.find(function(o) { return o.id === orderId; });
   if (!order || !order.doneRef || !order.doneRef.length) return;
-  order.doneRef.forEach((src, i) => {
-    const a = document.createElement('a');
+  order.doneRef.forEach(function(src, i) {
+    var a = document.createElement('a');
     a.href = src;
-    a.download = `ref_${order.num}_${i+1}.jpg`;
+    a.download = 'ref_' + order.num + '_' + (i+1) + '.jpg';
     a.click();
   });
 }
 
+/* ════════════════════════════════════════════
+   UTILS
+════════════════════════════════════════════ */
+function fmt(n) { return (parseFloat(n) || 0).toLocaleString('ru-RU') + ' ₽'; }
 
-buildSection(DEBT_CATS,'cat-debt-container');
+/* Close dropdowns on outside click */
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.dd-wrap')) {
+    document.querySelectorAll('.dd-list').forEach(function(d) { d.classList.add('hidden'); });
+  }
+  if (!e.target.closest('#staff-dropdown') && !e.target.closest('#who-staff')) {
+    var sd = document.getElementById('staff-dropdown');
+    if (sd) sd.classList.add('hidden');
+  }
+});
+
+/* ════════════════════════════════════════════
+   КОНДИТЕР: ИНДИВИДУАЛЬНЫЙ
+════════════════════════════════════════════ */
+var kiPhotos = [];
+
+function toggleKI(prefix, i) {
+  var btnId = 'ki_' + prefix + '_btn_' + i;
+  var dotId = 'ki_' + prefix + '_dot_' + i;
+  var fldId = 'ki_' + prefix + '_fields_' + i;
+  var btn = document.getElementById(btnId);
+  var dot = document.getElementById(dotId);
+  var fld = document.getElementById(fldId);
+  if (!btn) return;
+  var active = !btn.classList.contains('selected');
+  btn.classList.toggle('selected', active);
+  if (dot) { dot.style.background = active ? 'var(--brown)' : ''; dot.style.borderColor = active ? 'var(--brown)' : '#C4A98E'; }
+  if (fld) { fld.style.display = active ? 'block' : 'none'; }
+}
+
+function toggleKIDecor(type) {
+  var btn = document.getElementById('ki_dec_btn_' + type);
+  var dot = document.getElementById('ki_dec_dot_' + type);
+  var fld = document.getElementById('ki_dec_fields_' + type);
+  if (!btn) return;
+  var active = !btn.classList.contains('selected');
+  btn.classList.toggle('selected', active);
+  if (dot) { dot.style.background = active ? 'var(--brown)' : ''; dot.style.borderColor = active ? 'var(--brown)' : '#C4A98E'; }
+  if (fld) { fld.style.display = active ? 'block' : 'none'; }
+}
+
+function addKIPhotos(input) {
+  Array.from(input.files).forEach(function(f) {
+    var r = new FileReader();
+    r.onload = function(e) { kiPhotos.push(e.target.result); renderKIPhotos(); };
+    r.readAsDataURL(f);
+  });
+  input.value = '';
+}
+
+function renderKIPhotos() {
+  var g = document.getElementById('ki-photo-grid');
+  if (!g) return;
+  g.innerHTML = kiPhotos.map(function(s,i) {
+    return '<div class="done-photo-thumb"><img src="'+s+'"><button class="done-photo-del" onclick="kiPhotos.splice('+i+',1);renderKIPhotos()"><i class="ti ti-x"></i></button></div>';
+  }).join('') + '<label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addKIPhotos(this)"></label>';
+  var e = document.getElementById('ki-photo-error');
+  if (e) e.style.display = 'none';
+}
+
+function submitKonditerInd() {
+  if (!kiPhotos.length) { var e = document.getElementById('ki-photo-error'); if (e) e.style.display = 'block'; return; }
+  var execEl = document.getElementById('ki-executor');
+  var executor = execEl ? execEl.value.trim() : '';
+  if (!executor) { var ee = document.getElementById('ki-executor-error'); if (ee) ee.style.display = 'block'; if (execEl) execEl.focus(); return; }
+  var BN = ['Шоколадный','Фисташковый','Ванильный'];
+  var biscuits = BN.map(function(name,i) {
+    var btn = document.getElementById('ki_bis_btn_'+i);
+    if (!btn || !btn.classList.contains('selected')) return null;
+    return { name:name, weight:(document.getElementById('ki_bis_w_'+i)||{}).value||'', size:(document.getElementById('ki_bis_s_'+i)||{}).value||'' };
+  }).filter(Boolean);
+  var CN = ['Ваниль','Фисташка','Шоколад'];
+  var creams = CN.map(function(name,i) {
+    var btn = document.getElementById('ki_cream_btn_'+i);
+    if (!btn || !btn.classList.contains('selected')) return null;
+    return { name:name, weight:(document.getElementById('ki_cream_w_'+i)||{}).value||'' };
+  }).filter(Boolean);
+  var FN = ['Ваниль','Клубника','Банан','Шоколад – малина – банан','Шоколад – малина','Сникерс','Малина – банан','Безе – орех','Фисташка с малиной'];
+  var fillings = FN.map(function(name,i) {
+    var b = document.getElementById('ki_fill_btn_'+i);
+    return (b && b.classList.contains('selected')) ? name : null;
+  }).filter(Boolean);
+  var decor = [];
+  var berryBtn = document.getElementById('ki_dec_btn_berry');
+  if (berryBtn && berryBtn.classList.contains('selected')) {
+    decor.push({ type:'berry', items: ['Клубника','Голубика','Малина'].map(function(b) { return { name:b, weight:(document.getElementById('ki_berry_'+b)||{}).value||'' }; }) });
+  }
+  ['mastika','velour'].forEach(function(t) {
+    var btn = document.getElementById('ki_dec_btn_'+t);
+    if (btn && btn.classList.contains('selected')) decor.push({ type:t, weight:(document.getElementById('ki_dec_w_'+t)||{}).value||'' });
+  });
+  var ob = document.getElementById('ki_dec_btn_other');
+  if (ob && ob.classList.contains('selected')) decor.push({ type:'other', comment:(document.getElementById('ki_dec_comment')||{}).value||'' });
+  sendToAppsScript('exec_ind', {
+    num: (document.getElementById('ki-num')||{}).value||'—',
+    executor: executor,
+    execDate: (document.getElementById('ki-date')||{}).value||'',
+    execTime: (document.getElementById('ki-time')||{}).value||'',
+    biscuits: biscuits, propitka: (document.getElementById('ki_prop_w')||{}).value||'',
+    creams: creams, fillings: fillings, ganash: (document.getElementById('ki_ganash_w')||{}).value||'',
+    decor: decor, photos: kiPhotos.slice(),
+  });
+  kiPhotos = [];
+  showKonditerSuccess('Индивидуальный отчёт отправлен!');
+}
+
+/* ════════════════════════════════════════════
+   КОНДИТЕР: ОПТОВЫЙ
+════════════════════════════════════════════ */
+var koPhotos = [];
+
+function addKOPhotos(input) {
+  Array.from(input.files).forEach(function(f) {
+    var r = new FileReader();
+    r.onload = function(e) { koPhotos.push(e.target.result); renderKOPhotos(); };
+    r.readAsDataURL(f);
+  });
+  input.value = '';
+}
+
+function renderKOPhotos() {
+  var g = document.getElementById('ko-photo-grid');
+  if (!g) return;
+  g.innerHTML = koPhotos.map(function(s,i) {
+    return '<div class="done-photo-thumb"><img src="'+s+'"><button class="done-photo-del" onclick="koPhotos.splice('+i+',1);renderKOPhotos()"><i class="ti ti-x"></i></button></div>';
+  }).join('') + '<label class="done-photo-add"><i class="ti ti-camera"></i><span>Добавить</span><input type="file" accept="image/*" multiple onchange="addKOPhotos(this)"></label>';
+  var e = document.getElementById('ko-photo-error');
+  if (e) e.style.display = 'none';
+}
+
+function initKonditerDates(prefix) {
+  var now = new Date();
+  var d = document.getElementById(prefix+'-date');
+  var t = document.getElementById(prefix+'-time');
+  if (d && !d.value) d.value = now.toISOString().split('T')[0];
+  if (t && !t.value) t.value = now.toTimeString().slice(0,5);
+}
+
+/* FIX #3: toggleKOClientDD — заменены Unicode-кавычки на правильные ASCII */
+var KO_CLIENTS = ['АнНур', 'Май Татли'];
+var KO_CATALOG_NAMES = [
+  'Тарт малиновый','Тарт голубика','Павлова','Карамельный пирог',
+  'Медовик','Брауни сэндвич','Сан-Себастьян','Макаронс','Эскимо',
+  'Капкейки','Меренговый рулет','Меренго-фисташковый рулет',
+  'Печенье кукис фисташковое','Печенье кукис брауни','Печенье кукис шоколадное',
+  'ПП-конфеты','ПП Сан-Себастьян','ПП Сникерс','Эклеры',
+  'Кокос','Манго','Роше','Рожок «Белые ночи»',
+  'Дубайский десерт','Безе с финиковым кремом','Тирамису с миндальным урбечем'
+];
+var koSelectedItems = [];
+
+function toggleKOClientDD() {
+  var dd = document.getElementById('ko-client-dd');
+  if (!dd) return;
+  if (!dd.classList.contains('hidden')) { dd.classList.add('hidden'); return; }
+  dd.innerHTML = KO_CLIENTS.map(function(c) {
+    /* FIX: были Unicode «умные кавычки» вокруг c, заменены на \" в атрибуте */
+    return '<div class="dd-opt" onclick="selectKOClient(\'' + c.replace(/'/g,"\\'") + '\')"><i class="ti ti-building" style="color:var(--brown);font-size:14px"></i> ' + c + '</div>';
+  }).join('');
+  dd.classList.remove('hidden');
+}
+
+function selectKOClient(name) {
+  var inp = document.getElementById('ko-client-input');
+  if (inp) inp.value = name;
+  var dd = document.getElementById('ko-client-dd');
+  if (dd) dd.classList.add('hidden');
+}
+
+function filterKOItems(q) {
+  var dd = document.getElementById('ko-item-dd');
+  if (!dd) return;
+  var ql = (q || '').trim().toLowerCase();
+  var matches = KO_CATALOG_NAMES.filter(function(n) {
+    return n.toLowerCase().includes(ql) && !koSelectedItems.find(function(i) { return i.name === n; });
+  });
+  if (!matches.length) { dd.classList.add('hidden'); return; }
+  dd.innerHTML = matches.slice(0,8).map(function(n) {
+    return '<div class="dd-opt" data-name="' + n.replace(/"/g,'&quot;') + '"><i class="ti ti-basket" style="color:var(--brown);font-size:14px"></i> ' + n + '</div>';
+  }).join('');
+  dd.classList.remove('hidden');
+  dd.querySelectorAll('.dd-opt').forEach(function(el) {
+    el.onclick = function() { addKOSelectedItem(this.getAttribute('data-name')); };
+  });
+}
+
+function addKOSelectedItem(name) {
+  if (koSelectedItems.find(function(i) { return i.name === name; })) return;
+  koSelectedItems.push({ name: name, ordered: 0, done: 0 });
+  renderKOSelectedItems();
+  var inp = document.getElementById('ko-item-search');
+  if (inp) inp.value = '';
+  var dd = document.getElementById('ko-item-dd');
+  if (dd) dd.classList.add('hidden');
+}
+
+function removeKOSelectedItem(i) { koSelectedItems.splice(i, 1); renderKOSelectedItems(); }
+
+function changeKOQty(i, delta) {
+  koSelectedItems[i].done = Math.max(0, (koSelectedItems[i].done || 0) + delta);
+  var el = document.getElementById('ko_qty_' + i);
+  if (el) { el.textContent = koSelectedItems[i].done; el.className = 'qty-num' + (koSelectedItems[i].done > 0 ? ' nonzero' : ''); }
+}
+
+function renderKOSelectedItems() {
+  var list = document.getElementById('ko-selected-items');
+  if (!list) return;
+  if (!koSelectedItems.length) { list.innerHTML = ''; return; }
+  list.innerHTML = koSelectedItems.map(function(item, i) {
+    return '<div class="wholesale-done-item" style="padding:10px 0;border-bottom:.5px solid rgba(62,44,35,.08)">' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">' +
+        '<div style="font-size:14px;font-weight:600;color:var(--text)">' + item.name + '</div>' +
+        '<button class="tag-del" onclick="removeKOSelectedItem(' + i + ')">&times;</button>' +
+      '</div>' +
+      '<div style="display:flex;gap:8px;align-items:center">' +
+        '<div style="font-size:12px;color:var(--muted);flex-shrink:0">Заказано:</div>' +
+        '<input class="done-input" type="number" placeholder="0" value="' + (item.ordered||'') + '" oninput="koSelectedItems[' + i + '].ordered=parseInt(this.value)||0" style="width:56px;text-align:center"/>' +
+        '<div style="font-size:12px;color:var(--muted);flex-shrink:0">Сделано:</div>' +
+        '<div class="qty-ctrl">' +
+          '<button class="qty-btn" type="button" onclick="changeKOQty(' + i + ',-1)">&#8722;</button>' +
+          '<div class="qty-num' + (item.done > 0 ? ' nonzero' : '') + '" id="ko_qty_' + i + '">' + (item.done||0) + '</div>' +
+          '<button class="qty-btn" type="button" onclick="changeKOQty(' + i + ',1)">+</button>' +
+        '</div>' +
+      '</div></div>';
+  }).join('');
+}
+
+function submitKonditerOpt() {
+  if (!koPhotos.length) { var e = document.getElementById('ko-photo-error'); if (e) e.style.display = 'block'; return; }
+  var execEl = document.getElementById('ko-executor');
+  var executor = execEl ? execEl.value.trim() : '';
+  if (!executor) { var ee = document.getElementById('ko-executor-error'); if (ee) ee.style.display = 'block'; if (execEl) execEl.focus(); return; }
+  sendToAppsScript('exec_opt', {
+    num: (document.getElementById('ko-num')||{}).value||'—',
+    client: (document.getElementById('ko-client-input')||{}).value||'—',
+    executor: executor,
+    execDate: (document.getElementById('ko-date')||{}).value||'',
+    execTime: (document.getElementById('ko-time')||{}).value||'',
+    items: koSelectedItems.slice(),
+    photos: koPhotos.slice(),
+  });
+  koPhotos = []; koSelectedItems = [];
+  showKonditerSuccess('Оптовый отчёт отправлен!');
+}
+
+function showKonditerSuccess(title) {
+  document.getElementById('success-icon-area').innerHTML = '<div class="success-icon"><i class="ti ti-circle-check"></i></div>';
+  document.getElementById('success-title-text').textContent = title;
+  document.getElementById('success-order-num').textContent = '';
+  document.getElementById('summary-label').textContent = 'Отчёт принят';
+  document.getElementById('summary-lines').innerHTML = '<div class="summary-line" style="cursor:default"><span>Данные отправлены</span><span>&#10003;</span></div>';
+  document.getElementById('success-hint').style.display = 'none';
+  document.getElementById('success-btn-text').textContent = 'Готово';
+  document.getElementById('success-btn-icon').className = 'ti ti-home';
+  document.getElementById('success-main-btn').onclick = function() { go('screen-home'); };
+  go('screen-success');
+}
+
+/* ════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════ */
+buildSection(DEBT_CATS, 'cat-debt-container');
 checkSubmit();
 </script>
 </body>
